@@ -1,0 +1,72 @@
+{
+  "project": {
+    "title": "Engineering Artistry Experience",
+    "id": "4461364074498410234"
+  },
+  "design_system": {
+    "id": "asset-stub-assets_fd636db945dd4de896492033b150c010",
+    "note": "Asset stub \u2014 tokens extracted from shared Tailwind config in screens"
+  },
+  "screens": [
+    {
+      "slug": "home",
+      "id": "16bf2fabd30642a890a78e20b909371e",
+      "title": "Home | Engineering Consultancy",
+      "file": "screens/home.html"
+    },
+    {
+      "slug": "work",
+      "id": "5211f3ce7dbb4e5db3a58a5ee8868908",
+      "title": "Work | Engineering Excellence & Case Studies",
+      "file": "screens/work.html"
+    },
+    {
+      "slug": "solutions",
+      "id": "98b79fd1ebb349ca9d697a770dd0144c",
+      "title": "Solutions | Strategic Technology Services",
+      "file": "screens/solutions.html"
+    },
+    {
+      "slug": "process",
+      "id": "1e6ff51458fe450d88b7685b3cc28db2",
+      "title": "Process | The Engineering Lifecycle",
+      "file": "screens/process.html"
+    },
+    {
+      "slug": "why-work-with-me",
+      "id": "a619672d4e9a4843aa05a3da25f56f4b",
+      "title": "Why Work With Me | Strategic Partnership",
+      "file": "screens/why-work-with-me.html"
+    },
+    {
+      "slug": "contact",
+      "id": "3560d5097dba45428c4538d1a245628a",
+      "title": "Contact | Start a Strategic Partnership",
+      "file": "screens/contact.html"
+    },
+    {
+      "slug": "insights",
+      "id": "2c8b90844f454ca0b6edc1ce12f228cb",
+      "title": "Insights | Engineering & Strategy Authority",
+      "file": "screens/insights.html"
+    },
+    {
+      "slug": "industries",
+      "id": "e0b1919d081d428791aeb7c70cb90c06",
+      "title": "Industries | Domain Expertise & Solutions",
+      "file": "screens/industries.html"
+    }
+  ],
+  "images": [
+    {
+      "file": "images/work-case-study-01.jpg",
+      "screen": "work",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCblsYehs8zo1zQvWCngiLJmCeQJnGrTrKcK5dDjxPBrDVSnpt7XOwzxj7qrjBt8ru4ouWOPEGVNZrE4UcW-AsXTMk9FoOJ_CuvqIdFo3sS-_IrDsCIXNpwRj8TSYyPyfkShAx329ft3bxsskBIDoTOTs11xVGRQlyd5BLMmGjpaNAtU7DkJki0OEpDV5A3IWtaQnjtZCaKSGnYmC2Qz-VM9ARoT4C0KyYn0M_a16xybmyocMCXvaeE"
+    },
+    {
+      "file": "images/insights-featured.jpg",
+      "screen": "insights",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuApnYWzO2_HJtx9LIq7oGcuxL-Y-B0Ww6vZXshN9yyBVqigNKO-nEjdOJJS7TUTt2GEMOBPK-gtAxzL7XFC_oHOb_70abV4jK0DAWNuZN68Mh7SXqZGXVJO5fb9UbV28GdvvFxt8hfHu-HLSsRguT5QZu1zohu9lDvCYOnM6Ulv_xOLDnw4RWDLgZtapZPQARcarDtRa0K894SxwTCFsWPAMnC5YYUwo2qhf-qxqP7edfklodQ6tzd7"
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Industries - Consultancy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "outline-variant": "#c4c7c7",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-background": "#1a1c1c",
+                      "primary-fixed": "#e5e2e1",
+                      "inverse-on-surface": "#f0f1f1",
+                      "surface-container-low": "#f3f3f4",
+                      "on-primary-fixed-variant": "#474646",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#191c1e",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "primary-container": "#1c1b1b",
+                      "on-primary-container": "#858383",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#000000",
+                      "on-primary-fixed": "#1c1b1b",
+                      "background": "#f9f9f9",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#444749",
+                      "on-tertiary-fixed": "#191c1e",
+                      "surface": "#f9f9f9",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-container": "#eeeeee",
+                      "on-secondary-container": "#54647a",
+                      "error": "#ba1a1a",
+                      "outline": "#747878",
+                      "on-surface-variant": "#444748",
+                      "inverse-primary": "#c8c6c5",
+                      "on-surface": "#1a1c1c",
+                      "surface-dim": "#dadada",
+                      "surface-tint": "#5f5e5e",
+                      "secondary-fixed": "#d3e4fe",
+                      "tertiary-fixed": "#e0e3e5",
+                      "primary": "#000000",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2f3131",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#d0e1fb",
+                      "surface-variant": "#e2e2e2",
+                      "on-tertiary-container": "#818486",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-container-highest": "#e2e2e2",
+                      "secondary": "#505f76"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "32px",
+                      "margin-mobile": "20px",
+                      "unit": "4px",
+                      "margin-desktop": "64px",
+                      "section-gap": "128px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Geist"
+                      ],
+                      "label-caps": [
+                              "Geist"
+                      ],
+                      "display-lg-mobile": [
+                              "Geist"
+                      ],
+                      "mono-data": [
+                              "Geist Mono"
+                      ],
+                      "headline-sm": [
+                              "Geist"
+                      ],
+                      "body-lg": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "72px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-data": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-surface w-full top-0 sticky border-b border-outline-variant z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Logo -->
+<div class="text-headline-sm font-headline-sm font-bold text-primary tracking-tighter hover:opacity-80 transition-opacity duration-200 cursor-pointer">
+                Consultancy
+            </div>
+<!-- Desktop Navigation Links -->
+<div class="hidden md:flex items-center gap-8 font-label-caps text-label-caps h-full">
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:opacity-80 flex items-center h-full" href="#">Solutions</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:opacity-80 flex items-center h-full" href="#">Work</a>
+<a class="text-primary border-b-2 border-primary pb-1 flex items-center h-full mt-1" href="#">Industries</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:opacity-80 flex items-center h-full" href="#">Insights</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:opacity-80 flex items-center h-full" href="#">Process</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:opacity-80 flex items-center h-full" href="#">Resources</a>
+</div>
+<!-- Trailing Action (Desktop) -->
+<div class="hidden md:block">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:opacity-90 transition-opacity duration-200">
+                    Book a Discovery Call
+                </button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="w-full py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-8">
+<span class="font-mono-data text-mono-data text-on-surface-variant mb-4 block flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+                        INDUSTRY EXPERTISE
+                    </span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6">
+                        Engineered for precise sector demands.
+                    </h1>
+</div>
+<div class="md:col-span-4 md:pb-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        We don't just build software; we architect solutions grounded in the specific operational realities of your industry. From complex logistics to high-stakes healthcare, our approach is defined by domain authority.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Industry Grid -->
+<section class="w-full py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Industry 1: Healthcare -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 md:p-12 hover:shadow-sm transition-shadow duration-300">
+<div class="flex justify-between items-start mb-16">
+<h2 class="font-headline-md text-headline-md text-primary">Healthcare</h2>
+<span class="font-mono-data text-mono-data bg-surface-container px-3 py-1 rounded">01</span>
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">SPECIFIC PROBLEMS</h3>
+<p class="font-body-md text-body-md text-on-surface">Data silos across legacy EMRs, stringent HIPAA compliance requirements, and high-latency patient data retrieval impacting clinical decisions.</p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">TAILORED SOLUTIONS</h3>
+<p class="font-body-md text-body-md text-on-surface">FHIR-compliant interoperability layers, zero-trust architecture data pipelines, and real-time clinical decision support interfaces.</p>
+</div>
+<div class="bg-surface px-6 py-4 border border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-primary mb-1">INDUSTRY RESULTS</h3>
+<p class="font-mono-data text-mono-data text-on-surface-variant">40% reduction in data retrieval latency. 100% compliance audit pass rate.</p>
+</div>
+</div>
+</div>
+<!-- Industry 2: Logistics -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 md:p-12 hover:shadow-sm transition-shadow duration-300">
+<div class="flex justify-between items-start mb-16">
+<h2 class="font-headline-md text-headline-md text-primary">Logistics</h2>
+<span class="font-mono-data text-mono-data bg-surface-container px-3 py-1 rounded">02</span>
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">SPECIFIC PROBLEMS</h3>
+<p class="font-body-md text-body-md text-on-surface">Opaque supply chain nodes, inefficient last-mile routing algorithms, and disjointed inventory forecasting.</p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">TAILORED SOLUTIONS</h3>
+<p class="font-body-md text-body-md text-on-surface">Event-driven architecture for real-time tracking, predictive AI routing models, and automated ledger consensus.</p>
+</div>
+<div class="bg-surface px-6 py-4 border border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-primary mb-1">INDUSTRY RESULTS</h3>
+<p class="font-mono-data text-mono-data text-on-surface-variant">22% increase in last-mile efficiency. 99.9% real-time tracking accuracy.</p>
+</div>
+</div>
+</div>
+<!-- Industry 3: Enterprise -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 md:p-12 hover:shadow-sm transition-shadow duration-300">
+<div class="flex justify-between items-start mb-16">
+<h2 class="font-headline-md text-headline-md text-primary">Enterprise</h2>
+<span class="font-mono-data text-mono-data bg-surface-container px-3 py-1 rounded">03</span>
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">SPECIFIC PROBLEMS</h3>
+<p class="font-body-md text-body-md text-on-surface">Technical debt in monolithic core systems, fractured identity management, and slow deployment cycles.</p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">TAILORED SOLUTIONS</h3>
+<p class="font-body-md text-body-md text-on-surface">Microservices strangler fig migration, federated IAM implementation, and automated CI/CD pipeline orchestration.</p>
+</div>
+<div class="bg-surface px-6 py-4 border border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-primary mb-1">INDUSTRY RESULTS</h3>
+<p class="font-mono-data text-mono-data text-on-surface-variant">3x faster deployment frequency. 60% reduction in identity-related support tickets.</p>
+</div>
+</div>
+</div>
+<!-- Industry 4: Manufacturing -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 md:p-12 hover:shadow-sm transition-shadow duration-300">
+<div class="flex justify-between items-start mb-16">
+<h2 class="font-headline-md text-headline-md text-primary">Manufacturing</h2>
+<span class="font-mono-data text-mono-data bg-surface-container px-3 py-1 rounded">04</span>
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">SPECIFIC PROBLEMS</h3>
+<p class="font-body-md text-body-md text-on-surface">Lack of shop-floor visibility, reactive equipment maintenance, and disconnected IT/OT environments.</p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 border-b border-outline-variant pb-2">TAILORED SOLUTIONS</h3>
+<p class="font-body-md text-body-md text-on-surface">IoT sensor integration pipelines, predictive maintenance machine learning models, and unified SCADA dashboards.</p>
+</div>
+<div class="bg-surface px-6 py-4 border border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-primary mb-1">INDUSTRY RESULTS</h3>
+<p class="font-mono-data text-mono-data text-on-surface-variant">15% reduction in unplanned downtime. Granular yield tracking enabled.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container w-full py-section-gap border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="md:col-span-4 flex flex-col justify-between h-full">
+<div class="text-headline-sm font-headline-sm font-bold text-primary mb-8">
+                    Consultancy
+                </div>
+<div class="font-mono-data text-mono-data text-on-surface-variant">
+                    © 2024 Engineering Consultancy. Precision in every pixel.
+                </div>
+</div>
+<!-- Links Column 1 -->
+<div class="md:col-span-4 md:col-start-7">
+<ul class="space-y-4 font-body-sm text-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Solutions</a></li>
+<li><a class="text-primary font-bold" href="#">Industries</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Work</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Insights</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div class="md:col-span-2">
+<ul class="space-y-4 font-body-sm text-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Resources</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

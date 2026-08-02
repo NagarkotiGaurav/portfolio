@@ -1,0 +1,25 @@
+:root {
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-background: #f9f9f9;
+  --color-surface: #f9f9f9;
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #444748;
+  --color-outline: #747878;
+  --color-outline-variant: #c4c7c7;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-low: #f3f3f4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+  --color-secondary: #505f76;
+  --color-error: #ba1a1a;
+  --font-sans: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --radius-default: 0.125rem;
+  --spacing-gutter: 32px;
+  --spacing-section-gap: 128px;
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 20px;
+  --container-max: 1280px;
+}

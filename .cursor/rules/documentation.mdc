@@ -1,0 +1,15 @@
+---
+description: Keep docs in sync when features change
+alwaysApply: true
+---
+
+# Documentation Rules
+
+Whenever implementing a feature, update affected docs under `docs/`:
+
+- `architecture.md`
+- `api.md`
+- `database.md`
+- `deployment.md`
+
+Only update files that are affected. If a doc does not exist yet and the change warrants it, create the minimal stub and fill the relevant section.

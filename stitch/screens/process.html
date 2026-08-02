@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consultancy - Process</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-background": "#1a1c1c",
+                    "primary-fixed": "#e5e2e1",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container-low": "#f3f3f4",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#191c1e",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "primary-container": "#1c1b1b",
+                    "on-primary-container": "#858383",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "on-primary-fixed": "#1c1b1b",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-container": "#54647a",
+                    "error": "#ba1a1a",
+                    "outline": "#747878",
+                    "on-surface-variant": "#444748",
+                    "inverse-primary": "#c8c6c5",
+                    "on-surface": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#d3e4fe",
+                    "tertiary-fixed": "#e0e3e5",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary-container": "#818486",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary": "#505f76"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "32px",
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "margin-desktop": "64px",
+                    "section-gap": "128px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "label-caps": [
+                            "Geist"
+                    ],
+                    "display-lg-mobile": [
+                            "Geist"
+                    ],
+                    "mono-data": [
+                            "Geist Mono"
+                    ],
+                    "headline-sm": [
+                            "Geist"
+                    ],
+                    "body-lg": [
+                            "Geist"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ],
+                    "body-md": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "72px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "mono-data": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+        }
+        .geist-mono { font-family: 'Geist Mono', monospace; }
+        
+        .process-line {
+            position: absolute;
+            left: 23px; /* Center of the 48px circle (24px - 1px border) */
+            top: 48px;
+            bottom: -48px;
+            width: 1px;
+            background-color: #000000; /* Primary */
+            z-index: 0;
+        }
+        /* Hide line on last item */
+        .process-item:last-child .process-line {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .process-line-horizontal {
+                position: absolute;
+                top: 23px;
+                left: 48px;
+                right: -32px; /* Gutter span */
+                height: 1px;
+                background-color: #000000;
+                z-index: 0;
+            }
+            .process-item-horizontal:last-child .process-line-horizontal {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 sticky border-b border-outline-variant dark:border-outline z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Logo -->
+<a class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface tracking-tighter hover:opacity-80 transition-opacity duration-200" href="#">
+                Consultancy
+            </a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex space-x-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface font-body-md text-body-md transition-all duration-300 ease-in-out hover:opacity-80" href="#">
+                    Solutions
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface font-body-md text-body-md transition-all duration-300 ease-in-out hover:opacity-80" href="#">
+                    Work
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface font-body-md text-body-md transition-all duration-300 ease-in-out hover:opacity-80" href="#">
+                    Industries
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface font-body-md text-body-md transition-all duration-300 ease-in-out hover:opacity-80" href="#">
+                    Insights
+                </a>
+<a class="text-primary dark:text-on-surface border-b-2 border-primary dark:border-on-surface pb-1 font-body-md text-body-md transition-all duration-300 ease-in-out" href="#">
+                    Process
+                </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface font-body-md text-body-md transition-all duration-300 ease-in-out hover:opacity-80" href="#">
+                    Resources
+                </a>
+</div>
+<!-- Trailing Action -->
+<button class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary px-6 py-3 rounded hover:opacity-90 transition-opacity font-body-md text-body-md shadow-sm">
+                Book a Discovery Call
+            </button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Header Section -->
+<section class="pt-section-gap pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="col-span-1 md:col-span-8">
+<span class="inline-block px-2 py-1 bg-surface-container-high text-on-surface-variant font-mono-data text-mono-data rounded uppercase tracking-wider mb-6">
+<span class="inline-block w-2 h-2 rounded-full bg-outline mr-2 align-middle"></span>
+                        Methodology
+                    </span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 tracking-tighter">
+                        Engineering predictability.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        A highly transparent, 9-step chronological flow designed for rigorous technical execution and business alignment. Precision over guesswork.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Process Timeline Section -->
+<section class="pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="relative">
+<div class="grid grid-cols-1 md:grid-cols-1 gap-y-16 relative">
+<!-- Step 1: Discovery -->
+<div class="process-item relative flex flex-col md:flex-row md:items-start gap-6 group">
+<div class="process-line hidden md:block" style="left: calc(25% + 23px);"></div> <!-- Line for desktop layout -->
+<div class="process-line md:hidden"></div> <!-- Line for mobile layout -->
+<!-- Mobile Numbering -->
+<div class="md:hidden z-10 flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center font-mono-data text-mono-data text-primary">
+                            01
+                        </div>
+<!-- Desktop Layout Grid -->
+<div class="hidden md:grid md:grid-cols-12 md:w-full md:gap-gutter items-start">
+<div class="col-span-3 pt-2">
+<span class="font-mono-data text-mono-data text-on-surface-variant group-hover:text-primary transition-colors">Phase 01</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2">Discovery</h3>
+</div>
+<!-- Central Node Desktop -->
+<div class="col-span-1 flex justify-center z-10 relative">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">radar</span>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-low p-8 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Initial alignment on business objectives, technical constraints, and desired outcomes. We establish the baseline metrics for success before writing a single line of code.
+                                </p>
+<ul class="space-y-3 font-mono-data text-mono-data text-on-surface">
+<li class="flex items-start"><span class="text-outline mr-3">—</span> Stakeholder Interviews</li>
+<li class="flex items-start"><span class="text-outline mr-3">—</span> Technical Feasibility Assessment</li>
+<li class="flex items-start"><span class="text-outline mr-3">—</span> Resource Mapping</li>
+</ul>
+</div>
+</div>
+<!-- Mobile Content -->
+<div class="md:hidden pl-16 -mt-12">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Discovery</h3>
+<div class="bg-surface-container-low p-6 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Initial alignment on business objectives and technical constraints.</p>
+</div>
+</div>
+</div>
+<!-- Step 2: Research -->
+<div class="process-item relative flex flex-col md:flex-row md:items-start gap-6 group">
+<div class="process-line hidden md:block" style="left: calc(25% + 23px);"></div>
+<div class="process-line md:hidden"></div>
+<!-- Mobile Numbering -->
+<div class="md:hidden z-10 flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center font-mono-data text-mono-data text-primary">
+                            02
+                        </div>
+<!-- Desktop Layout Grid -->
+<div class="hidden md:grid md:grid-cols-12 md:w-full md:gap-gutter items-start">
+<div class="col-span-3 pt-2">
+<span class="font-mono-data text-mono-data text-on-surface-variant group-hover:text-primary transition-colors">Phase 02</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2">Research</h3>
+</div>
+<!-- Central Node Desktop -->
+<div class="col-span-1 flex justify-center z-10 relative">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">science</span>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-low p-8 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Deep dive into existing systems, market context, and potential technology stacks. We validate assumptions through empirical data gathering.
+                                </p>
+</div>
+</div>
+<!-- Mobile Content -->
+<div class="md:hidden pl-16 -mt-12">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Research</h3>
+<div class="bg-surface-container-low p-6 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Deep dive into existing systems and market context.</p>
+</div>
+</div>
+</div>
+<!-- Step 3: Architecture -->
+<div class="process-item relative flex flex-col md:flex-row md:items-start gap-6 group">
+<div class="process-line hidden md:block" style="left: calc(25% + 23px);"></div>
+<div class="process-line md:hidden"></div>
+<!-- Mobile Numbering -->
+<div class="md:hidden z-10 flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center font-mono-data text-mono-data text-primary">
+                            03
+                        </div>
+<!-- Desktop Layout Grid -->
+<div class="hidden md:grid md:grid-cols-12 md:w-full md:gap-gutter items-start">
+<div class="col-span-3 pt-2">
+<span class="font-mono-data text-mono-data text-on-surface-variant group-hover:text-primary transition-colors">Phase 03</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2">Architecture</h3>
+</div>
+<!-- Central Node Desktop -->
+<div class="col-span-1 flex justify-center z-10 relative">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">architecture</span>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-low p-8 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Designing the structural foundation. We create robust system blueprints ensuring scalability, security, and performance under load.
+                                </p>
+</div>
+</div>
+<!-- Mobile Content -->
+<div class="md:hidden pl-16 -mt-12">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Architecture</h3>
+<div class="bg-surface-container-low p-6 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Designing the structural foundation.</p>
+</div>
+</div>
+</div>
+<!-- Step 4: Proposal -->
+<div class="process-item relative flex flex-col md:flex-row md:items-start gap-6 group">
+<!-- Last item typically doesn't need line, but we have 9 steps, just showing a few for brevity/example -->
+<div class="process-line hidden md:block" style="left: calc(25% + 23px);"></div>
+<div class="process-line md:hidden"></div>
+<!-- Mobile Numbering -->
+<div class="md:hidden z-10 flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center font-mono-data text-mono-data text-primary">
+                            04
+                        </div>
+<!-- Desktop Layout Grid -->
+<div class="hidden md:grid md:grid-cols-12 md:w-full md:gap-gutter items-start">
+<div class="col-span-3 pt-2">
+<span class="font-mono-data text-mono-data text-on-surface-variant group-hover:text-primary transition-colors">Phase 04</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2">Proposal</h3>
+</div>
+<!-- Central Node Desktop -->
+<div class="col-span-1 flex justify-center z-10 relative">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">description</span>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-low p-8 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Formalizing the plan. Detailed scoping, timelines, and deliverables are presented for stakeholder approval before execution begins.
+                                </p>
+</div>
+</div>
+<!-- Mobile Content -->
+<div class="md:hidden pl-16 -mt-12">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Proposal</h3>
+<div class="bg-surface-container-low p-6 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Formalizing the plan and detailed scoping.</p>
+</div>
+</div>
+</div>
+<!-- Step 5: Development (truncating full 9 for brevity, showing structure) -->
+<div class="process-item relative flex flex-col md:flex-row md:items-start gap-6 group">
+<div class="process-line hidden md:block" style="left: calc(25% + 23px); display: none;"></div> <!-- Hidden on last item -->
+<div class="process-line md:hidden" style="display:none;"></div>
+<!-- Mobile Numbering -->
+<div class="md:hidden z-10 flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center font-mono-data text-mono-data text-primary">
+                            05
+                        </div>
+<!-- Desktop Layout Grid -->
+<div class="hidden md:grid md:grid-cols-12 md:w-full md:gap-gutter items-start">
+<div class="col-span-3 pt-2">
+<span class="font-mono-data text-mono-data text-on-surface-variant group-hover:text-primary transition-colors">Phase 05</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2">Development</h3>
+</div>
+<!-- Central Node Desktop -->
+<div class="col-span-1 flex justify-center z-10 relative">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">terminal</span>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-low p-8 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Iterative coding and integration. We build the solution using rigorous engineering standards and continuous integration practices.
+                                </p>
+<div class="mt-4 p-4 bg-surface-container-lowest border border-outline-variant rounded">
+<span class="font-mono-data text-mono-data text-primary block mb-2">Ongoing phases include:</span>
+<ul class="space-y-2 font-mono-data text-mono-data text-on-surface-variant">
+<li>06. Testing</li>
+<li>07. Deployment</li>
+<li>08. Optimization</li>
+<li>09. Support</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Mobile Content -->
+<div class="md:hidden pl-16 -mt-12">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Development</h3>
+<div class="bg-surface-container-low p-6 border border-outline-variant rounded">
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Iterative coding and integration.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-low w-full py-section-gap border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-4 mb-8 md:mb-0">
+<a class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface block mb-6" href="#">
+                    Consultancy
+                </a>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    © 2024 Engineering Consultancy. Precision in every pixel.
+                </p>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col space-y-4">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Solutions</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Industries</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Work</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Insights</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Resources</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200 font-body-sm text-body-sm font-mono-data text-mono-data" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact - Consultancy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1a1c1c",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#191c1e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-container": "#858383",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1c1b1b",
+                        "background": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-tertiary-fixed": "#191c1e",
+                        "surface": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-container": "#54647a",
+                        "error": "#ba1a1a",
+                        "outline": "#747878",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#d3e4fe",
+                        "tertiary-fixed": "#e0e3e5",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-container": "#818486",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#505f76"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "section-gap": "128px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "mono-data": ["Geist Mono"],
+                        "headline-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-data": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .form-input {
+                @apply w-full bg-transparent border-0 border-b border-outline-variant rounded-none px-0 py-2 focus:ring-0 focus:border-primary transition-colors font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50;
+            }
+            .form-label {
+                @apply block font-label-caps text-label-caps text-on-surface-variant mb-2;
+            }
+            .btn-primary {
+                @apply bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 flex items-center justify-center gap-2 hover:opacity-80 transition-opacity duration-200;
+            }
+            .btn-secondary {
+                @apply border border-primary text-primary font-label-caps text-label-caps px-8 py-4 flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors duration-200;
+            }
+            .chip-unselected {
+                @apply border border-outline-variant text-on-surface-variant px-4 py-2 font-mono-data text-mono-data cursor-pointer hover:border-primary hover:text-primary transition-colors;
+            }
+            .chip-selected {
+                @apply border border-primary bg-primary text-on-primary px-4 py-2 font-mono-data text-mono-data cursor-pointer;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 sticky border-b border-outline-variant dark:border-outline z-50">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface tracking-tighter">
+                Consultancy
+            </div>
+<div class="hidden md:flex gap-8 items-center font-body-md text-body-md font-label-caps text-label-caps">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 transition-all duration-300 ease-in-out" href="#">Solutions</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 transition-all duration-300 ease-in-out" href="#">Work</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 transition-all duration-300 ease-in-out" href="#">Industries</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 transition-all duration-300 ease-in-out" href="#">Insights</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 transition-all duration-300 ease-in-out" href="#">Process</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 transition-all duration-300 ease-in-out" href="#">Resources</a>
+</div>
+<div class="hidden md:block">
+<a class="text-primary dark:text-on-surface font-label-caps text-label-caps hover:opacity-80 transition-opacity duration-200 border-b-2 border-primary dark:border-on-surface pb-1" href="#">
+                    Book a Discovery Call
+                </a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Header & Intro -->
+<div class="lg:col-span-5 lg:sticky lg:top-32 h-fit">
+<div class="mb-8 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">AVAILABLE FOR NEW PROJECTS</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+                    Initiate<br/>Dialogue.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">
+                    We partner with ambitious engineering and software teams to architect robust solutions. Provide preliminary details below to commence evaluation.
+                </p>
+<div class="space-y-6 hidden lg:block">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">GLOBAL HEADQUARTERS</h3>
+<p class="font-body-md text-body-md text-primary">London, United Kingdom</p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">DIRECT INQUIRIES</h3>
+<p class="font-body-md text-body-md text-primary">strategy@consultancy.eng</p>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 border border-outline-variant/30 relative">
+<!-- Subtle corner accents -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary -translate-x-[1px] -translate-y-[1px]"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary translate-x-[1px] -translate-y-[1px]"></div>
+<form class="space-y-12">
+<!-- Section 1: Context -->
+<div class="space-y-8">
+<div class="flex items-center gap-4 border-b border-outline-variant/50 pb-2 mb-6">
+<span class="font-mono-data text-mono-data text-primary">01</span>
+<h2 class="font-label-caps text-label-caps text-primary">Project Context</h2>
+</div>
+<div>
+<label class="form-label">WHAT ARE YOU BUILDING?</label>
+<textarea class="form-input resize-none" placeholder="Describe the core objective or product..." rows="3"></textarea>
+</div>
+<div>
+<label class="form-label">CURRENT ROADBLOCKS / PROBLEMS</label>
+<textarea class="form-input resize-none" placeholder="What technical or strategic hurdles are you facing?" rows="3"></textarea>
+</div>
+<div>
+<label class="form-label mb-4">INDUSTRY DOMAIN</label>
+<div class="flex flex-wrap gap-2">
+<button class="chip-selected" type="button">Software Engineering</button>
+<button class="chip-unselected" type="button">Fintech</button>
+<button class="chip-unselected" type="button">Industrial Automation</button>
+<button class="chip-unselected" type="button">Aerospace</button>
+<button class="chip-unselected" type="button">Other</button>
+</div>
+</div>
+</div>
+<!-- Section 2: Parameters -->
+<div class="space-y-8 pt-8">
+<div class="flex items-center gap-4 border-b border-outline-variant/50 pb-2 mb-6">
+<span class="font-mono-data text-mono-data text-primary">02</span>
+<h2 class="font-label-caps text-label-caps text-primary">Parameters</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="form-label">TIMELINE EXPECTATION</label>
+<select class="form-input appearance-none bg-transparent">
+<option disabled="" selected="" value="">Select timeline</option>
+<option value="q1">Immediate (Q1)</option>
+<option value="q2">Next Quarter (Q2)</option>
+<option value="q3">Planning (Q3+)</option>
+</select>
+</div>
+<div>
+<label class="form-label">BUDGET ALLOCATION (USD)</label>
+<select class="form-input appearance-none bg-transparent">
+<option disabled="" selected="" value="">Select range</option>
+<option value="50k">$50k - $100k</option>
+<option value="100k">$100k - $250k</option>
+<option value="250k">$250k+</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Section 3: Details -->
+<div class="space-y-8 pt-8">
+<div class="flex items-center gap-4 border-b border-outline-variant/50 pb-2 mb-6">
+<span class="font-mono-data text-mono-data text-primary">03</span>
+<h2 class="font-label-caps text-label-caps text-primary">Entity Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="form-label">COMPANY / ORGANIZATION</label>
+<input class="form-input" placeholder="e.g. Acme Corp" type="text"/>
+</div>
+<div>
+<label class="form-label">REPRESENTATIVE NAME</label>
+<input class="form-input" placeholder="First Last" type="text"/>
+</div>
+</div>
+<div>
+<label class="form-label mb-4">PREFERRED CONTACT METHOD</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<input class="form-input" placeholder="Email Address" type="email"/>
+</div>
+<div>
+<input class="form-input" placeholder="Phone Number (Optional)" type="tel"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Attachments -->
+<div class="pt-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-mono-data text-mono-data" type="button">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+<span>Attach Brief or Documentation (Max 10MB)</span>
+</button>
+</div>
+<!-- Actions -->
+<div class="pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row gap-4 items-center justify-between">
+<p class="font-mono-data text-mono-data text-on-surface-variant/70 text-center sm:text-left text-sm max-w-[250px]">
+                            Transmission is secure. We typically respond within 24 hours.
+                        </p>
+<div class="flex gap-4 w-full sm:w-auto">
+<button class="btn-secondary w-full sm:w-auto" type="button">
+                                Send Message
+                                <span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+<button class="btn-primary w-full sm:w-auto" type="button">
+                                Schedule Call
+                                <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-low w-full py-section-gap border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-4 flex flex-col justify-between mb-12 md:mb-0">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface mb-8">
+                    Consultancy
+                </div>
+<div class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant">
+                    © 2024 Engineering Consultancy. Precision in every pixel.
+                </div>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col gap-4 font-body-sm text-body-sm font-mono-data text-mono-data">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Solutions</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Industries</a>
+</div>
+<div class="flex flex-col gap-4 font-body-sm text-body-sm font-mono-data text-mono-data">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Work</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Insights</a>
+</div>
+<div class="flex flex-col gap-4 font-body-sm text-body-sm font-mono-data text-mono-data">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Resources</a>
+</div>
+<div class="flex flex-col gap-4 font-body-sm text-body-sm font-mono-data text-mono-data">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Minimal interaction for chips
+        document.querySelectorAll('button[class^="chip-"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // In a real app, this would be grouped by category.
+                // Here we just toggle state for demonstration of the visual style.
+                if(this.classList.contains('chip-unselected')) {
+                    this.className = 'chip-selected';
+                } else {
+                    this.className = 'chip-unselected';
+                }
+            });
+        });
+    </script>
+</body></html>

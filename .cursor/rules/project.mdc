@@ -1,0 +1,81 @@
+---
+description: Portfolio React project architecture and conventions
+alwaysApply: true
+---
+
+# Project Architecture
+
+## Stack
+
+- React 18
+- Vite
+- React Router DOM
+- Tailwind CSS 3
+- ESLint
+
+## Architecture
+
+```
+pages/        → route-level screens
+components/   → shared UI / layout
+hooks/        → reusable hooks
+data/         → site content & config
+App.jsx       → routing
+main.jsx      → entry
+```
+
+## Rules
+
+Pages:
+
+- Route screens only
+- Compose shared components
+- Prefer content from `src/data/` when the pattern exists
+
+Components:
+
+- Reusable UI only
+- No route ownership
+
+Hooks:
+
+- Shared stateful/logic reuse only
+
+Data:
+
+- Site copy, nav, metadata live in `src/data/` when practical
+
+## Naming
+
+- camelCase variables / functions
+- PascalCase components
+- UPPER_CASE constants
+
+## Async
+
+- Prefer async/await
+- No callback-style control flow for new code
+
+## Configuration
+
+- Never hardcode secrets
+- Environment variables only for sensitive or env-specific values
+- Do not commit `.env`
+
+## Responses / side effects
+
+- External links: `rel="noopener noreferrer"` when `target="_blank"`
+- Avoid `dangerouslySetInnerHTML` unless trusted and necessary
+
+## Folder structure
+
+Folder structure must remain unchanged unless the user explicitly requests a restructure.
+
+## Commands
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```

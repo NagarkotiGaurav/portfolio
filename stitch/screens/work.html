@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Work - Engineering Consultancy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1a1c1c",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#191c1e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-container": "#858383",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1c1b1b",
+                        "background": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-tertiary-fixed": "#191c1e",
+                        "surface": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-container": "#54647a",
+                        "error": "#ba1a1a",
+                        "outline": "#747878",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#d3e4fe",
+                        "tertiary-fixed": "#e0e3e5",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-container": "#818486",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#505f76"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "section-gap": "128px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "mono-data": ["Geist Mono"],
+                        "headline-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-data": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+    </style>
+</head>
+<body class="antialiased font-body-md text-body-md selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 sticky border-b border-outline-variant dark:border-outline transition-all duration-300 ease-in-out z-50">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto hidden md:flex">
+<a class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface tracking-tighter" href="#">Consultancy</a>
+<div class="flex space-x-8">
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 uppercase tracking-widest" href="#">Solutions</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-primary dark:text-on-surface border-b-2 border-primary dark:border-on-surface pb-1 hover:opacity-80 transition-opacity duration-200 uppercase tracking-widest" href="#">Work</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 uppercase tracking-widest" href="#">Industries</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 uppercase tracking-widest" href="#">Insights</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 uppercase tracking-widest" href="#">Process</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface hover:opacity-80 transition-opacity duration-200 uppercase tracking-widest" href="#">Resources</a>
+</div>
+<button class="bg-primary text-on-primary font-body-md text-body-md font-label-caps text-label-caps uppercase tracking-widest px-6 py-3 rounded-DEFAULT hover:opacity-80 transition-opacity duration-200 shadow-sm">Book a Discovery Call</button>
+</div>
+<!-- Mobile Nav Placeholder (Simplistic for demo) -->
+<div class="flex justify-between items-center h-20 px-margin-mobile md:hidden">
+<a class="text-headline-sm font-headline-sm font-bold text-primary tracking-tighter" href="#">Consultancy</a>
+<button class="text-primary"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="pt-section-gap pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 max-w-4xl">
+                Engineering at scale. Designed for impact.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+                An archive of our most complex technical implementations. From distributed systems to high-frequency trading platforms, explore the architecture behind the solutions.
+            </p>
+<!-- Categories / Tabs -->
+<div class="flex flex-wrap gap-4 border-b border-outline-variant pb-4">
+<button class="font-mono-data text-mono-data text-primary bg-surface-container px-4 py-2 rounded-DEFAULT flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary block"></span>
+                    Featured Projects
+                </button>
+<button class="font-mono-data text-mono-data text-on-surface-variant hover:text-primary px-4 py-2 transition-colors">Case Studies</button>
+<button class="font-mono-data text-mono-data text-on-surface-variant hover:text-primary px-4 py-2 transition-colors">Architecture Gallery</button>
+<button class="font-mono-data text-mono-data text-on-surface-variant hover:text-primary px-4 py-2 transition-colors">Open Source</button>
+<button class="font-mono-data text-mono-data text-on-surface-variant hover:text-primary px-4 py-2 transition-colors">Engineering Lab</button>
+</div>
+</section>
+<!-- Featured Case Study (Bento/Asymmetric) -->
+<section class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Image/Visual -->
+<div class="md:col-span-8 border border-outline-variant rounded-DEFAULT overflow-hidden bg-surface-container-lowest">
+<div class="h-96 w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A detailed architectural diagram of a cloud-native microservices payment flow. It features clean, technical line art on a light grey background, resembling an engineering blueprint. The design uses strict grid alignment, minimal colors (blacks, whites, and subtle blues), and precise geometric shapes to convey authority and reliability in a high-stakes software environment." src="../images/work-case-study-01.jpg"/>
+</div>
+</div>
+<!-- Context/Data -->
+<div class="md:col-span-4 flex flex-col justify-between p-8 border border-outline-variant rounded-DEFAULT bg-[#F8FAFC]">
+<div>
+<div class="font-mono-data text-mono-data text-on-surface-variant mb-4">CASE STUDY — 01</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Global Payment Infrastructure Realignment</h2>
+<div class="space-y-6">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest">Problem</h3>
+<p class="font-body-md text-body-md">Legacy monolithic system struggling with 10k TPS during peak transactional windows, causing severe latency.</p>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest">Solution</h3>
+<p class="font-body-md text-body-md">Decoupled architecture utilizing event-driven microservices on AWS, prioritizing asynchronous processing.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Results</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">99.999%</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant">Uptime SLA</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary">45ms</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant">P99 Latency</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-low w-full py-section-gap border-t border-outline-variant dark:border-outline mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-4">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface block mb-6">Consultancy</span>
+<p class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant">
+                    © 2024 Engineering Consultancy. Precision in every pixel.
+                </p>
+</div>
+<div class="md:col-span-8 flex flex-wrap gap-x-8 gap-y-4 justify-start md:justify-end">
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Solutions</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Industries</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-primary dark:text-on-surface font-bold hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Work</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Insights</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Resources</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

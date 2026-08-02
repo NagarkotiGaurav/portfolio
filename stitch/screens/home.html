@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consultancy Home Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-background": "#1a1c1c",
+                    "primary-fixed": "#e5e2e1",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container-low": "#f3f3f4",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#191c1e",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "primary-container": "#1c1b1b",
+                    "on-primary-container": "#858383",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "on-primary-fixed": "#1c1b1b",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-container": "#54647a",
+                    "error": "#ba1a1a",
+                    "outline": "#747878",
+                    "on-surface-variant": "#444748",
+                    "inverse-primary": "#c8c6c5",
+                    "on-surface": "#1a1c1c",
+                    "surface-dim": "#dadada",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#d3e4fe",
+                    "tertiary-fixed": "#e0e3e5",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary-container": "#818486",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary": "#505f76"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "32px",
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "margin-desktop": "64px",
+                    "section-gap": "128px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "label-caps": [
+                            "Geist"
+                    ],
+                    "display-lg-mobile": [
+                            "Geist"
+                    ],
+                    "mono-data": [
+                            "Geist Mono"
+                    ],
+                    "headline-sm": [
+                            "Geist"
+                    ],
+                    "body-lg": [
+                            "Geist"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ],
+                    "body-md": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "72px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "mono-data": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface w-full top-0 sticky border-b border-outline-variant dark:border-outline z-50">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface tracking-tighter">Consultancy</div>
+<div class="hidden md:flex space-x-6">
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-all duration-300 ease-in-out hover:opacity-80 uppercase" href="#">Solutions</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-all duration-300 ease-in-out hover:opacity-80 uppercase" href="#">Work</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-all duration-300 ease-in-out hover:opacity-80 uppercase" href="#">Industries</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-all duration-300 ease-in-out hover:opacity-80 uppercase" href="#">Insights</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-all duration-300 ease-in-out hover:opacity-80 uppercase" href="#">Process</a>
+<a class="font-body-md text-body-md font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-all duration-300 ease-in-out hover:opacity-80 uppercase" href="#">Resources</a>
+</div>
+<a class="hidden md:inline-flex bg-primary text-on-primary px-6 py-3 font-body-md text-body-md rounded hover:opacity-80 transition-opacity" href="#">Book a Discovery Call</a>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<div class="col-span-1 md:col-span-10 md:col-start-2 text-center">
+<div class="inline-flex items-center space-x-2 bg-surface-container-low px-3 py-1 rounded font-mono-data text-mono-data mb-8">
+<span class="w-2 h-2 rounded-full bg-primary block"></span>
+<span>Systems Architecture &amp; Engineering</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 tracking-tighter">Helping businesses build, automate and scale through technology.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-12">I partner with ambitious companies to design and engineer resilient systems that drive operational efficiency and unlock new revenue streams.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-body-md text-body-md rounded shadow-sm hover:opacity-90 transition-opacity">Book Discovery Call</button>
+<button class="border border-primary text-primary px-8 py-4 font-body-md text-body-md rounded hover:bg-surface-container-low transition-colors">Explore My Work</button>
+</div>
+</div>
+</section>
+<!-- Metrics Bento -->
+<section class="mb-section-gap">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-DEFAULT flex flex-col justify-between">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest text-[10px]">Projects Delivered</span>
+<span class="font-headline-md text-headline-md text-primary mt-4">120+</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-DEFAULT flex flex-col justify-between">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest text-[10px]">Technologies</span>
+<span class="font-headline-md text-headline-md text-primary mt-4">15+</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-DEFAULT flex flex-col justify-between">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest text-[10px]">Years Experience</span>
+<span class="font-headline-md text-headline-md text-primary mt-4">12</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-DEFAULT flex flex-col justify-between">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest text-[10px]">Client Satisfaction</span>
+<span class="font-headline-md text-headline-md text-primary mt-4">99%</span>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-DEFAULT flex flex-col justify-between col-span-2 md:col-span-1">
+<span class="font-mono-data text-mono-data opacity-80 uppercase tracking-widest text-[10px]">Availability</span>
+<span class="font-headline-sm text-headline-sm mt-4">Accepting New Projects</span>
+</div>
+</div>
+</section>
+<!-- Problems I Solve -->
+<section class="mb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Problems I Solve</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Navigating complex technical landscapes requires a strategic approach. I focus on critical bottlenecks that hinder growth.</p>
+</div>
+<div class="md:col-span-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="border border-outline-variant p-6 rounded-DEFAULT hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">rocket_launch</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">MVP?</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Rapid prototyping and development to validate concepts quickly.</p>
+</div>
+<div class="border border-outline-variant p-6 rounded-DEFAULT hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">schema</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">ERP?</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Custom enterprise resource planning solutions for streamlined operations.</p>
+</div>
+<div class="border border-outline-variant p-6 rounded-DEFAULT hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">manufacturing</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Automation?</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Eliminate manual tasks with intelligent workflow automation.</p>
+</div>
+<div class="border border-outline-variant p-6 rounded-DEFAULT hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">memory</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">AI?</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Integrate machine learning models to unlock predictive insights.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-low w-full py-section-gap border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-4 flex flex-col space-y-4">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-on-surface">Consultancy</span>
+<span class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant">© 2024 Engineering Consultancy. Precision in every pixel.</span>
+</div>
+<div class="md:col-span-8 flex flex-wrap gap-6 md:justify-end">
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Solutions</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Industries</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Work</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Insights</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Resources</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

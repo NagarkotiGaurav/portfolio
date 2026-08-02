@@ -1,0 +1,19 @@
+# Dependencies & build artifacts
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.local
+*.log
+
+# Sourcemaps
+*.map

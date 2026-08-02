@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full bg-transparent border-0 border-b border-outline-variant rounded-none px-0 py-2 focus:ring-0 focus:border-primary transition-colors font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50;
+  }
+
+  .form-label {
+    @apply block font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest px-8 py-4 inline-flex items-center justify-center gap-2 hover:opacity-80 transition-opacity duration-200 rounded;
+  }
+
+  .btn-secondary {
+    @apply border border-primary text-primary font-label-caps text-label-caps uppercase tracking-widest px-8 py-4 inline-flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors duration-200 rounded;
+  }
+
+  .chip-unselected {
+    @apply border border-outline-variant text-on-surface-variant px-4 py-2 font-mono-data text-mono-data cursor-pointer hover:border-primary hover:text-primary transition-colors;
+  }
+
+  .chip-selected {
+    @apply border border-primary bg-primary text-on-primary px-4 py-2 font-mono-data text-mono-data cursor-pointer;
+  }
+
+  .process-line {
+    position: absolute;
+    left: 23px;
+    top: 48px;
+    bottom: -48px;
+    width: 1px;
+    background-color: #000000;
+    z-index: 0;
+  }
+
+  .process-item:last-child .process-line {
+    display: none;
+  }
+}
