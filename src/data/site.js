@@ -38,7 +38,7 @@ export function getSiteUrl() {
   if (typeof window !== 'undefined' && window.location?.origin) {
     return window.location.origin
   }
-  return 'https://consultancy.eng'
+  return 'https://gauravnagarkoti.tech'
 }
 
 export function getCalendlyUrl() {
