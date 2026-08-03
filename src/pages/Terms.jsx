@@ -6,7 +6,7 @@ export default function Terms() {
   usePageMeta('/terms')
 
   return (
-    <article className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+    <article className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap md:py-section-gap-lg">
       <h1 className="font-display-lg-mobile text-display-lg-mobile md:text-headline-md md:font-headline-md text-primary mb-4">
         Terms of Service
       </h1>
@@ -20,6 +20,17 @@ export default function Terms() {
           <p>
             By accessing this website you agree to these terms. If you do not agree, do not use the
             site.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="font-headline-sm text-headline-sm text-primary">Beta status</h2>
+          <p>
+            This website is currently marked <strong className="text-primary font-medium">Beta</strong>.
+            Pages, copy, case studies, metrics, and features may be incomplete, change without notice,
+            or contain errors. Beta labeling means the site is shared for early access and feedback —
+            not as a finished product representation. Do not rely on beta site content alone for
+            compliance, contractual, or investment decisions.
           </p>
         </section>
 

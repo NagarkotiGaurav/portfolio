@@ -17,12 +17,34 @@ SPA client routes (`/solutions`, `/contact`, …) need a rewrite to `index.html`
 | Variable | Example | Purpose |
 |----------|---------|---------|
 | `VITE_SITE_URL` | `https://gauravnagarkoti.tech` | Canonical URLs, Open Graph |
-| `VITE_CONTACT_EMAIL` | your real inbox | FormSubmit delivery |
-| `VITE_CONTACT_ENDPOINT` | Formspree URL (optional) | Overrides FormSubmit |
+| `VITE_CONTACT_EMAIL` | your real inbox | FormSubmit fallback (email only) |
+| `VITE_CONTACT_ENDPOINT` | `https://…/api/contact` | Contact API (Telegram + Sheets) |
 | `VITE_CALENDLY_URL` | `https://calendly.com/...` | Schedule Call button |
 | `VITE_LOG_LEVEL` | `info` | Client log verbosity |
 
 `VITE_*` values are baked in at **build** time. Change them → trigger a new deploy.
+
+### Leads: Telegram + Google Sheets (provider architecture)
+
+The contact API accepts submissions with empty credentials. Providers activate when env vars are filled — no code change needed.
+
+Secrets stay on `server/`, never in `VITE_*`. See [`server/README.md`](../server/README.md).
+
+```env
+TELEGRAM_ENABLED=true
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+
+GOOGLE_SHEETS_ENABLED=true
+GOOGLE_SHEETS_WEBHOOK_URL=
+GOOGLE_SHEETS_WEBHOOK_SECRET=
+```
+
+1. Deploy `portfolio-contact-api` (credentials can be blank at first).
+2. On the static site, set `VITE_CONTACT_ENDPOINT=https://<api-host>/api/contact` and redeploy.
+3. Later: create the Telegram bot + Sheets Apps Script, paste values into Render env, restart the API.
+
+Delivery uses `Promise.allSettled` across providers — one failure never blocks the other.
 
 ### After first deploy
 

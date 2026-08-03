@@ -29,12 +29,14 @@ describe('seo metadata', () => {
     expect(getPageMeta('/does-not-exist').noindex).toBe(true)
   })
 
-  it('builds Organization/ProfessionalService JSON-LD', () => {
+  it('builds Person + ProfessionalService JSON-LD', () => {
     const ld = buildOrganizationJsonLd()
-    expect(ld['@type']).toEqual(expect.arrayContaining(['Organization', 'ProfessionalService']))
-    expect(ld.name).toBe('Consultancy')
-    expect(ld.email).toContain('@')
-    expect(ld.address.addressLocality).toBe('London')
+    expect(ld['@graph']).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ '@type': 'Person', name: 'Gaurav Nagarkoti' }),
+        expect.objectContaining({ '@type': 'ProfessionalService' }),
+      ]),
+    )
   })
 })
 

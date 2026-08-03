@@ -1,5 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { assertSceneBudget } from '../motion/SceneRegistry'
+import { PageHero, Parallax, PrimaryCTA, RevealMetrics, ScrollOnce } from '../motion/patterns'
+import { Narrative } from '../content/brandNarrative'
 
 const tabs = [
   'Featured Projects',
@@ -11,22 +15,21 @@ const tabs = [
 
 export default function Work() {
   usePageMeta('/work')
+  assertSceneBudget('work', ['proof', 'cta'])
   const [active, setActive] = useState(0)
 
   return (
     <>
-      <section className="pt-section-gap pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-        <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 max-w-4xl">
-          Engineering at scale. Designed for impact.
-        </h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
-          An archive of our most complex technical implementations. From distributed systems to
-          high-frequency trading platforms, explore the architecture behind the solutions.
-        </p>
+      <PageHero
+        eyebrow="Work"
+        lines={['Selected work.', 'Built for impact.']}
+        body="Architectures, systems, and outcomes from engagements where the software had to hold up under real business pressure."
+      >
         <div
-          className="flex flex-wrap gap-4 border-b border-outline-variant pb-4"
+          className="mt-12 flex gap-2 overflow-x-auto pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 border-b border-outline-variant"
           role="tablist"
           aria-label="Work categories"
+          style={{ scrollbarWidth: 'none' }}
         >
           {tabs.map((tab, i) => (
             <button
@@ -36,8 +39,8 @@ export default function Work() {
               aria-selected={active === i}
               className={
                 active === i
-                  ? 'font-mono-data text-mono-data text-primary bg-surface-container px-4 py-2 rounded flex items-center gap-2'
-                  : 'font-mono-data text-mono-data text-on-surface-variant hover:text-primary px-4 py-2 transition-colors'
+                  ? 'shrink-0 font-mono-data text-mono-data text-primary bg-surface-container px-4 py-2 rounded flex items-center gap-2'
+                  : 'shrink-0 font-mono-data text-mono-data text-on-surface-variant hover:text-primary px-4 py-2 transition-colors'
               }
               onClick={() => setActive(i)}
             >
@@ -46,14 +49,14 @@ export default function Work() {
             </button>
           ))}
         </div>
-      </section>
+      </PageHero>
 
       <section className="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-          <div className="md:col-span-8 border border-outline-variant rounded overflow-hidden bg-surface-container-lowest">
-            <div className="h-96 w-full relative">
+          <ScrollOnce className="md:col-span-8 border border-outline-variant rounded overflow-hidden bg-surface-container-lowest">
+            <Parallax speed={0.15} className="h-96 w-full relative overflow-hidden">
               <img
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-[120%] object-cover -top-[10%]"
                 src="/images/work-case-study-01.jpg"
                 alt="Architectural diagram of a cloud-native microservices payment flow"
                 width={512}
@@ -62,9 +65,9 @@ export default function Work() {
                 fetchPriority="high"
                 decoding="async"
               />
-            </div>
-          </div>
-          <div className="md:col-span-4 flex flex-col justify-between p-8 border border-outline-variant rounded bg-slate-50">
+            </Parallax>
+          </ScrollOnce>
+          <ScrollOnce delay={120} className="md:col-span-4 flex flex-col justify-between p-8 border border-outline-variant rounded bg-surface-container-low">
             <div>
               <div className="font-mono-data text-mono-data text-on-surface-variant mb-4">
                 CASE STUDY — 01
@@ -99,21 +102,36 @@ export default function Work() {
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="font-headline-sm text-headline-sm text-primary">99.999%</div>
+                  <RevealMetrics
+                    value="99.999%"
+                    className="font-headline-sm text-headline-sm text-primary block"
+                  />
                   <div className="font-mono-data text-mono-data text-on-surface-variant">
                     Uptime SLA
                   </div>
                 </div>
                 <div>
-                  <div className="font-headline-sm text-headline-sm text-primary">45ms</div>
+                  <RevealMetrics
+                    value="45"
+                    suffix="ms"
+                    className="font-headline-sm text-headline-sm text-primary block"
+                  />
                   <div className="font-mono-data text-mono-data text-on-surface-variant">
                     P99 Latency
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollOnce>
         </div>
+
+        <ScrollOnce className="mt-16 text-center">
+          <PrimaryCTA>
+            <Link to="/contact" className="btn-primary">
+              {Narrative.ctaStyle.primary}
+            </Link>
+          </PrimaryCTA>
+        </ScrollOnce>
       </section>
     </>
   )

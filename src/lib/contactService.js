@@ -1,5 +1,6 @@
 import { getContactEndpoint } from '../data/site'
 import { firstErrorMessage, validateContactForm } from './contactValidation'
+import { getLeadTrackingContext } from './leadTracking'
 import { logger } from './logger'
 
 export class ContactSubmissionError extends Error {
@@ -12,8 +13,7 @@ export class ContactSubmissionError extends Error {
 }
 
 /**
- * Submits a validated contact inquiry to the configured endpoint.
- * Supports FormSubmit.co/ajax and Formspree-compatible JSON APIs.
+ * Submits a validated contact inquiry to the contact API (or FormSubmit fallback).
  *
  * @param {object} form
  * @param {'message' | 'schedule_call'} intent
@@ -38,17 +38,30 @@ export async function submitContactInquiry(form, intent = 'message') {
     )
   }
 
-  const payload = {
-    ...result.value,
-    intent,
-    _subject:
-      intent === 'schedule_call'
-        ? `[Schedule Call] ${result.value.company} — ${result.value.name}`
-        : `[Inquiry] ${result.value.company} — ${result.value.name}`,
-    _template: 'table',
-  }
+  const tracking = getLeadTrackingContext()
+  const isFormSubmit = String(endpoint).includes('formsubmit.co')
 
-  logger.info('contact.submit_start', { intent, company: result.value.company })
+  const payload = isFormSubmit
+    ? {
+        ...result.value,
+        intent,
+        _subject:
+          intent === 'schedule_call'
+            ? `[Schedule Call] ${result.value.company || result.value.name}`
+            : `[Inquiry] ${result.value.company || result.value.name}`,
+        _template: 'table',
+      }
+    : {
+        ...result.value,
+        intent,
+        projectType: intent === 'schedule_call' ? 'schedule_call' : 'consulting',
+        source: tracking.source,
+        userAgent: tracking.userAgent,
+        referrer: tracking.referrer,
+        utm: tracking.utm,
+      }
+
+  logger.info('contact.submit_start', { intent, email: result.value.email })
 
   let response
   try {
@@ -73,13 +86,14 @@ export async function submitContactInquiry(form, intent = 'message') {
   if (contentType.includes('application/json')) {
     try {
       body = await response.json()
-    } catch (cause) {
+    } catch {
       logger.warn('contact.response_parse_failed', { status: response.status })
       body = null
     }
   }
 
-  if (!response.ok) {
+  // 202 = accepted but providers not configured yet (credentials pending)
+  if (!response.ok && response.status !== 202) {
     const remoteMessage =
       (body && (body.message || body.error || body.next)) ||
       `Contact service returned HTTP ${response.status}.`

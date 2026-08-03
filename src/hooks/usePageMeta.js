@@ -57,7 +57,7 @@ export function usePageMeta(overridePath) {
     upsertLink('canonical', canonical)
 
     upsertMeta('property', 'og:type', 'website')
-    upsertMeta('property', 'og:site_name', 'Consultancy')
+    upsertMeta('property', 'og:site_name', 'Gaurav Nagarkoti')
     upsertMeta('property', 'og:title', meta.title)
     upsertMeta('property', 'og:description', meta.description)
     upsertMeta('property', 'og:url', canonical)

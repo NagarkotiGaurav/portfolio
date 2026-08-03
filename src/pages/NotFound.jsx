@@ -5,7 +5,7 @@ export default function NotFound() {
   usePageMeta('/404')
 
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap text-center">
+    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap md:py-section-gap-lg text-center">
       <p className="font-mono-data text-mono-data text-on-surface-variant mb-4">ERROR 404</p>
       <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6">
         Page not found.
@@ -18,8 +18,8 @@ export default function NotFound() {
         <Link to="/" className="btn-primary">
           Return Home
         </Link>
-        <Link to="/contact" className="btn-secondary">
-          Contact Us
+        <Link to="/contact" className="btn-outline">
+          Contact Me
         </Link>
       </div>
     </section>

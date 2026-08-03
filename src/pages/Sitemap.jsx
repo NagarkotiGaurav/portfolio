@@ -5,14 +5,14 @@ const SECTIONS = [
   {
     title: 'Main',
     links: [
-      { to: '/', label: 'Home', blurb: 'Engineering consultancy overview' },
+      { to: '/', label: 'Home', blurb: 'Gaurav Nagarkoti — technology consultant overview' },
       { to: '/solutions', label: 'Solutions', blurb: 'Software, AI, process, ERP, commerce, cloud' },
       { to: '/work', label: 'Work', blurb: 'Case studies and engineering outcomes' },
       { to: '/industries', label: 'Industries', blurb: 'Healthcare, logistics, enterprise, manufacturing' },
       { to: '/insights', label: 'Insights', blurb: 'Architecture and strategy analysis' },
-      { to: '/process', label: 'Process', blurb: 'Nine-step delivery lifecycle' },
-      { to: '/resources', label: 'Resources', blurb: 'Partnership model and philosophy' },
-      { to: '/contact', label: 'Contact', blurb: 'Book a discovery call' },
+      { to: '/process', label: 'Process', blurb: 'How delivery works, step by step' },
+      { to: '/resources', label: 'Why Me', blurb: 'Partnership model and philosophy' },
+      { to: '/contact', label: 'Contact', blurb: 'Book a strategy call' },
     ],
   },
   {
@@ -28,7 +28,7 @@ export default function SitemapPage() {
   usePageMeta('/sitemap')
 
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap md:py-section-gap-lg">
       <div className="max-w-3xl mb-16">
         <p className="font-mono-data text-mono-data text-on-surface-variant mb-4 flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-outline-variant" />

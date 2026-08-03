@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { assertSceneBudget } from '../motion/SceneRegistry'
+import { PageHero, PrimaryCTA, ScrollOnce } from '../motion/patterns'
+import { Narrative } from '../content/brandNarrative'
 
 const industries = [
   {
@@ -42,39 +45,28 @@ const industries = [
 
 export default function Industries() {
   usePageMeta('/industries')
+  assertSceneBudget('industries', ['reveal'])
 
   return (
     <>
-      <section className="w-full py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-outline-variant">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
-          <div className="md:col-span-8">
-            <span className="font-mono-data text-mono-data text-on-surface-variant mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-outline-variant" />
-              INDUSTRY EXPERTISE
-            </span>
-            <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6">
-              Engineered for precise sector demands.
-            </h1>
-          </div>
-          <div className="md:col-span-4 md:pb-4">
-            <p className="font-body-lg text-body-lg text-on-surface-variant">
-              We don&apos;t just build software; we architect solutions grounded in the specific
-              operational realities of your industry. From complex logistics to high-stakes
-              healthcare, our approach is defined by domain authority.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Industry expertise"
+        lines={['Engineered for precise', 'sector demands.']}
+        body="I don’t ship generic platforms into specialized worlds. Every system is grounded in the operational realities of your industry — from logistics to healthcare to manufacturing."
+      />
 
-      <section className="w-full py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <section className="w-full py-section-gap md:py-section-gap-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-          {industries.map((ind) => (
-            <div
+          {industries.map((ind, i) => (
+            <ScrollOnce
               key={ind.num}
-              className="bg-surface-container-lowest border border-outline-variant p-8 md:p-12 hover:shadow-sm transition-shadow duration-300"
+              delay={i * 70}
+              className="bg-surface-container-lowest border border-outline-variant p-6 sm:p-8 md:p-12 hover:shadow-sm transition-shadow duration-300"
             >
-              <div className="flex justify-between items-start mb-16">
-                <h2 className="font-headline-md text-headline-md text-primary">{ind.title}</h2>
+              <div className="flex justify-between items-start gap-4 mb-10 md:mb-16">
+                <h2 className="font-headline-sm sm:font-headline-md text-headline-sm sm:text-headline-md text-primary">
+                  {ind.title}
+                </h2>
                 <span className="font-mono-data text-mono-data bg-surface-container px-3 py-1 rounded">
                   {ind.num}
                 </span>
@@ -101,14 +93,16 @@ export default function Industries() {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollOnce>
           ))}
         </div>
-        <div className="mt-16 text-center">
-          <Link to="/contact" className="btn-primary">
-            Book a Discovery Call
-          </Link>
-        </div>
+        <ScrollOnce className="mt-16 text-center">
+          <PrimaryCTA>
+            <Link to="/contact" className="btn-primary">
+              {Narrative.ctaStyle.primary}
+            </Link>
+          </PrimaryCTA>
+        </ScrollOnce>
       </section>
     </>
   )

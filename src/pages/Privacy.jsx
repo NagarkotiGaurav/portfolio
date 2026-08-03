@@ -6,7 +6,7 @@ export default function Privacy() {
   usePageMeta('/privacy')
 
   return (
-    <article className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+    <article className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap md:py-section-gap-lg">
       <h1 className="font-display-lg-mobile text-display-lg-mobile md:text-headline-md md:font-headline-md text-primary mb-4">
         Privacy Policy
       </h1>

@@ -5,14 +5,19 @@ import { usePageMeta } from '../hooks/usePageMeta'
 import {
   CONTACT_BUDGETS,
   CONTACT_INDUSTRIES,
+  CONTACT_PREFERRED,
   CONTACT_TIMELINES,
   EMPTY_CONTACT_FORM,
 } from '../lib/contactValidation'
 import { ContactSubmissionError, submitContactInquiry } from '../lib/contactService'
+import { track } from '../lib/analytics'
 import { logger } from '../lib/logger'
+import { assertSceneBudget } from '../motion/SceneRegistry'
+import { Atmosphere, FocusHeadline, Parallax, ScrollOnce } from '../motion/patterns'
 
 export default function Contact() {
   usePageMeta('/contact')
+  assertSceneBudget('contact', ['cta'])
   const [form, setForm] = useState(EMPTY_CONTACT_FORM)
   const [fieldErrors, setFieldErrors] = useState({})
   const [status, setStatus] = useState('idle')
@@ -42,6 +47,12 @@ export default function Contact() {
       await submitContactInquiry(form, intent)
       setStatus('success')
       setForm(EMPTY_CONTACT_FORM)
+      track({
+        event: 'lead_created',
+        source: 'website',
+        service: 'consulting',
+        intent,
+      })
       logger.info('contact.ui_success', { intent })
     } catch (err) {
       if (err instanceof ContactSubmissionError && err.status === 400) {
@@ -62,7 +73,7 @@ export default function Contact() {
 
   function openCalendar() {
     if (!calendlyUrl) {
-      setError('Scheduling calendar is not configured. Use Send Message or email us directly.')
+      setError('Scheduling calendar is not configured. Use Send Message or email me directly.')
       setStatus('error')
       logger.warn('contact.calendly_missing')
       return
@@ -74,34 +85,38 @@ export default function Contact() {
   const submitting = status === 'submitting'
 
   return (
-    <div className="pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+    <div className="relative overflow-hidden">
+      <Parallax speed={0.08} className="pointer-events-none absolute inset-0 h-[70vh]">
+        <Atmosphere />
+      </Parallax>
+      <div className="relative pt-16 pb-section-gap md:pb-section-gap-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-        <div className="lg:col-span-5 lg:sticky lg:top-32 h-fit">
+        <ScrollOnce className="lg:col-span-5 lg:sticky lg:top-32 h-fit">
           <div className="mb-8 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary inline-block" />
             <span className="font-mono-data text-mono-data text-on-surface-variant">
               AVAILABLE FOR NEW PROJECTS
             </span>
           </div>
-          <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
-            Initiate
-            <br />
-            Dialogue.
-          </h1>
+          <FocusHeadline
+            as="h1"
+            className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6"
+            lines={['Let’s talk', 'about the work.']}
+          />
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">
-            We partner with ambitious engineering and software teams to architect robust solutions.
-            Provide preliminary details below to commence evaluation.
+            Share what you’re building and what’s blocking you. I’ll respond personally — usually
+            within 24 hours.
           </p>
-          <div className="space-y-6 hidden lg:block">
+          <div className="space-y-6 lg:block">
             <div>
               <h3 className="font-label-caps text-label-caps text-on-surface-variant mb-1">
-                GLOBAL HEADQUARTERS
+                BASED
               </h3>
               <p className="font-body-md text-body-md text-primary">{BRAND.location}</p>
             </div>
             <div>
               <h3 className="font-label-caps text-label-caps text-on-surface-variant mb-1">
-                DIRECT INQUIRIES
+                DIRECT EMAIL
               </h3>
               <a
                 href={`mailto:${BRAND.email}`}
@@ -111,9 +126,9 @@ export default function Contact() {
               </a>
             </div>
           </div>
-        </div>
+        </ScrollOnce>
 
-        <div className="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 border border-outline-variant/30 relative">
+        <ScrollOnce delay={100} className="lg:col-span-7 bg-surface-container-lowest p-5 sm:p-8 md:p-12 border border-outline-variant/30 relative min-w-0">
           <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary -translate-x-px -translate-y-px" />
           <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary translate-x-px -translate-y-px" />
 
@@ -124,7 +139,7 @@ export default function Contact() {
                 {lastIntent === 'schedule_call' ? 'Call request received' : 'Transmission received'}
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto">
-                Thanks for reaching out. We typically respond within 24 hours.
+                Thanks for reaching out. I typically respond within 24 hours.
               </p>
               {calendlyUrl && lastIntent === 'schedule_call' && (
                 <button type="button" className="btn-primary" onClick={openCalendar}>
@@ -151,23 +166,23 @@ export default function Contact() {
                   </h2>
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="building">
+                  <label className="form-label" htmlFor="message">
                     What are you building?
                   </label>
                   <textarea
-                    id="building"
+                    id="message"
                     className="form-input resize-none"
                     placeholder="Describe the core objective or product..."
                     rows={3}
-                    value={form.building}
-                    onChange={setField('building')}
-                    aria-invalid={Boolean(fieldErrors.building)}
+                    value={form.message}
+                    onChange={setField('message')}
+                    aria-invalid={Boolean(fieldErrors.message)}
                     disabled={submitting}
                     required
                   />
-                  {fieldErrors.building && (
+                  {fieldErrors.message && (
                     <p className="mt-2 text-error font-mono-data text-mono-data" role="alert">
-                      {fieldErrors.building}
+                      {fieldErrors.message}
                     </p>
                   )}
                 </div>
@@ -201,7 +216,12 @@ export default function Contact() {
                         className={form.industry === ind ? 'chip-selected' : 'chip-unselected'}
                         aria-pressed={form.industry === ind}
                         disabled={submitting}
-                        onClick={() => setForm((f) => ({ ...f, industry: ind }))}
+                        onClick={() =>
+                          setForm((f) => ({
+                            ...f,
+                            industry: f.industry === ind ? '' : ind,
+                          }))
+                        }
                       >
                         {ind}
                       </button>
@@ -228,11 +248,8 @@ export default function Contact() {
                       value={form.timeline}
                       onChange={setField('timeline')}
                       disabled={submitting}
-                      required
                     >
-                      <option disabled value="">
-                        Select timeline
-                      </option>
+                      <option value="">Select timeline (optional)</option>
                       {CONTACT_TIMELINES.map((t) => (
                         <option key={t.value} value={t.value}>
                           {t.label}
@@ -250,11 +267,8 @@ export default function Contact() {
                       value={form.budget}
                       onChange={setField('budget')}
                       disabled={submitting}
-                      required
                     >
-                      <option disabled value="">
-                        Select range
-                      </option>
+                      <option value="">Select range (optional)</option>
                       {CONTACT_BUDGETS.map((b) => (
                         <option key={b.value} value={b.value}>
                           {b.label}
@@ -280,18 +294,17 @@ export default function Contact() {
                     <input
                       id="company"
                       className="form-input"
-                      placeholder="e.g. Acme Corp"
+                      placeholder="e.g. Acme Corp (optional)"
                       type="text"
                       value={form.company}
                       onChange={setField('company')}
                       disabled={submitting}
-                      required
                       autoComplete="organization"
                     />
                   </div>
                   <div>
                     <label className="form-label" htmlFor="name">
-                      Representative name
+                      Your name
                     </label>
                     <input
                       id="name"
@@ -308,6 +321,24 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="form-label mb-4">Preferred contact method</p>
+                  <div className="flex flex-wrap gap-2 mb-6" role="group">
+                    {CONTACT_PREFERRED.map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        className={
+                          form.preferredContact === opt.value
+                            ? 'chip-selected'
+                            : 'chip-unselected'
+                        }
+                        aria-pressed={form.preferredContact === opt.value}
+                        disabled={submitting}
+                        onClick={() => setForm((f) => ({ ...f, preferredContact: opt.value }))}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                       <label className="sr-only" htmlFor="email">
@@ -324,6 +355,11 @@ export default function Contact() {
                         required
                         autoComplete="email"
                       />
+                      {fieldErrors.email && (
+                        <p className="mt-2 text-error font-mono-data text-mono-data" role="alert">
+                          {fieldErrors.email}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label className="sr-only" htmlFor="phone">
@@ -344,6 +380,20 @@ export default function Contact() {
                 </div>
               </div>
 
+              {/* Honeypot — hidden from users; bots that fill it are ignored server-side */}
+              <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+                <label htmlFor="company_website">Company website</label>
+                <input
+                  id="company_website"
+                  name="_gotcha"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form._gotcha}
+                  onChange={setField('_gotcha')}
+                />
+              </div>
+
               {status === 'error' && error && (
                 <p className="font-mono-data text-mono-data text-error" role="alert">
                   {error}
@@ -352,7 +402,7 @@ export default function Contact() {
 
               <div className="pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row gap-4 items-center justify-between">
                 <p className="font-mono-data text-mono-data text-on-surface-variant/70 text-center sm:text-left text-sm max-w-[250px]">
-                  Transmission is secure. We typically respond within 24 hours.
+                  Transmission is secure. I typically respond within 24 hours.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                   <button className="btn-secondary w-full sm:w-auto" type="submit" disabled={submitting}>
@@ -378,7 +428,8 @@ export default function Contact() {
               </div>
             </form>
           )}
-        </div>
+        </ScrollOnce>
+      </div>
       </div>
     </div>
   )

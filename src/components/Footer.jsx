@@ -3,7 +3,7 @@ import { BRAND, FOOTER_LINKS } from '../data/site'
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container w-full py-section-gap border-t border-outline-variant mt-auto">
+    <footer className="bg-surface-container w-full py-section-gap md:py-section-gap-lg border-t border-outline-variant mt-auto">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="md:col-span-4 flex flex-col gap-4">
           <Link
@@ -12,9 +12,20 @@ export default function Footer() {
           >
             {BRAND.name}
           </Link>
+          <p className="font-mono-data text-mono-data text-on-surface-variant">{BRAND.role}</p>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
             {BRAND.description}
           </p>
+          {BRAND.isBeta && (
+            <p className="font-mono-data text-mono-data text-on-surface-variant max-w-sm">
+              <span className="uppercase tracking-widest">{BRAND.betaLabel}</span>
+              {' — '}
+              {BRAND.betaNotice}{' '}
+              <Link to="/terms" className="text-primary hover:opacity-80 underline-offset-2 hover:underline">
+                Terms
+              </Link>
+            </p>
+          )}
           <p className="font-mono-data text-mono-data text-on-surface-variant">{BRAND.tagline}</p>
         </div>
         <div className="md:col-span-8 flex flex-wrap gap-x-8 gap-y-4 md:justify-end content-start">

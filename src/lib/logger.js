@@ -13,7 +13,7 @@ function emit(level, message, context) {
     message,
     ...(context && typeof context === 'object' ? { context } : {}),
   }
-  const line = `[Consultancy] ${entry.ts} ${level.toUpperCase()} ${message}`
+  const line = `[Gaurav] ${entry.ts} ${level.toUpperCase()} ${message}`
   if (level === 'error') {
     console.error(line, context ?? '')
   } else if (level === 'warn') {

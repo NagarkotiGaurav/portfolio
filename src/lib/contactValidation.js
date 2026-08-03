@@ -21,95 +21,107 @@ export const CONTACT_BUDGETS = [
   { value: '250k', label: '$250k+' },
 ]
 
+export const CONTACT_PREFERRED = [
+  { value: 'email', label: 'Email' },
+  { value: 'phone', label: 'Phone' },
+]
+
 export const EMPTY_CONTACT_FORM = {
-  building: '',
+  message: '',
   problems: '',
-  industry: 'Software Engineering',
+  industry: '',
   timeline: '',
   budget: '',
   company: '',
   name: '',
   email: '',
   phone: '',
+  preferredContact: 'email',
+  /** Honeypot — must stay empty */
+  _gotcha: '',
 }
 
 /**
+ * Client-side validation aligned with server/validation/contactSchema.js
+ * Required: name, email, message
+ * Optional: phone, company, budget, industry, timeline, problems
+ *
  * @param {typeof EMPTY_CONTACT_FORM} form
  * @returns {{ ok: true, value: object } | { ok: false, errors: Record<string, string> }}
  */
 export function validateContactForm(form) {
   const errors = {}
 
-  const building = (form.building || '').trim()
-  if (!building) {
-    errors.building = 'Describe what you are building.'
-  } else if (building.length < 20) {
-    errors.building = 'Please provide at least 20 characters about the project.'
-  } else if (building.length > 4000) {
-    errors.building = 'Project description must be 4000 characters or fewer.'
+  const name = (form.name || '').trim()
+  if (!name) errors.name = 'Enter your name.'
+  else if (name.length < 2) errors.name = 'Name must be at least 2 characters.'
+  else if (name.length > 120) errors.name = 'Name must be 120 characters or fewer.'
+
+  const email = (form.email || '').trim()
+  if (!email) errors.email = 'Enter an email address.'
+  else if (!EMAIL_RE.test(email) || email.length > 254) {
+    errors.email = 'Enter a valid email address.'
   }
+
+  const message = (form.message || form.building || '').trim()
+  if (!message) errors.message = 'Describe what you are building or how we can help.'
+  else if (message.length < 10) errors.message = 'Please provide at least 10 characters.'
+  else if (message.length > 4000) errors.message = 'Message must be 4000 characters or fewer.'
 
   const problems = (form.problems || '').trim()
   if (problems.length > 4000) {
     errors.problems = 'Roadblocks must be 4000 characters or fewer.'
   }
 
-  if (!CONTACT_INDUSTRIES.includes(form.industry)) {
+  const industry = (form.industry || '').trim()
+  if (industry && !CONTACT_INDUSTRIES.includes(industry)) {
     errors.industry = 'Select a valid industry domain.'
   }
 
-  if (!form.timeline || !CONTACT_TIMELINES.some((t) => t.value === form.timeline)) {
-    errors.timeline = 'Select a timeline expectation.'
+  const timeline = (form.timeline || '').trim()
+  if (timeline && !CONTACT_TIMELINES.some((t) => t.value === timeline)) {
+    errors.timeline = 'Select a valid timeline.'
   }
 
-  if (!form.budget || !CONTACT_BUDGETS.some((b) => b.value === form.budget)) {
-    errors.budget = 'Select a budget allocation.'
+  const budget = (form.budget || '').trim()
+  if (budget && !CONTACT_BUDGETS.some((b) => b.value === budget)) {
+    errors.budget = 'Select a valid budget range.'
   }
 
   const company = (form.company || '').trim()
-  if (!company) {
-    errors.company = 'Enter your company or organization.'
-  } else if (company.length > 200) {
-    errors.company = 'Company name must be 200 characters or fewer.'
-  }
-
-  const name = (form.name || '').trim()
-  if (!name) {
-    errors.name = 'Enter a representative name.'
-  } else if (name.length < 2) {
-    errors.name = 'Name must be at least 2 characters.'
-  } else if (name.length > 120) {
-    errors.name = 'Name must be 120 characters or fewer.'
-  }
-
-  const email = (form.email || '').trim()
-  if (!email) {
-    errors.email = 'Enter an email address.'
-  } else if (!EMAIL_RE.test(email) || email.length > 254) {
-    errors.email = 'Enter a valid email address.'
-  }
+  if (company.length > 200) errors.company = 'Company name must be 200 characters or fewer.'
 
   const phone = (form.phone || '').trim()
   if (phone && !PHONE_RE.test(phone)) {
     errors.phone = 'Enter a valid phone number or leave it blank.'
   }
 
+  const preferredContact = (form.preferredContact || 'email').trim()
+  if (preferredContact && !CONTACT_PREFERRED.some((p) => p.value === preferredContact)) {
+    errors.preferredContact = 'Select a preferred contact method.'
+  }
+
   if (Object.keys(errors).length > 0) {
     return { ok: false, errors }
   }
 
+  const composed =
+    problems && message ? `${message}\n\nRoadblocks:\n${problems}` : message
+
   return {
     ok: true,
     value: {
-      building,
-      problems,
-      industry: form.industry,
-      timeline: form.timeline,
-      budget: form.budget,
-      company,
       name,
       email,
       phone,
+      company,
+      industry,
+      timeline,
+      budget,
+      preferredContact: preferredContact || 'email',
+      message: composed,
+      projectType: '',
+      _gotcha: typeof form._gotcha === 'string' ? form._gotcha : '',
     },
   }
 }

@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { ContactSubmissionError, submitContactInquiry } from './contactService'
 
 const validForm = {
-  building: 'We need a payments platform rebuild for peak TPS.',
+  message: 'We need a payments platform rebuild for peak TPS.',
   problems: 'Latency under load',
   industry: 'Fintech',
   timeline: 'q1',
@@ -11,6 +11,8 @@ const validForm = {
   name: 'Ada Lovelace',
   email: 'ada@acme.test',
   phone: '',
+  preferredContact: 'email',
+  _gotcha: '',
 }
 
 describe('submitContactInquiry', () => {
@@ -46,7 +48,7 @@ describe('submitContactInquiry', () => {
     const body = JSON.parse(options.body)
     expect(body.email).toBe('ada@acme.test')
     expect(body.intent).toBe('message')
-    expect(body._subject).toMatch(/Inquiry/)
+    expect(body.message).toMatch(/payments platform/)
   })
 
   it('maps network failures to ContactSubmissionError', async () => {

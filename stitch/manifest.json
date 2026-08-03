@@ -5,7 +5,9 @@
   },
   "design_system": {
     "id": "asset-stub-assets_fd636db945dd4de896492033b150c010",
-    "note": "Asset stub \u2014 tokens extracted from shared Tailwind config in screens"
+    "title": "Gaurav Nagarkoti",
+    "legacy_title": "Alabaster Engineering",
+    "note": "Tokens synced to React app (primary #111111, secondary #64748B, tertiary #F8FAFC, neutral #FFFFFF). Brand renamed from Alabaster Engineering."
   },
   "screens": [
     {

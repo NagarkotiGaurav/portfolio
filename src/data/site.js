@@ -1,12 +1,23 @@
 export const BRAND = {
-  name: 'Consultancy',
-  legalName: 'Engineering Consultancy',
-  tagline: '© 2024 Engineering Consultancy. Precision in every pixel.',
+  name: 'Gaurav Nagarkoti',
+  shortName: 'Gaurav',
+  legalName: 'Gaurav Nagarkoti',
+  role: 'Technology Consultant',
+  roles: ['Technology Consultant', 'Software Architect', 'Automation Engineer'],
+  tagline: `© ${new Date().getFullYear()} Gaurav Nagarkoti. Software that businesses rely on.`,
   description:
-    'Consultancy is an engineering consultancy based in London. We help businesses build, automate and scale through technology.',
-  email: 'strategy@consultancy.eng',
-  location: 'London, United Kingdom',
-  sameAs: [],
+    'Gaurav Nagarkoti is a technology consultant and software architect who helps businesses build, automate, and scale systems they can rely on.',
+  valueProposition: 'I build software that helps businesses grow faster.',
+  email: 'gauravnagarkoti08@gmail.com',
+  location: 'Remote · Worldwide',
+  sameAs: ['https://gauravnagarkoti.tech'],
+  /** Visual system (Stitch Alabaster tokens, personal brand). */
+  designSystem: 'Gaurav Nagarkoti',
+  /** Site is publicly viewable but still under active development. */
+  isBeta: true,
+  betaLabel: 'Beta',
+  betaNotice:
+    'This site is in beta. Content, case studies, and metrics may change; nothing here is a guarantee, offer, or formal professional advice until confirmed in writing.',
 }
 
 export const NAV_LINKS = [
@@ -15,7 +26,7 @@ export const NAV_LINKS = [
   { label: 'Industries', to: '/industries', prefetch: () => import('../pages/Industries') },
   { label: 'Insights', to: '/insights', prefetch: () => import('../pages/Insights') },
   { label: 'Process', to: '/process', prefetch: () => import('../pages/Process') },
-  { label: 'Resources', to: '/resources', prefetch: () => import('../pages/Resources') },
+  { label: 'Why Me', to: '/resources', prefetch: () => import('../pages/Resources') },
 ]
 
 export const FOOTER_LINKS = [
@@ -23,7 +34,7 @@ export const FOOTER_LINKS = [
   { label: 'Industries', to: '/industries' },
   { label: 'Work', to: '/work' },
   { label: 'Insights', to: '/insights' },
-  { label: 'Resources', to: '/resources' },
+  { label: 'Why Me', to: '/resources' },
   { label: 'Privacy Policy', to: '/privacy' },
   { label: 'Terms of Service', to: '/terms' },
   { label: 'Sitemap', to: '/sitemap' },
