@@ -18,11 +18,37 @@ No separate Worker. `functions/api/contact.js` becomes `https://gauravnagarkoti.
 | Framework preset | Vite |
 | Build command | `npm run build` |
 | Build output directory | `dist` |
+| **Deploy command** | **Leave empty** (recommended) |
 | Node version | **22** (or ≥20.19) — set `NODE_VERSION=22` |
 | Root | `/` (repo root) |
 
-SPA routing: `not_found_handling = "single-page-application"` in [`wrangler.toml`](../wrangler.toml)  
-(Do **not** use `/* /index.html 200` in `_redirects` — Cloudflare rejects it as an infinite loop.)  
+### Critical: do not use `wrangler deploy`
+
+Your last failure was:
+
+```text
+Executing user deploy command: npx wrangler deploy
+⚠ Pages project — use `wrangler pages deploy` instead
+✘ assets.directory missing
+```
+
+In Cloudflare Pages → Settings → Builds:
+
+1. **Build command:** `npm run build`
+2. **Build output directory:** `dist`
+3. **Deploy command:** clear it / leave blank  
+
+Pages will upload `dist/` and `functions/` automatically.
+
+If you must set a deploy command, use only:
+
+```bash
+npx wrangler pages deploy dist
+```
+
+Never `npx wrangler deploy`.
+
+SPA routing: [`public/_redirects`](../public/_redirects) (`/* /index.html 200`) — works with **Pages** deploys.  
 Functions scope: [`public/_routes.json`](../public/_routes.json) → only `/api/*`.
 
 ### Environment variables

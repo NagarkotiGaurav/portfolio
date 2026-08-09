@@ -1,0 +1,4 @@
+# Cloudflare Pages SPA fallback (200 rewrite, not a 301/302 redirect).
+# Required for client routes like /solutions, /contact.
+# Only use with `wrangler pages deploy` / Pages Git builds — not `wrangler deploy`.
+/*    /index.html   200
