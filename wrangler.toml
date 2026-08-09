@@ -1,6 +1,12 @@
-# Cloudflare Pages project (React dist + functions/)
-# Deploy with: npx wrangler pages deploy dist
-# Do NOT use `wrangler deploy` — that is for Workers and breaks Pages.
+# Works with Cloudflare deploy command: npx wrangler deploy
+# (Workers + static assets + /api/contact)
 name = "portfolio"
+main = "./worker.js"
 compatibility_date = "2025-08-09"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+# Run the Worker first for API; everything else is static SPA assets.
+run_worker_first = ["/api/*"]

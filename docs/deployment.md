@@ -1,59 +1,37 @@
-# Deployment — Cloudflare Pages (+ Functions)
+# Deployment — Cloudflare (Workers + Assets)
 
-## One deployment
+## How this project deploys
 
-```text
-GitHub
-  │
-  ▼
-Cloudflare Pages
-  ├── React (dist/)
-  └── Functions (functions/) → /api/contact
+Your Cloudflare **deploy command** is:
+
+```bash
+npx wrangler deploy
 ```
 
-No separate Worker. `functions/api/contact.js` becomes `https://gauravnagarkoti.tech/api/contact`.
+That is a **Workers** deploy (not classic Pages-only). The repo is configured for it:
+
+```text
+dist/          → static React SPA
+worker.js      → /api/contact (Telegram + Sheets)
+functions/lib/ → shared lead logic (imported by worker.js)
+```
 
 | Setting | Value |
 |---------|--------|
-| Framework preset | Vite |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
-| **Deploy command** | **Leave empty** (recommended) |
-| Node version | **22** (or ≥20.19) — set `NODE_VERSION=22` |
-| Root | `/` (repo root) |
+| Deploy command | `npx wrangler deploy` |
+| Node version | `22` (`NODE_VERSION=22`) |
 
-### Critical: do not use `wrangler deploy`
+Do **not** put `/* /index.html 200` in `_redirects` with this setup — Cloudflare rejects it. SPA routing is handled by:
 
-Your last failure was:
-
-```text
-Executing user deploy command: npx wrangler deploy
-⚠ Pages project — use `wrangler pages deploy` instead
-✘ assets.directory missing
+```toml
+[assets]
+not_found_handling = "single-page-application"
 ```
 
-In Cloudflare Pages → Settings → Builds:
+### Environment variables / secrets
 
-1. **Build command:** `npm run build`
-2. **Build output directory:** `dist`
-3. **Deploy command:** clear it / leave blank  
-
-Pages will upload `dist/` and `functions/` automatically.
-
-If you must set a deploy command, use only:
-
-```bash
-npx wrangler pages deploy dist
-```
-
-Never `npx wrangler deploy`.
-
-SPA routing: [`public/_redirects`](../public/_redirects) (`/* /index.html 200`) — works with **Pages** deploys.  
-Functions scope: [`public/_routes.json`](../public/_routes.json) → only `/api/*`.
-
-### Environment variables
-
-**Build-time (Pages → Environment variables):**
+**Build-time:**
 
 | Variable | Value |
 |----------|--------|
@@ -61,7 +39,7 @@ Functions scope: [`public/_routes.json`](../public/_routes.json) → only `/api/
 | `VITE_CONTACT_ENDPOINT` | `/api/contact` |
 | `NODE_VERSION` | `22` |
 
-**Runtime secrets (Functions — same Pages project):**
+**Runtime (Worker secrets):**
 
 ```env
 TELEGRAM_ENABLED=true
@@ -73,36 +51,26 @@ GOOGLE_SHEETS_WEBHOOK_SECRET=
 ALLOWED_ORIGINS=https://gauravnagarkoti.tech,http://localhost:5173
 ```
 
-Leave tokens empty until ready — the API returns `202` and the site still works.
-
 ### Local
 
 ```bash
-# Terminal A — API (Express, shares functions/lib)
-cp server/.env.example server/.env   # fill when ready
-npm run server:dev
-
-# Terminal B — Vite (proxies /api → :8787)
-npm run dev
+npm run server:dev   # Express on :8787 using same functions/lib
+npm run dev          # Vite proxies /api → :8787
 ```
 
-Or Cloudflare-style:
+Or:
 
 ```bash
-cp .dev.vars.example .dev.vars
-npm run pages:dev   # builds + wrangler pages dev on :8788
+npm run build && npx wrangler dev
 ```
 
-### Test
+### Test after deploy
 
 ```bash
-curl -s -X POST http://127.0.0.1:8787/api/contact \
+curl -s https://gauravnagarkoti.tech/api/contact
+curl -s -X POST https://gauravnagarkoti.tech/api/contact \
   -H 'Content-Type: application/json' \
   -d '{"name":"Gaurav","email":"gaurav@test.com","message":"Testing contact API"}'
 ```
 
-### Optional Express server
-
-[`server/`](../server/) still works for Render/local Node. It imports the same logic from [`functions/lib/`](../functions/lib/). Prefer Cloudflare Pages Functions in production.
-
-See also [`functions/README.md`](../functions/README.md).
+`functions/api/contact.js` remains for optional Pages Functions; production path with your current CI is **`worker.js` + `wrangler deploy`**.
