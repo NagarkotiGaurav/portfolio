@@ -74,18 +74,18 @@ export function validateContactForm(form) {
   }
 
   const industry = (form.industry || '').trim()
-  if (industry && !CONTACT_INDUSTRIES.includes(industry)) {
-    errors.industry = 'Select a valid industry domain.'
+  if (industry && industry.length > 120) {
+    errors.industry = 'Industry must be 120 characters or fewer.'
   }
 
   const timeline = (form.timeline || '').trim()
-  if (timeline && !CONTACT_TIMELINES.some((t) => t.value === timeline)) {
-    errors.timeline = 'Select a valid timeline.'
+  if (timeline && timeline.length > 80) {
+    errors.timeline = 'Timeline must be 80 characters or fewer.'
   }
 
   const budget = (form.budget || '').trim()
-  if (budget && !CONTACT_BUDGETS.some((b) => b.value === budget)) {
-    errors.budget = 'Select a valid budget range.'
+  if (budget && budget.length > 80) {
+    errors.budget = 'Budget must be 80 characters or fewer.'
   }
 
   const company = (form.company || '').trim()

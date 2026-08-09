@@ -52,6 +52,9 @@ export default function Contact() {
         source: 'website',
         service: 'consulting',
         intent,
+        project: form.industry || form.message?.slice(0, 40) || '',
+        budget: form.budget || '',
+        industry: form.industry || '',
       })
       logger.info('contact.ui_success', { intent })
     } catch (err) {

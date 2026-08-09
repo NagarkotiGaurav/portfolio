@@ -43,12 +43,14 @@ describe('submitContactInquiry', () => {
     expect(result.ok).toBe(true)
     expect(fetchMock).toHaveBeenCalledTimes(1)
     const [url, options] = fetchMock.mock.calls[0]
-    expect(String(url)).toMatch(/formsubmit\.co\/ajax|formspree|http/)
+    expect(String(url)).toMatch(/\/api\/contact|formsubmit\.co\/ajax|formspree|http/)
     expect(options.method).toBe('POST')
     const body = JSON.parse(options.body)
     expect(body.email).toBe('ada@acme.test')
     expect(body.intent).toBe('message')
     expect(body.message).toMatch(/payments platform/)
+    expect(body.source).toBe('website')
+    expect(body.utm).toBeTruthy()
   })
 
   it('maps network failures to ContactSubmissionError', async () => {

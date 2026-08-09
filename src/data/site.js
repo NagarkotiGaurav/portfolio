@@ -72,6 +72,6 @@ export function getContactEndpoint() {
   if (typeof explicit === 'string' && explicit.trim()) {
     return explicit.trim()
   }
-  const email = import.meta.env.VITE_CONTACT_EMAIL || BRAND.email
-  return `https://formsubmit.co/ajax/${encodeURIComponent(email)}`
+  // Cloudflare Pages Function (same origin) — preferred default.
+  return '/api/contact'
 }

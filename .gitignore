@@ -6,4 +6,5 @@ dist
 .env.*
 !.env.example
 !server/.env.example
+.dev.vars
 server/node_modules

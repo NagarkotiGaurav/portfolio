@@ -8,9 +8,17 @@ export default defineConfig({
     environment: 'node',
     include: ['src/**/*.test.js'],
   },
+  server: {
+    // Local: run `npm run pages:dev` (or Express on 8787) and proxy /api here.
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_PROXY || 'http://127.0.0.1:8787',
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
     // Vite 8 / Rolldown: object-form manualChunks was removed.
-    // Keep React vendor code in a dedicated chunk via codeSplitting groups.
     rolldownOptions: {
       output: {
         codeSplitting: {

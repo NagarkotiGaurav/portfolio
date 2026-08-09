@@ -9,20 +9,10 @@ const CONTACT_INDUSTRIES = [
   'Other',
 ]
 
-const CONTACT_TIMELINES = new Set(['q1', 'q2', 'q3', 'Immediate (Q1)', 'Next Quarter (Q2)', 'Planning (Q3+)'])
-const CONTACT_BUDGETS = new Set([
-  '50k',
-  '100k',
-  '250k',
-  '$50k - $100k',
-  '$100k - $250k',
-  '$250k+',
-])
-
 /**
  * Validate contact request body.
  * Required: name, email, message
- * Optional: phone, company, budget, industry, timeline, and tracking fields
+ * Optional: phone, company, budget, industry, timeline, tracking fields
  *
  * @param {object} body
  * @returns {{ ok: true, value: object } | { ok: false, errors: Record<string, string> }}
@@ -39,7 +29,6 @@ export function validateContactBody(body = {}) {
   if (!email) errors.email = 'Enter an email address.'
   else if (!EMAIL_RE.test(email) || email.length > 254) errors.email = 'Enter a valid email address.'
 
-  // Accept either `message` or legacy `building`
   const message = String(body.message || body.building || '').trim()
   if (!message) errors.message = 'Describe what you are building or how we can help.'
   else if (message.length < 10) errors.message = 'Please provide at least 10 characters.'
@@ -54,19 +43,21 @@ export function validateContactBody(body = {}) {
   if (company.length > 200) errors.company = 'Company name must be 200 characters or fewer.'
 
   const industry = String(body.industry || '').trim()
-  if (industry && !CONTACT_INDUSTRIES.includes(industry)) {
-    errors.industry = 'Select a valid industry domain.'
+  if (industry && industry.length > 120) {
+    errors.industry = 'Industry must be 120 characters or fewer.'
   }
 
   const timeline = String(body.timeline || '').trim()
-  if (timeline && !CONTACT_TIMELINES.has(timeline)) {
-    errors.timeline = 'Select a valid timeline.'
+  if (timeline && timeline.length > 80) {
+    errors.timeline = 'Timeline must be 80 characters or fewer.'
   }
 
   const budget = String(body.budget || '').trim()
-  if (budget && !CONTACT_BUDGETS.has(budget)) {
-    errors.budget = 'Select a valid budget range.'
+  if (budget && budget.length > 80) {
+    errors.budget = 'Budget must be 80 characters or fewer.'
   }
+
+  const honeypot = String(body._gotcha || body.website || '').trim()
 
   if (Object.keys(errors).length > 0) {
     return { ok: false, errors }
@@ -83,7 +74,8 @@ export function validateContactBody(body = {}) {
       email,
       phone,
       company,
-      industry,
+      industry:
+        industry && CONTACT_INDUSTRIES.includes(industry) ? industry : industry,
       projectType: String(body.projectType || body.intent || '').trim(),
       budget,
       timeline,
@@ -94,7 +86,7 @@ export function validateContactBody(body = {}) {
       referrer: String(body.referrer || '').trim(),
       intent: body.intent === 'schedule_call' ? 'schedule_call' : 'message',
       utm: normalizeUtm(body.utm),
-      _gotcha: typeof body._gotcha === 'string' ? body._gotcha : '',
+      _gotcha: honeypot,
     },
   }
 }

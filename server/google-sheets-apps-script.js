@@ -4,9 +4,9 @@
  *
  * Optional: Script property WEBHOOK_SECRET = GOOGLE_SHEETS_WEBHOOK_SECRET
  *
- * Sheet columns:
- * Timestamp | Name | Email | Phone | Company | Industry | Project | Budget |
- * Timeline | Message | Source | Status
+ * Columns:
+ * Lead ID | Timestamp | Name | Email | Phone | Company | Industry | Project |
+ * Budget | Timeline | Message | Source | Status
  */
 function doPost(e) {
   try {
@@ -25,6 +25,7 @@ function doPost(e) {
     ensureHeader_(sheet)
 
     sheet.appendRow([
+      data.id || '',
       data.timestamp || new Date().toISOString(),
       data.name || '',
       data.email || '',
@@ -52,6 +53,7 @@ function doGet() {
 function ensureHeader_(sheet) {
   if (sheet.getLastRow() > 0) return
   sheet.appendRow([
+    'Lead ID',
     'Timestamp',
     'Name',
     'Email',
@@ -65,7 +67,7 @@ function ensureHeader_(sheet) {
     'Source',
     'Status',
   ])
-  sheet.getRange(1, 1, 1, 12).setFontWeight('bold')
+  sheet.getRange(1, 1, 1, 13).setFontWeight('bold')
 }
 
 function json_(obj) {
