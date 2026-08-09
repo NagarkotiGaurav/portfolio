@@ -1,9 +1,9 @@
-# Cloudflare Pages — static site + functions/ (same deploy)
+# Cloudflare Pages — React (dist) + Functions (functions/) in one deploy
 name = "portfolio"
 compatibility_date = "2025-08-09"
 pages_build_output_dir = "dist"
 
-# SPA client routes (/solutions, /contact, …) → serve index.html
-# Do NOT use public/_redirects with `/* /index.html 200` — Cloudflare rejects that as an infinite loop.
+# SPA routes (/solutions, /contact, …) serve index.html with 200.
+# Avoid public/_redirects `/* /index.html 200` — Cloudflare API rejects it (error 100324).
 [assets]
 not_found_handling = "single-page-application"
