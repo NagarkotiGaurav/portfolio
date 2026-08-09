@@ -1,0 +1,9 @@
+# Cloudflare Pages — static site + functions/ (same deploy)
+name = "portfolio"
+compatibility_date = "2025-08-09"
+pages_build_output_dir = "dist"
+
+# SPA client routes (/solutions, /contact, …) → serve index.html
+# Do NOT use public/_redirects with `/* /index.html 200` — Cloudflare rejects that as an infinite loop.
+[assets]
+not_found_handling = "single-page-application"

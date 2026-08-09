@@ -21,7 +21,8 @@ No separate Worker. `functions/api/contact.js` becomes `https://gauravnagarkoti.
 | Node version | **22** (or ≥20.19) — set `NODE_VERSION=22` |
 | Root | `/` (repo root) |
 
-SPA routing: [`public/_redirects`](../public/_redirects).  
+SPA routing: `not_found_handling = "single-page-application"` in [`wrangler.toml`](../wrangler.toml)  
+(Do **not** use `/* /index.html 200` in `_redirects` — Cloudflare rejects it as an infinite loop.)  
 Functions scope: [`public/_routes.json`](../public/_routes.json) → only `/api/*`.
 
 ### Environment variables
