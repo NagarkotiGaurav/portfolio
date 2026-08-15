@@ -1,0 +1,24 @@
+# Gaurav Nagarkoti
+
+> Technology consultant and software architect. I build software that helps businesses grow faster — architecture, automation, and systems companies can rely on.
+
+Independent consultant (not an agency). Focus: clear, scalable systems operators can own after launch. Primary contact: gauravnagarkoti08@gmail.com. Site: https://gauravnagarkoti.tech
+
+## Pages
+
+- [Home](https://gauravnagarkoti.tech/): Positioning, services overview, and strategy-call CTA
+- [Solutions](https://gauravnagarkoti.tech/solutions): Software, AI & automation, process, ERP, commerce, and cloud
+- [Work](https://gauravnagarkoti.tech/work): Selected case studies and engineering outcomes
+- [Industries](https://gauravnagarkoti.tech/industries): Sector-specific systems and domain constraints
+- [Insights](https://gauravnagarkoti.tech/insights): Architecture and engineering strategy writing
+- [Process](https://gauravnagarkoti.tech/process): Delivery lifecycle from discovery to support
+- [Why Me](https://gauravnagarkoti.tech/resources): Partnership model and how engagements work
+- [Contact](https://gauravnagarkoti.tech/contact): Book a strategy call
+
+## Optional
+
+- [Sitemap (HTML)](https://gauravnagarkoti.tech/sitemap): Human-readable site index
+- [Sitemap (XML)](https://gauravnagarkoti.tech/sitemap.xml): Machine-readable URL list for crawlers
+- [robots.txt](https://gauravnagarkoti.tech/robots.txt): Crawl policy for search and AI agents
+- [Privacy Policy](https://gauravnagarkoti.tech/privacy): How contact and site data is handled
+- [Terms of Service](https://gauravnagarkoti.tech/terms): Website and engagement terms
