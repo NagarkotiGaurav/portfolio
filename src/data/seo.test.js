@@ -63,6 +63,18 @@ describe('seo metadata', () => {
     )
     expect(buildFaqJsonLd().mainEntity).toHaveLength(CONTACT_FAQS.length)
   })
+
+  it('uses unique titles and descriptions across indexable routes', () => {
+    const indexable = Object.values(PAGE_META).filter((m) => !m.noindex)
+    const titles = indexable.map((m) => m.title)
+    const descriptions = indexable.map((m) => m.description)
+    expect(new Set(titles).size).toBe(titles.length)
+    expect(new Set(descriptions).size).toBe(descriptions.length)
+    for (const meta of indexable) {
+      expect(meta.h1?.length).toBeGreaterThan(3)
+      expect(meta.crawlText?.length).toBeGreaterThan(40)
+    }
+  })
 })
 
 describe('solutions catalog', () => {

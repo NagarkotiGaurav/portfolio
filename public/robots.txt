@@ -1,33 +1,7 @@
-# Crawl policy — allow search engines and AI agents
+# Allow search engines. Keep this file standard robots.txt only.
+# (Cloudflare may prepend managed AI rules in the live response — configure those in the dashboard.)
+
 User-agent: *
-Allow: /
-
-# Explicit allow for common AI / training / answer-engine crawlers
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Bytespider
 Allow: /
 
 Sitemap: https://gauravnagarkoti.tech/sitemap.xml

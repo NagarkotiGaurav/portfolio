@@ -105,3 +105,14 @@ SEO scanners fail when `www` and apex do not resolve to one URL.
 ### Analytics
 
 Set `VITE_GA_MEASUREMENT_ID=G-XXXXXXXX` on the Cloudflare build/deploy environment, then redeploy.
+
+### Prerendered routes
+
+`npm run build` writes unique HTML under `dist/<route>/index.html` (title, description, canonical, H1). After deploy, verify:
+
+```bash
+curl -s https://gauravnagarkoti.tech/solutions | grep -o '<title>[^<]*</title>'
+curl -s https://gauravnagarkoti.tech/work | grep -o '<title>[^<]*</title>'
+```
+
+Titles must differ. If both show the home title, the Worker is still serving only the root SPA shell—confirm assets include the prerendered folders.
