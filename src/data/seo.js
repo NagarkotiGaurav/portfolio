@@ -6,9 +6,9 @@ import { BRAND, getSameAs, getSiteUrl } from './site'
  */
 export const PAGE_META = {
   '/': {
-    title: 'Gaurav Nagarkoti | Technology Consultant & Software Architect',
+    title: 'Gaurav Nagarkoti | Tech Consultant & Architect',
     description:
-      'I build software that helps businesses grow faster — architecture, automation, and systems companies can rely on.',
+      'Independent technology consultant and software architect. I design and build architecture, automation, and reliable systems that help businesses grow faster—from discovery to production.',
     path: '/',
   },
   '/solutions': {

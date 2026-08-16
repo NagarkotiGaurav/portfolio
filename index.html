@@ -2,22 +2,24 @@
 <html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Gaurav Nagarkoti — technology consultant and software architect. I build software that helps businesses grow faster."
+      content="Independent technology consultant and software architect. I design and build architecture, automation, and reliable systems that help businesses grow faster—from discovery to production."
     />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gaurav Nagarkoti" />
-    <meta property="og:title" content="Gaurav Nagarkoti | Technology Consultant & Software Architect" />
+    <meta property="og:title" content="Gaurav Nagarkoti | Tech Consultant & Architect" />
     <meta
       property="og:description"
-      content="I build software that helps businesses grow faster — architecture, automation, and systems companies can rely on."
+      content="Independent technology consultant and software architect. I design and build architecture, automation, and reliable systems that help businesses grow faster—from discovery to production."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Gaurav Nagarkoti | Technology Consultant &amp; Software Architect</title>
+    <title>Gaurav Nagarkoti | Tech Consultant &amp; Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,16 +29,25 @@
       href="https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFWNOITd.woff2"
       crossorigin
     />
+    <!-- Non-blocking stylesheet: avoids render-blocking Google Fonts CSS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
   </head>
   <body class="bg-surface text-on-surface antialiased">
     <div id="root"></div>
     <noscript>
       <main style="max-width:40rem;margin:2rem auto;padding:0 1.25rem;font-family:system-ui,sans-serif;line-height:1.6;color:#1a1c1c">
-        <h1>Gaurav Nagarkoti</h1>
+        <p style="font-size:1.5rem;font-weight:700;margin:0 0 0.5rem">Gaurav Nagarkoti</p>
         <p>Technology Consultant · Software Architect · Automation Engineer</p>
         <p>
           I build software that helps businesses grow faster — architecture, automation, and systems
@@ -53,7 +64,7 @@
           <li><a href="/contact">Contact</a></li>
           <li><a href="/sitemap">Sitemap</a></li>
         </ul>
-        <p>Email: <a href="mailto:gauravnagarkoti08@gmail.com">gauravnagarkoti08@gmail.com</a></p>
+        <p>Email: <a href="mailto:gauravnagarkoti08&#64;gmail.com">gauravnagarkoti08&#64;gmail.com</a></p>
       </main>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>

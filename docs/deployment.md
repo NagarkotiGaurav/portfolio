@@ -93,3 +93,15 @@ If live `robots.txt` shows **Cloudflare Managed** `Disallow` for GPTBot / Claude
 4. Keep rate limits / WAF protection on `/api/*` only — do not challenge static HTML for known good bots
 
 Also submit `https://gauravnagarkoti.tech/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+
+### www → apex (canonical host)
+
+SEO scanners fail when `www` and apex do not resolve to one URL.
+
+1. Cloudflare DNS: create `www` as CNAME to `gauravnagarkoti.tech` (proxied), **or** AAAA/A as needed
+2. Rules → Redirect Rules: `Hostname equals www.gauravnagarkoti.tech` → `https://gauravnagarkoti.tech${uri}` (301)
+3. SSL/TLS → Edge Certificates → enable **Always Use HTTPS** and **HSTS** (align with `public/_headers`)
+
+### Analytics
+
+Set `VITE_GA_MEASUREMENT_ID=G-XXXXXXXX` on the Cloudflare build/deploy environment, then redeploy.

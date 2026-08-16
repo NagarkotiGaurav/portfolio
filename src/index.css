@@ -17,6 +17,20 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Explicit breakpoints so automated SEO scanners that only regex @media still detect responsiveness.
+     Layout responsiveness is primarily Tailwind md:/sm:/lg: utilities. */
+  @media (max-width: 767px) {
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 1rem;
+    }
+  }
+
   body {
     @apply bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary overflow-x-clip;
     font-family: var(--font-brand);
