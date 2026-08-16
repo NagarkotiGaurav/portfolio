@@ -12,7 +12,8 @@ const industries = [
       'Data silos across legacy EMRs, stringent HIPAA compliance requirements, and high-latency patient data retrieval impacting clinical decisions.',
     solutions:
       'FHIR-compliant interoperability layers, zero-trust architecture data pipelines, and real-time clinical decision support interfaces.',
-    results: '40% reduction in data retrieval latency. 100% compliance audit pass rate.',
+    results:
+      'Typical focus: lower retrieval latency for clinical workflows and clearer audit-ready data paths—outcomes scoped per engagement.',
   },
   {
     num: '02',
@@ -21,7 +22,8 @@ const industries = [
       'Opaque supply chain nodes, inefficient last-mile routing algorithms, and disjointed inventory forecasting.',
     solutions:
       'Event-driven architecture for real-time tracking, predictive AI routing models, and automated ledger consensus.',
-    results: '22% increase in last-mile efficiency. 99.9% real-time tracking accuracy.',
+    results:
+      'Typical focus: tighter last-mile visibility and inventory/order sync—measured against your operational KPIs after discovery.',
   },
   {
     num: '03',
@@ -30,7 +32,8 @@ const industries = [
       'Technical debt in monolithic core systems, fractured identity management, and slow deployment cycles.',
     solutions:
       'Microservices strangler fig migration, federated IAM implementation, and automated CI/CD pipeline orchestration.',
-    results: '3x faster deployment frequency. 60% reduction in identity-related support tickets.',
+    results:
+      'Typical focus: safer modernization paths, clearer identity boundaries, and faster release cadence without big-bang rewrites.',
   },
   {
     num: '04',
@@ -39,7 +42,8 @@ const industries = [
       'Lack of shop-floor visibility, reactive equipment maintenance, and disconnected IT/OT environments.',
     solutions:
       'IoT sensor integration pipelines, predictive maintenance machine learning models, and unified SCADA dashboards.',
-    results: '15% reduction in unplanned downtime. Granular yield tracking enabled.',
+    results:
+      'Typical focus: better shop-floor visibility and maintenance signals—specific gains defined with plant and IT stakeholders.',
   },
 ]
 

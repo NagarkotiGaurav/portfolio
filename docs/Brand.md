@@ -15,6 +15,9 @@
 Primary: **Book a Strategy Call**. Secondary actions use outline style (See Work, Related Work).
 
 ## Trust signals
-Projects delivered, years experience, technologies, availability, process clarity, architecture-first delivery, beta honesty when unfinished.
+Qualitative proof on the homepage (engagement model, focus, ownership, reach, availability). Do not invent project counts or satisfaction % until you can substantiate them.
 
 Source of truth in code: `src/content/brandNarrative.js`.
+
+## Profiles (manual)
+Set real HTTPS URLs in `BRAND.profiles` (`src/data/site.js`) for LinkedIn, GitHub, and X. Empty values are omitted from schema and footer.

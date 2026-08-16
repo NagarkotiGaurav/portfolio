@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import { PAGE_META, buildOrganizationJsonLd, getPageMeta } from './seo'
+import {
+  PAGE_META,
+  buildBreadcrumbJsonLd,
+  buildFaqJsonLd,
+  buildOrganizationJsonLd,
+  getPageMeta,
+} from './seo'
 import { SOLUTION_DOMAINS, SOLUTIONS } from './solutions'
+import { CONTACT_FAQS } from './faq'
+import { getSameAs } from './site'
 
 describe('seo metadata', () => {
   it('defines meta for every primary marketing route', () => {
@@ -29,14 +37,31 @@ describe('seo metadata', () => {
     expect(getPageMeta('/does-not-exist').noindex).toBe(true)
   })
 
-  it('builds Person + ProfessionalService JSON-LD', () => {
-    const ld = buildOrganizationJsonLd()
+  it('builds Person + ProfessionalService + WebSite JSON-LD', () => {
+    const ld = buildOrganizationJsonLd('/')
     expect(ld['@graph']).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ '@type': 'Person', name: 'Gaurav Nagarkoti' }),
         expect.objectContaining({ '@type': 'ProfessionalService' }),
+        expect.objectContaining({ '@type': 'WebSite' }),
       ]),
     )
+    expect(getSameAs()).toContain('https://gauravnagarkoti.tech')
+  })
+
+  it('adds BreadcrumbList on nested routes', () => {
+    const crumb = buildBreadcrumbJsonLd('/solutions')
+    expect(crumb['@type']).toBe('BreadcrumbList')
+    expect(crumb.itemListElement).toHaveLength(2)
+    expect(buildBreadcrumbJsonLd('/')).toBeNull()
+  })
+
+  it('adds FAQPage schema on contact', () => {
+    const ld = buildOrganizationJsonLd('/contact')
+    expect(ld['@graph']).toEqual(
+      expect.arrayContaining([expect.objectContaining({ '@type': 'FAQPage' })]),
+    )
+    expect(buildFaqJsonLd().mainEntity).toHaveLength(CONTACT_FAQS.length)
   })
 })
 

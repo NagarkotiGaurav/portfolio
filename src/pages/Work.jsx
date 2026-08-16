@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { assertSceneBudget } from '../motion/SceneRegistry'
-import { PageHero, Parallax, PrimaryCTA, RevealMetrics, ScrollOnce } from '../motion/patterns'
+import { PageHero, Parallax, PrimaryCTA, ScrollOnce } from '../motion/patterns'
 import { Narrative } from '../content/brandNarrative'
 
 const tabs = [
@@ -98,29 +98,16 @@ export default function Work() {
             </div>
             <div className="mt-8 pt-8 border-t border-outline-variant">
               <h3 className="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">
-                Results
+                Focus
               </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <RevealMetrics
-                    value="99.999%"
-                    className="font-headline-sm text-headline-sm text-primary block"
-                  />
-                  <div className="font-mono-data text-mono-data text-on-surface-variant">
-                    Uptime SLA
-                  </div>
-                </div>
-                <div>
-                  <RevealMetrics
-                    value="45"
-                    suffix="ms"
-                    className="font-headline-sm text-headline-sm text-primary block"
-                  />
-                  <div className="font-mono-data text-mono-data text-on-surface-variant">
-                    P99 Latency
-                  </div>
-                </div>
-              </div>
+              <ul className="space-y-3 font-body-md text-body-md text-on-surface">
+                <li>Peak-load payment path redesign</li>
+                <li>Event-driven services on AWS</li>
+                <li>Clearer failure modes under traffic spikes</li>
+              </ul>
+              <p className="mt-4 font-mono-data text-mono-data text-on-surface-variant">
+                Detailed metrics and client references are added as case studies are published.
+              </p>
             </div>
           </ScrollOnce>
         </div>

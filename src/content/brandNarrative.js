@@ -16,11 +16,12 @@ export const Narrative = {
     primary: 'Book a Strategy Call',
     secondary: 'See Selected Work',
   },
+  // Qualitative proof only until you can substantiate numeric claims (E-E-A-T).
   trustSignals: [
-    { id: 'projects', label: 'Projects Delivered', value: '120+' },
-    { id: 'years', label: 'Years Experience', value: '12' },
-    { id: 'tech', label: 'Technologies', value: '15+' },
-    { id: 'satisfaction', label: 'Client Satisfaction', value: '99%' },
+    { id: 'model', label: 'Engagement', value: 'Independent' },
+    { id: 'focus', label: 'Focus', value: 'Architecture' },
+    { id: 'ownership', label: 'Outcome', value: 'Systems you own' },
+    { id: 'reach', label: 'Reach', value: 'Remote worldwide' },
     { id: 'availability', label: 'Availability', value: 'Accepting new projects' },
   ],
   roles: BRAND.roles,

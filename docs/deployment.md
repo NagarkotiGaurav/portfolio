@@ -74,3 +74,22 @@ curl -s -X POST https://gauravnagarkoti.tech/api/contact \
 ```
 
 `functions/api/contact.js` remains for optional Pages Functions; production path with your current CI is **`worker.js` + `wrangler deploy`**.
+
+## SEO / AI crawl (manual Cloudflare steps)
+
+After deploy, confirm:
+
+```bash
+curl -sI https://gauravnagarkoti.tech/sitemap.xml
+curl -sI https://gauravnagarkoti.tech/llms.txt
+curl -s https://gauravnagarkoti.tech/robots.txt | head -n 80
+```
+
+If live `robots.txt` shows **Cloudflare Managed** `Disallow` for GPTBot / ClaudeBot / Google-Extended while your repo Allows them:
+
+1. Cloudflare Dashboard → domain → **AI Crawl Control** (or Bot / robots management)
+2. Allow crawlers you want for answer/search visibility
+3. Re-fetch live `robots.txt` and confirm it matches intent
+4. Keep rate limits / WAF protection on `/api/*` only — do not challenge static HTML for known good bots
+
+Also submit `https://gauravnagarkoti.tech/sitemap.xml` in Google Search Console and Bing Webmaster Tools.

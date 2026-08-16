@@ -69,7 +69,7 @@ export function usePageMeta(overridePath) {
     upsertMeta('name', 'twitter:description', meta.description)
     upsertMeta('name', 'twitter:image', image)
 
-    upsertJsonLd('org-jsonld', buildOrganizationJsonLd())
+    upsertJsonLd('org-jsonld', buildOrganizationJsonLd(path))
 
     logger.debug('seo.meta_applied', { path: meta.path, title: meta.title })
   }, [path])

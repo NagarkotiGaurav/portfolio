@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Icon from '../components/Icon'
 import { BRAND, getCalendlyUrl } from '../data/site'
+import { CONTACT_FAQS } from '../data/faq'
 import { usePageMeta } from '../hooks/usePageMeta'
 import {
   CONTACT_BUDGETS,
@@ -433,6 +434,35 @@ export default function Contact() {
           )}
         </ScrollOnce>
       </div>
+
+      <section
+        className="mt-section-gap md:mt-section-gap-lg max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop pb-section-gap md:pb-section-gap-lg"
+        aria-labelledby="contact-faq-heading"
+      >
+        <ScrollOnce>
+          <h2
+            id="contact-faq-heading"
+            className="font-headline-md text-headline-md text-primary mb-8"
+          >
+            Frequently asked questions
+          </h2>
+          <dl className="space-y-6 max-w-3xl">
+            {CONTACT_FAQS.map((faq) => (
+              <div
+                key={faq.question}
+                className="border-b border-outline-variant pb-6 last:border-b-0"
+              >
+                <dt className="font-headline-sm text-headline-sm text-on-surface mb-2">
+                  {faq.question}
+                </dt>
+                <dd className="font-body-md text-body-md text-on-surface-variant m-0">
+                  {faq.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </ScrollOnce>
+      </section>
       </div>
     </div>
   )

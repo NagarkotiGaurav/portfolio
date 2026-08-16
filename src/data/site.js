@@ -10,7 +10,15 @@ export const BRAND = {
   valueProposition: 'I build software that helps businesses grow faster.',
   email: 'gauravnagarkoti08@gmail.com',
   location: 'Remote · Worldwide',
-  sameAs: ['https://gauravnagarkoti.tech'],
+  /**
+   * External profiles for Person `sameAs` + footer.
+   * Fill real HTTPS profile URLs (leave blank until ready — empty values are omitted).
+   */
+  profiles: {
+    linkedin: '',
+    github: '',
+    x: '',
+  },
   /** Visual system (Stitch Alabaster tokens, personal brand). */
   designSystem: 'Gaurav Nagarkoti',
   /** Site is publicly viewable but still under active development. */
@@ -18,6 +26,23 @@ export const BRAND = {
   betaLabel: 'Beta',
   betaNotice:
     'This site is in beta. Content, case studies, and metrics may change; nothing here is a guarantee, offer, or formal professional advice until confirmed in writing.',
+}
+
+/** Absolute profile URLs for schema + footer (site origin always included). */
+export function getSameAs() {
+  const siteUrl = getSiteUrl()
+  const fromProfiles = Object.values(BRAND.profiles || {}).filter(
+    (url) => typeof url === 'string' && /^https?:\/\//i.test(url.trim()),
+  )
+  return [...new Set([siteUrl, ...fromProfiles.map((u) => u.trim())])]
+}
+
+/** Footer / UI list of labeled external profiles (only configured ones). */
+export function getSocialLinks() {
+  const labels = { linkedin: 'LinkedIn', github: 'GitHub', x: 'X' }
+  return Object.entries(BRAND.profiles || {})
+    .filter(([, url]) => typeof url === 'string' && /^https?:\/\//i.test(url.trim()))
+    .map(([id, url]) => ({ id, label: labels[id] || id, href: url.trim() }))
 }
 
 export const NAV_LINKS = [
