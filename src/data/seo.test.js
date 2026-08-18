@@ -6,6 +6,7 @@ import {
   buildOrganizationJsonLd,
   getPageMeta,
 } from './seo'
+import { getBreadcrumbTrail } from './pageMeta'
 import { SOLUTION_DOMAINS, SOLUTIONS } from './solutions'
 import { CONTACT_FAQS } from './faq'
 import { getSameAs } from './site'
@@ -50,10 +51,27 @@ describe('seo metadata', () => {
   })
 
   it('adds BreadcrumbList on nested routes', () => {
+    expect(getBreadcrumbTrail('/')).toEqual([])
+    expect(getBreadcrumbTrail('/solutions')).toEqual([
+      { name: 'Home', path: '/' },
+      { name: 'Solutions', path: '/solutions' },
+    ])
+    expect(getBreadcrumbTrail('/solutions/custom-software-development')).toEqual([
+      { name: 'Home', path: '/' },
+      { name: 'Solutions', path: '/solutions' },
+      { name: 'Custom Software Development', path: '/solutions/custom-software-development' },
+    ])
+    expect(getBreadcrumbTrail('/404')).toEqual([])
+
     const crumb = buildBreadcrumbJsonLd('/solutions')
     expect(crumb['@type']).toBe('BreadcrumbList')
     expect(crumb.itemListElement).toHaveLength(2)
+    expect(crumb.itemListElement[0].name).toBe('Home')
+    expect(crumb.itemListElement[1].name).toBe('Solutions')
     expect(buildBreadcrumbJsonLd('/')).toBeNull()
+    expect(buildBreadcrumbJsonLd('/work/multi-payment-gateway-architecture').itemListElement).toHaveLength(
+      3,
+    )
   })
 
   it('adds FAQPage schema on contact', () => {

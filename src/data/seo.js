@@ -1,8 +1,8 @@
 import { CONTACT_FAQS } from './faq'
-import { PAGE_META } from './pageMeta'
+import { PAGE_META, getBreadcrumbTrail } from './pageMeta'
 import { BRAND, getSameAs, getSiteUrl } from './site'
 
-export { PAGE_META, PRERENDER_PATHS } from './pageMeta'
+export { PAGE_META, PRERENDER_PATHS, getBreadcrumbTrail } from './pageMeta'
 
 export function getPageMeta(pathname) {
   const normalized = pathname === '' ? '/' : pathname.replace(/\/$/, '') || '/'
@@ -11,28 +11,18 @@ export function getPageMeta(pathname) {
 
 export function buildBreadcrumbJsonLd(pathname) {
   const siteUrl = getSiteUrl()
-  const meta = getPageMeta(pathname)
-  if (meta.noindex || meta.path === '/') return null
-
-  const items = [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: `${siteUrl}/`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: meta.title.split('|')[0].trim(),
-      item: `${siteUrl}${meta.path}`,
-    },
-  ]
+  const trail = getBreadcrumbTrail(pathname)
+  if (trail.length < 2) return null
 
   return {
     '@type': 'BreadcrumbList',
-    '@id': `${siteUrl}${meta.path}#breadcrumb`,
-    itemListElement: items,
+    '@id': `${siteUrl}${trail[trail.length - 1].path}#breadcrumb`,
+    itemListElement: trail.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.path === '/' ? `${siteUrl}/` : `${siteUrl}${crumb.path}`,
+    })),
   }
 }
 

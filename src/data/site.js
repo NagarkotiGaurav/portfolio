@@ -6,7 +6,7 @@ export const BRAND = {
   roles: ['Technology Consultant', 'Software Architect', 'Automation Engineer'],
   tagline: `© ${new Date().getFullYear()} Gaurav Nagarkoti. Software that businesses rely on.`,
   description:
-    'Gaurav Nagarkoti is a technology consultant and software architect who helps businesses build, automate, and scale systems they can rely on.',
+    'Gaurav Nagarkoti is a technology consultant and software architect who designs and builds custom software, web applications, business automation workflows, ERP integrations, and scalable digital systems.',
   valueProposition: 'I build software that helps businesses grow faster.',
   email: 'gauravnagarkoti08@gmail.com',
   location: 'Remote · Worldwide',

@@ -9,7 +9,7 @@
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { PAGE_META, PRERENDER_PATHS } from '../src/data/pageMeta.js'
+import { PAGE_META, PRERENDER_PATHS, getBreadcrumbTrail } from '../src/data/pageMeta.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
@@ -68,8 +68,26 @@ function buildNoscript(meta) {
     ([label, path]) =>
       `<li><a href="${path === '/' ? '/' : path}">${escapeHtml(label)}</a></li>`,
   ).join('\n          ')
+  const trail = getBreadcrumbTrail(meta.path)
+  const crumbs =
+    trail.length > 1
+      ? `<nav aria-label="Breadcrumb">
+          <ol>
+            ${trail
+              .map((crumb, index) => {
+                const last = index === trail.length - 1
+                const href = crumb.path === '/' ? '/' : crumb.path
+                return last
+                  ? `<li aria-current="page">${escapeHtml(crumb.name)}</li>`
+                  : `<li><a href="${href}">${escapeHtml(crumb.name)}</a></li>`
+              })
+              .join('\n            ')}
+          </ol>
+        </nav>`
+      : ''
   return `<noscript id="seo-noscript">
       <main style="max-width:40rem;margin:2rem auto;padding:0 1.25rem;font-family:system-ui,sans-serif;line-height:1.6;color:#1a1c1c">
+        ${crumbs}
         <h1>${escapeHtml(meta.h1)}</h1>
         <p>${escapeHtml(meta.crawlText)}</p>
         <p>${escapeHtml(meta.description)}</p>

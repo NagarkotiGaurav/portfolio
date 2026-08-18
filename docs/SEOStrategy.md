@@ -2,7 +2,8 @@
 
 - Personal brand titles/descriptions per route (`src/data/pageMeta.js` → `seo.js`)
 - **Build-time prerender** (`scripts/prerender-routes.mjs`) writes unique `dist/<route>/index.html` shells so crawlers see distinct title, description, canonical, H1, and noscript body without JS
-- JSON-LD graph: Person + ProfessionalService + WebSite; BreadcrumbList on nested routes; FAQPage on `/contact`
+- JSON-LD graph: Person + ProfessionalService + WebSite; BreadcrumbList matching visible crumbs; FAQPage on `/contact`
+- Visible breadcrumbs (`src/components/Breadcrumbs.jsx`) on every page except home and 404: Home / Section / Page. Nested URLs (future `/solutions/[slug]`, `/work/[slug]`) include the hub.
 - Person `sameAs` from `getSameAs()` — site URL plus optional LinkedIn / GitHub / X in `BRAND.profiles`
 - Canonical via `VITE_SITE_URL` (https://gauravnagarkoti.tech)
 - `robots.txt` (standard Allow + Sitemap only) + `sitemap.xml` + `llms.txt` + `ads.txt`

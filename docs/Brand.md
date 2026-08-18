@@ -5,6 +5,7 @@
 - **Roles:** Technology Consultant · Software Architect · Automation Engineer
 - **Positioning:** Independent technical partner who builds software businesses rely on—not a 100-person agency.
 - **Value proposition:** I build software that helps businesses grow faster.
+- **Connector (services people search):** I design and build custom software, web applications, business automation workflows, ERP integrations, and scalable digital systems.
 
 ## Voice & tone
 - Direct, first-person, outcome-led.
