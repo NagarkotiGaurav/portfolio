@@ -104,7 +104,7 @@ SEO scanners fail when `www` and apex do not resolve to one URL.
 
 ### Analytics
 
-Set `VITE_GA_MEASUREMENT_ID=G-XXXXXXXX` on the Cloudflare build/deploy environment, then redeploy.
+Google Tag Manager **GTM-T45H6MZF** is in `index.html` (every page after deploy). Wire GA4 inside GTM; add a History Change or `virtual_page_view` trigger for SPA routes. Do not set `VITE_GA_MEASUREMENT_ID` while GTM is installed.
 
 ### Prerendered routes
 

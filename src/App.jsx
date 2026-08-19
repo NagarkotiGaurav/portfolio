@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
+import { trackPageView } from './lib/analytics'
 import { logger } from './lib/logger'
 
 const Home = lazy(() => import('./pages/Home'))
@@ -36,6 +37,7 @@ function RouteLogger() {
   const { pathname } = useLocation()
   useEffect(() => {
     logger.debug('route.view', { pathname })
+    trackPageView(pathname)
   }, [pathname])
   return null
 }

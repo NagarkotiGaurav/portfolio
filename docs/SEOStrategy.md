@@ -20,5 +20,5 @@ React sets meta client-side. Non-JS crawlers fetched the same `index.html` for e
 2. Cloudflare **AI Crawl Control / managed robots**: live `robots.txt` still prepends `Content-Signal:` and conflicting Disallow/Allow for AI bots. That triggers “robots.txt format errors” in some scanners. Prefer dashboard settings that don’t inject non-standard directives, or accept CF managed block + keep origin file simple.
 3. **www → apex** 301 + HSTS on www (subdomain HSTS notice).
 4. GSC/Bing: resubmit sitemap after deploy; request indexing on key URLs.
-5. Fill `BRAND.profiles`; set `VITE_GA_MEASUREMENT_ID` / Calendly when ready.
+5. Fill `BRAND.profiles`; set Calendly when ready. GA4 is loaded via GTM (`GTM-T45H6MZF`), not a separate gtag snippet.
 6. Long-term: real case-study and insight **body** content (word-count warnings).
