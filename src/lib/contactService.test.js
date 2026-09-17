@@ -4,7 +4,7 @@ import { ContactSubmissionError, submitContactInquiry } from './contactService'
 const validForm = {
   message: 'We need a payments platform rebuild for peak TPS.',
   problems: 'Latency under load',
-  industry: 'Fintech',
+  industry: 'Custom software',
   timeline: 'q1',
   budget: '250k',
   company: 'Acme Corp',

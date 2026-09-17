@@ -6,6 +6,8 @@ import useGsapScene from '../motion/hooks/useGsapScene'
 import { Motion } from '../design/motionTokens'
 import { PrimaryCTA, ScrollOnce } from '../motion/patterns'
 import { Narrative } from '../content/brandNarrative'
+import { getPageMeta } from '../data/seo'
+import { trackStrategyCall } from '../lib/analytics'
 
 const phases = [
   {
@@ -147,7 +149,7 @@ export default function Process() {
               Methodology
             </span>
             <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 tracking-tighter">
-              How I deliver.
+              {getPageMeta('/process').h1}
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
               A clear path from first conversation to production — so you always know what happens
@@ -195,7 +197,11 @@ export default function Process() {
           Tell me the objective and the constraint. I’ll map a clear path to execution.
         </p>
         <PrimaryCTA>
-          <Link to="/contact" className="btn-primary">
+          <Link
+            to="/contact"
+            className="btn-primary"
+            onClick={() => trackStrategyCall({ scene: 'process' })}
+          >
             {Narrative.ctaStyle.primary}
           </Link>
         </PrimaryCTA>

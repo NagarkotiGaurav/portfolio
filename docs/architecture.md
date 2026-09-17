@@ -22,6 +22,8 @@ src/
 
 Static site content → `src/data` → pages/components → browser
 
+Hire-intent service copy lives in `src/data/solutionPages.js`. Decision articles live in `src/data/articles.js`. Case studies live in `src/data/projects.js`. Hub cards in `src/data/solutions.js` link to `/solutions/[slug]`. Route screens: `SolutionDetail.jsx`, `InsightDetail.jsx`, `WorkDetail.jsx`.
+
 ## Performance notes
 
 - Route pages are `React.lazy` + `Suspense` in `App.jsx`; vendor chunk is `react` / `react-dom` / `react-router-dom`.
@@ -29,6 +31,6 @@ Static site content → `src/data` → pages/components → browser
 - Brand typography: Geist + Geist Mono via Google Fonts; latin Geist is preloaded in `index.html`.
 - Images live in `public/images/` with explicit width/height; LCP candidates use `fetchPriority="high"`.
 
-## Notes
+## Analytics
 
-Update this file when structure, routing, or major patterns change.
+Client events go `track()` → `dataLayer` → GTM **GTM-T45H6MZF** → GA4. SPA page views are explicit `virtual_page_view` from `usePageMeta` after `document.title` is set. Helpers and the PII allowlist live in `src/lib/analytics.js`. See `docs/AnalyticsStrategy.md`.

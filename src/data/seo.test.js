@@ -10,12 +10,19 @@ import { getBreadcrumbTrail } from './pageMeta'
 import { SOLUTION_DOMAINS, SOLUTIONS } from './solutions'
 import { CONTACT_FAQS } from './faq'
 import { getSameAs } from './site'
+import { SERVICE_PAGES, SERVICE_PATHS, getServicePage } from './solutionPages'
+import { ARTICLES, ARTICLE_PATHS, getArticle } from './articles'
+import { PROJECTS, PROJECT_PATHS, getProject } from './projects'
+import { PRERENDER_PATHS } from './pageMeta'
 
 describe('seo metadata', () => {
   it('defines meta for every primary marketing route', () => {
     const required = [
       '/',
       '/solutions',
+      ...SERVICE_PATHS,
+      ...ARTICLE_PATHS,
+      ...PROJECT_PATHS,
       '/work',
       '/industries',
       '/insights',
@@ -69,7 +76,7 @@ describe('seo metadata', () => {
     expect(crumb.itemListElement[0].name).toBe('Home')
     expect(crumb.itemListElement[1].name).toBe('Solutions')
     expect(buildBreadcrumbJsonLd('/')).toBeNull()
-    expect(buildBreadcrumbJsonLd('/work/multi-payment-gateway-architecture').itemListElement).toHaveLength(
+    expect(buildBreadcrumbJsonLd('/work/corporate-gifting-marketplace').itemListElement).toHaveLength(
       3,
     )
   })
@@ -80,6 +87,33 @@ describe('seo metadata', () => {
       expect.arrayContaining([expect.objectContaining({ '@type': 'FAQPage' })]),
     )
     expect(buildFaqJsonLd().mainEntity).toHaveLength(CONTACT_FAQS.length)
+  })
+
+  it('adds Article schema on insight pages', () => {
+    const path = '/insights/when-to-build-custom-software'
+    const ld = buildOrganizationJsonLd(path)
+    expect(ld['@graph']).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ '@type': 'Article', headline: getArticle('when-to-build-custom-software').h1 }),
+        expect.objectContaining({ '@type': 'FAQPage' }),
+      ]),
+    )
+  })
+
+  it('adds Service and FAQ schema on hire-intent service pages', () => {
+    const path = '/solutions/custom-software-development'
+    const ld = buildOrganizationJsonLd(path)
+    expect(ld['@graph']).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          '@type': 'Service',
+          name: 'Custom Software Development',
+        }),
+        expect.objectContaining({ '@type': 'FAQPage' }),
+      ]),
+    )
+    const person = ld['@graph'].find((node) => node['@type'] === 'Person')
+    expect(person.knowsAbout).toEqual(expect.arrayContaining(['Custom Software Development', 'ERP Integration']))
   })
 
   it('uses unique titles and descriptions across indexable routes', () => {
@@ -101,6 +135,68 @@ describe('solutions catalog', () => {
     expect(SOLUTIONS).toHaveLength(6)
     for (const domain of SOLUTION_DOMAINS) {
       expect(SOLUTIONS.find((s) => s.id === domain.id)).toBeTruthy()
+    }
+  })
+
+  it('links hub domains to dedicated service URLs', () => {
+    for (const solution of SOLUTIONS) {
+      expect(solution.href).toMatch(/^\/solutions\//)
+      expect(PAGE_META[solution.href]).toBeTruthy()
+    }
+  })
+})
+
+describe('case studies', () => {
+  it('defines named work pages that are prerendered', () => {
+    expect(PROJECTS).toHaveLength(7)
+    for (const project of PROJECTS) {
+      expect(getProject(project.slug)?.path).toBe(project.path)
+      expect(PAGE_META[project.path].h1).toBe(project.h1)
+      expect(PRERENDER_PATHS).toContain(project.path)
+      expect(project.answerBlock.length).toBeGreaterThan(80)
+      expect(project.faqs.length).toBeGreaterThan(0)
+      expect(project.slug).not.toMatch(/ideacraft|jcb|lenskandy|ania/i)
+      expect(project.liveUrls).toEqual([])
+    }
+  })
+
+  it('adds CreativeWork schema on case-study pages', () => {
+    const path = '/work/corporate-gifting-marketplace'
+    const ld = buildOrganizationJsonLd(path)
+    expect(ld['@graph']).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          '@type': 'CreativeWork',
+          headline: getProject('corporate-gifting-marketplace').h1,
+        }),
+        expect.objectContaining({ '@type': 'FAQPage' }),
+      ]),
+    )
+  })
+})
+
+describe('insight articles', () => {
+  it('defines decision-cluster pages that are prerendered', () => {
+    expect(ARTICLES).toHaveLength(3)
+    for (const article of ARTICLES) {
+      expect(getArticle(article.slug)?.path).toBe(article.path)
+      expect(PAGE_META[article.path].h1).toBe(article.h1)
+      expect(PRERENDER_PATHS).toContain(article.path)
+      expect(article.answerBlock.length).toBeGreaterThan(80)
+    }
+  })
+})
+
+describe('service pages', () => {
+  it('defines six unique hire-intent pages that are prerendered', () => {
+    expect(SERVICE_PAGES).toHaveLength(6)
+    expect(new Set(SERVICE_PAGES.map((page) => page.slug)).size).toBe(6)
+    for (const page of SERVICE_PAGES) {
+      expect(getServicePage(page.slug)?.path).toBe(page.path)
+      expect(PAGE_META[page.path].h1).toBe(page.h1)
+      expect(PRERENDER_PATHS).toContain(page.path)
+      expect(page.answerBlock.length).toBeGreaterThan(80)
+      expect(page.faqs.length).toBeGreaterThan(1)
     }
   })
 })

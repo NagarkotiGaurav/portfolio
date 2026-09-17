@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { buildOrganizationJsonLd, getPageMeta } from '../data/seo'
-import { getSiteUrl } from '../data/site'
+import { getOgImageUrl, getSiteUrl } from '../data/site'
+import { trackPageView } from '../lib/analytics'
 import { logger } from '../lib/logger'
 
 function upsertMeta(attr, key, content) {
@@ -49,7 +50,7 @@ export function usePageMeta(overridePath) {
     const meta = getPageMeta(path)
     const siteUrl = getSiteUrl()
     const canonical = `${siteUrl}${meta.path === '/' ? '/' : meta.path}`
-    const image = `${siteUrl}/images/work-case-study-01.jpg`
+    const image = getOgImageUrl()
 
     document.title = meta.title
     upsertMeta('name', 'description', meta.description)
@@ -72,5 +73,6 @@ export function usePageMeta(overridePath) {
     upsertJsonLd('org-jsonld', buildOrganizationJsonLd(path))
 
     logger.debug('seo.meta_applied', { path: meta.path, title: meta.title })
+    trackPageView(meta.path)
   }, [path])
 }

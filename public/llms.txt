@@ -1,16 +1,38 @@
 # Gaurav Nagarkoti
 
-> Technology consultant and software architect. I build software that helps businesses grow faster — architecture, automation, and systems companies can rely on.
+> Independent software architect based in India. Remote work with US, UK, and European operators. Custom software, commerce platforms, internal HR/CRM systems, WhatsApp/n8n automation, and AI learning products. English. USD. Systems the client team owns.
 
-Independent consultant (not an agency). Focus: clear, scalable systems operators can own after launch. Primary contact: gauravnagarkoti08@gmail.com. Site: https://gauravnagarkoti.tech
+Not an agency. Not staff augmentation. Not managed IT. Primary contact: gauravnagarkoti08@gmail.com. Site: https://gauravnagarkoti.tech
+
+## Services
+
+- [Custom software development](https://gauravnagarkoti.tech/solutions/custom-software-development): Owned business software — not vendor lock-in
+- [Web application development](https://gauravnagarkoti.tech/solutions/web-application-development): Operator dashboards and product platforms
+- [Business automation](https://gauravnagarkoti.tech/solutions/business-automation): Workflows that replace manual ops
+- [ERP and Odoo integration](https://gauravnagarkoti.tech/solutions/erp-odoo-integration): Data contracts between ERP, commerce, and CRM
+- [Ecommerce and payments](https://gauravnagarkoti.tech/solutions/ecommerce-payments): Checkout, gateways, and order flows under load
+- [Software architecture](https://gauravnagarkoti.tech/solutions/software-architecture): Reviews and blueprints the team can implement
+
+## Work
+
+- [Corporate gifting marketplace](https://gauravnagarkoti.tech/work/corporate-gifting-marketplace): Marketplace + regional storefront (client confidential)
+- [Licensed brand merchandise](https://gauravnagarkoti.tech/work/licensed-brand-merchandise): Official merch ecommerce (client confidential)
+- [Internal HRMS](https://gauravnagarkoti.tech/work/internal-hrms-platform): Owned HR platform (client confidential)
+- [Internal CRM](https://gauravnagarkoti.tech/work/internal-crm-platform): Owned commercial CRM (client confidential)
+- [WhatsApp + n8n](https://gauravnagarkoti.tech/work/n8n-whatsapp-automation): Operations automation (client confidential)
+- [Eyewear ecommerce](https://gauravnagarkoti.tech/work/eyewear-ecommerce): Catalog commerce (client confidential)
+- [AI personal tutor](https://gauravnagarkoti.tech/work/ai-personal-tutor): Self-paced learning and quizzes (client confidential)
 
 ## Pages
 
 - [Home](https://gauravnagarkoti.tech/): Positioning, services overview, and strategy-call CTA
-- [Solutions](https://gauravnagarkoti.tech/solutions): Software, AI & automation, process, ERP, commerce, and cloud
-- [Work](https://gauravnagarkoti.tech/work): Selected case studies and engineering outcomes
+- [Solutions](https://gauravnagarkoti.tech/solutions): Index of software consulting services
+- [Work](https://gauravnagarkoti.tech/work): Case studies
 - [Industries](https://gauravnagarkoti.tech/industries): Sector-specific systems and domain constraints
-- [Insights](https://gauravnagarkoti.tech/insights): Architecture and engineering strategy writing
+- [Insights](https://gauravnagarkoti.tech/insights): Decision writing on build vs buy and how to hire
+- [When to build custom software](https://gauravnagarkoti.tech/insights/when-to-build-custom-software): Constraint-first test for build vs buy
+- [Custom software vs SaaS](https://gauravnagarkoti.tech/insights/custom-software-vs-saas-buy): Ownership, switching cost, wrap-the-product
+- [Agency vs independent architect](https://gauravnagarkoti.tech/insights/agency-vs-independent-architect): Person vs program
 - [Process](https://gauravnagarkoti.tech/process): Delivery lifecycle from discovery to support
 - [Why Me](https://gauravnagarkoti.tech/resources): Partnership model and how engagements work
 - [Contact](https://gauravnagarkoti.tech/contact): Book a strategy call

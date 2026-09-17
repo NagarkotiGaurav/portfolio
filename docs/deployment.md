@@ -104,15 +104,16 @@ SEO scanners fail when `www` and apex do not resolve to one URL.
 
 ### Analytics
 
-Google Tag Manager **GTM-T45H6MZF** is in `index.html` (every page after deploy). Wire GA4 inside GTM; add a History Change or `virtual_page_view` trigger for SPA routes. Do not set `VITE_GA_MEASUREMENT_ID` while GTM is installed.
+Google Tag Manager **GTM-T45H6MZF** is in `index.html` (every page after deploy). Wire GA4 inside GTM. Use a Custom Event trigger on `virtual_page_view` for SPA routes (the app owns page views). Do **not** also use a History Change trigger, and do not set `VITE_GA_MEASUREMENT_ID` while GTM is installed. Mark only `lead_created` and `cta_strategy_call` as GA4 conversions. Details: `docs/AnalyticsStrategy.md`.
 
 ### Prerendered routes
 
 `npm run build` writes unique HTML under `dist/<route>/index.html` (title, description, canonical, H1). After deploy, verify:
 
 ```bash
-curl -s https://gauravnagarkoti.tech/solutions | grep -o '<title>[^<]*</title>'
-curl -s https://gauravnagarkoti.tech/work | grep -o '<title>[^<]*</title>'
+curl -s https://gauravnagarkoti.tech/solutions/custom-software-development | grep -o '<title>[^<]*</title>'
+curl -s https://gauravnagarkoti.tech/insights/when-to-build-custom-software | grep -o '<title>[^<]*</title>'
+curl -s https://gauravnagarkoti.tech/ | grep 'application/ld+json'
 ```
 
 Titles must differ. If both show the home title, the Worker is still serving only the root SPA shell—confirm assets include the prerendered folders.

@@ -2,13 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { SOLUTION_DOMAINS, SOLUTIONS } from '../data/solutions'
+import { getPageMeta } from '../data/seo'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { assertSceneBudget } from '../motion/SceneRegistry'
 import { Atmosphere, Parallax, PrimaryCTA, ScrollOnce } from '../motion/patterns'
 import { Narrative } from '../content/brandNarrative'
+import { trackStrategyCall } from '../lib/analytics'
 
 export default function Solutions() {
   usePageMeta('/solutions')
+  const hub = getPageMeta('/solutions')
   assertSceneBudget('solutions', ['domainStory', 'cta'])
   const [activeId, setActiveId] = useState(SOLUTION_DOMAINS[0].id)
   const clickingRef = useRef(false)
@@ -100,11 +103,11 @@ export default function Solutions() {
               <span className="w-2 h-2 rounded-full bg-outline-variant" /> WHAT I BUILD
             </span>
             <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
-              Build software that gives your business a competitive advantage.
+              {hub.h1}
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
-              Six domains. One focus: turn operational friction into systems that ship, scale, and
-              stay maintainable after I hand them over.
+              Six domains. Dedicated pages for custom software, web applications, automation, ERP
+              integration, commerce, and architecture — systems your team can own after launch.
             </p>
           </div>
         </div>
@@ -201,10 +204,10 @@ export default function Solutions() {
                     </div>
                   </div>
                   <Link
-                    to="/work"
+                    to={s.href || '/work'}
                     className="inline-flex items-center gap-2 font-mono-data text-mono-data text-primary hover:opacity-80 transition-opacity mt-8 lg:mt-0 uppercase"
                   >
-                    Related Work <Icon name="arrow_forward" />
+                    Open this service <Icon name="arrow_forward" />
                   </Link>
                   {s.proof && (
                     <p className="font-mono-data text-mono-data text-on-surface-variant mt-4">
@@ -233,12 +236,16 @@ export default function Solutions() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
               <PrimaryCTA>
-                <Link to="/contact" className="btn-primary shadow-sm">
+                <Link
+                  to="/contact"
+                  className="btn-primary shadow-sm"
+                  onClick={() => trackStrategyCall({ scene: 'solutions' })}
+                >
                   {Narrative.ctaStyle.primary}
                 </Link>
               </PrimaryCTA>
-              <Link to="/work" className="btn-outline">
-                See Related Work
+              <Link to="/process" className="btn-outline">
+                How I deliver
               </Link>
             </div>
           </ScrollOnce>

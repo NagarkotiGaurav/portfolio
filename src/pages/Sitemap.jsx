@@ -1,19 +1,46 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { SERVICE_PAGES } from '../data/solutionPages'
+import { ARTICLES } from '../data/articles'
+import { PROJECTS } from '../data/projects'
 
 const SECTIONS = [
   {
     title: 'Main',
     links: [
-      { to: '/', label: 'Home', blurb: 'Gaurav Nagarkoti — technology consultant overview' },
-      { to: '/solutions', label: 'Solutions', blurb: 'Software, AI, process, ERP, commerce, cloud' },
-      { to: '/work', label: 'Work', blurb: 'Case studies and engineering outcomes' },
+      { to: '/', label: 'Home', blurb: 'Gaurav Nagarkoti — custom software and architecture consultant' },
+      { to: '/solutions', label: 'Solutions', blurb: 'Software consulting services index' },
+      { to: '/work', label: 'Work', blurb: 'Shipped case studies — commerce, internal systems, automation, AI' },
       { to: '/industries', label: 'Industries', blurb: 'Healthcare, logistics, enterprise, manufacturing' },
       { to: '/insights', label: 'Insights', blurb: 'Architecture and strategy analysis' },
       { to: '/process', label: 'Process', blurb: 'How delivery works, step by step' },
       { to: '/resources', label: 'Why Me', blurb: 'Partnership model and philosophy' },
       { to: '/contact', label: 'Contact', blurb: 'Book a strategy call' },
     ],
+  },
+  {
+    title: 'Services',
+    links: SERVICE_PAGES.map((page) => ({
+      to: page.path,
+      label: page.serviceName,
+      blurb: page.description,
+    })),
+  },
+  {
+    title: 'Work',
+    links: PROJECTS.map((page) => ({
+      to: page.path,
+      label: page.crumb,
+      blurb: page.description,
+    })),
+  },
+  {
+    title: 'Insights',
+    links: ARTICLES.map((page) => ({
+      to: page.path,
+      label: page.crumb,
+      blurb: page.description,
+    })),
   },
   {
     title: 'Legal',
@@ -52,7 +79,7 @@ export default function SitemapPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
         {SECTIONS.map((section) => (
           <div key={section.title}>
             <h2 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6 border-b border-outline-variant pb-2">

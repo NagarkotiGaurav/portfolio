@@ -2,55 +2,107 @@
  * Per-route SEO metadata (shared by React meta hook + build-time prerender).
  * Keep titles unique; descriptions unique; h1/crawlText for non-JS crawlers.
  */
+import { SERVICE_PAGES, SERVICE_PATHS } from './solutionPages.js'
+import { ARTICLES, ARTICLE_PATHS } from './articles.js'
+import { PROJECTS, PROJECT_PATHS } from './projects.js'
+
+function servicePageMeta() {
+  return Object.fromEntries(
+    SERVICE_PAGES.map((page) => [
+      page.path,
+      {
+        title: page.title,
+        description: page.description,
+        path: page.path,
+        h1: page.h1,
+        crawlText: page.crawlText,
+        crumb: page.crumb,
+      },
+    ]),
+  )
+}
+
+function articlePageMeta() {
+  return Object.fromEntries(
+    ARTICLES.map((page) => [
+      page.path,
+      {
+        title: page.title,
+        description: page.description,
+        path: page.path,
+        h1: page.h1,
+        crawlText: page.crawlText,
+        crumb: page.crumb,
+      },
+    ]),
+  )
+}
+
+function projectPageMeta() {
+  return Object.fromEntries(
+    PROJECTS.map((page) => [
+      page.path,
+      {
+        title: page.title,
+        description: page.description,
+        path: page.path,
+        h1: page.h1,
+        crawlText: page.crawlText,
+        crumb: page.crumb,
+      },
+    ]),
+  )
+}
+
 export const PAGE_META = {
   '/': {
-    title: 'Gaurav Nagarkoti | Tech Consultant & Architect',
+    title: 'Gaurav Nagarkoti | Custom Software Architect for US, UK & EU Teams',
     description:
-      'Independent technology consultant and software architect. I design and build architecture, automation, and reliable systems that help businesses grow faster—from discovery to production.',
+      'Independent software architect for US, UK, and European operators. Custom software, commerce, automation, and internal platforms — remote, English, USD. Book a strategy call.',
     path: '/',
     h1: 'I build software that helps businesses grow faster.',
     crawlText:
-      'Gaurav Nagarkoti is an independent technology consultant and software architect. Architecture, automation, cloud and DevOps, ERP and commerce systems—built so your team can operate them after launch. Book a strategy call to discuss your next system.',
+      'Gaurav Nagarkoti is an independent software architect based in India, working remotely with operators in the United States, United Kingdom, and Europe. Custom software, web applications, business automation, ERP integrations, ecommerce, and internal platforms — English delivery, USD engagements, systems your team owns. Book a strategy call.',
     crumb: 'Home',
   },
   '/solutions': {
-    title: 'Solutions | Software, AI & Automation — Gaurav Nagarkoti',
+    title: 'Software Consulting Services | Gaurav Nagarkoti',
     description:
-      'Outcome-led engineering across software, AI & automation, process, ERP, commerce, and cloud — built for business leverage.',
+      'Custom software, web applications, business automation, ERP integration, commerce, and architecture — independent delivery, not a layered agency.',
     path: '/solutions',
-    h1: 'Solutions for software, AI, and business systems.',
+    h1: 'Software systems for operators who need to own the stack.',
     crawlText:
-      'Explore consulting solutions across custom software development, AI and automation, business process systems, ERP and CRM, e-commerce integrations, and cloud DevOps. Each engagement starts with clarity on outcomes, constraints, and ownership.',
+      'Explore consulting solutions across custom software development, web applications, business automation, ERP and Odoo integration, ecommerce and payments, and software architecture. Each engagement starts with clarity on outcomes, constraints, and ownership.',
     crumb: 'Solutions',
   },
   '/work': {
     title: 'Work & Case Studies | Gaurav Nagarkoti',
     description:
-      'Selected technical work — architectures, systems, and measurable results from complex engineering engagements.',
+      'Shipped work under NDA: commerce platforms, internal HR/CRM systems, WhatsApp automation, and an AI tutor — constraints and architecture, not client names or vanity metrics.',
     path: '/work',
-    h1: 'Selected work. Built for impact.',
+    h1: 'Selected work. Built for operators.',
     crawlText:
-      'Case studies and selected engineering work from engagements where software had to hold up under real business pressure—payment paths, integrations, architecture realignment, and systems delivery.',
+      'Case studies from Gaurav Nagarkoti. Client names and domains withheld under NDA. Published work covers a corporate gifting marketplace, licensed merchandise ecommerce, internal HRMS and CRM, WhatsApp automation with n8n, eyewear catalog commerce, and an AI personal tutor. Architecture and constraints only.',
     crumb: 'Work',
   },
   '/industries': {
-    title: 'Industries | Domain Expertise — Gaurav Nagarkoti',
+    title: 'Industries | Domain Fit — Gaurav Nagarkoti',
     description:
-      'Sector-specific systems for healthcare, logistics, enterprise, and manufacturing — grounded in real operational constraints.',
+      'Where this work tends to show up: healthcare operations, logistics, enterprise modernization, and manufacturing visibility — without pretending every engagement is a certified industry program.',
     path: '/industries',
     h1: 'Industry systems shaped by real constraints.',
     crawlText:
-      'Domain-aware consulting for healthcare, logistics, enterprise, and manufacturing. Focus on interoperability, visibility, modernization paths, and operational reliability—not generic templates.',
+      'Software consulting that respects sector constraints in healthcare operations, logistics, enterprise systems, and manufacturing visibility. Industry pages describe fit, not a claim of named delivery in every standard.',
     crumb: 'Industries',
   },
   '/insights': {
     title: 'Insights | Architecture & Engineering Strategy — Gaurav Nagarkoti',
     description:
-      'Technical writing on software architecture, automation, and engineering decisions that affect business outcomes.',
+      'Decision writing on custom software vs SaaS, when to build, and when to hire an independent architect instead of an agency.',
     path: '/insights',
     h1: 'Insights on architecture and engineering strategy.',
     crawlText:
-      'Articles and notes on software architecture, automation, delivery process, and engineering decisions that affect growth, cost, and reliability. Written for operators and technical leaders.',
+      'Articles on when to build custom software, custom software versus SaaS, and agency versus independent architect. Written for operators who need a decision, then a path to implementation.',
     crumb: 'Insights',
   },
   '/process': {
@@ -66,21 +118,21 @@ export const PAGE_META = {
   '/resources': {
     title: 'Why Work With Me | Gaurav Nagarkoti',
     description:
-      'Architecture-first partnership: clarity, rigorous design, and software your team can operate long after launch.',
+      'Hire an independent architect for US, UK, and EU work: English, USD, overlap hours, architecture-first — not an offshore staff-aug bench.',
     path: '/resources',
-    h1: 'Why work with an independent architect.',
+    h1: 'You hire the architect — not a 100-person firm.',
     crawlText:
-      'Independent technology partnership—not a layered agency. Architecture-first delivery, direct communication, and software designed for long-term ownership by your team.',
+      'Why US, UK, and European operators hire Gaurav Nagarkoti: independent software architect based in India, remote English delivery, USD engagements, written decisions, and systems the client team owns. Not a layered agency and not staff augmentation.',
     crumb: 'Why Me',
   },
   '/contact': {
     title: 'Contact | Book a Strategy Call — Gaurav Nagarkoti',
     description:
-      'Start a conversation about your next system, product, or automation initiative. Typically responds within 24 hours.',
+      'Book a strategy call for custom software, automation, or internal platforms. Remote for US, UK, and EU operators. English. USD. Typical reply within 24 hours.',
     path: '/contact',
     h1: 'Let’s talk about the work.',
     crawlText:
-      'Contact Gaurav Nagarkoti to book a strategy call or send a project brief. Share what you are building and what is blocking you. Typical response within 24 hours. Remote engagements worldwide.',
+      'Contact Gaurav Nagarkoti to book a strategy call. Remote engagements for operators in the United States, United Kingdom, and Europe. English. Billed in USD. Typical response within 24 hours.',
     crumb: 'Contact',
   },
   '/privacy': {
@@ -108,7 +160,7 @@ export const PAGE_META = {
     path: '/sitemap',
     h1: 'Sitemap',
     crawlText:
-      'HTML sitemap listing public pages on gauravnagarkoti.tech including solutions, work, industries, insights, process, resources, contact, privacy, and terms.',
+      'HTML sitemap listing public pages on gauravnagarkoti.tech including solutions, dedicated service pages, work, industries, insights, process, resources, contact, privacy, and terms.',
     crumb: 'Sitemap',
   },
   '/404': {
@@ -120,6 +172,9 @@ export const PAGE_META = {
     crawlText: 'The page you requested could not be found. Return home or contact Gaurav Nagarkoti.',
     crumb: 'Not found',
   },
+  ...servicePageMeta(),
+  ...articlePageMeta(),
+  ...projectPageMeta(),
 }
 
 function normalizePath(pathname) {
@@ -170,9 +225,12 @@ export function getBreadcrumbTrail(pathname) {
 export const PRERENDER_PATHS = [
   '/',
   '/solutions',
+  ...SERVICE_PATHS,
   '/work',
+  ...PROJECT_PATHS,
   '/industries',
   '/insights',
+  ...ARTICLE_PATHS,
   '/process',
   '/resources',
   '/contact',

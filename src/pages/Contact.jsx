@@ -11,7 +11,7 @@ import {
   EMPTY_CONTACT_FORM,
 } from '../lib/contactValidation'
 import { ContactSubmissionError, submitContactInquiry } from '../lib/contactService'
-import { track } from '../lib/analytics'
+import { serviceSlugFromNeed, trackLeadCreated, trackStrategyCall } from '../lib/analytics'
 import { logger } from '../lib/logger'
 import { assertSceneBudget } from '../motion/SceneRegistry'
 import { Atmosphere, FocusHeadline, Parallax, ScrollOnce } from '../motion/patterns'
@@ -46,17 +46,13 @@ export default function Contact() {
 
     try {
       await submitContactInquiry(form, intent)
+      trackLeadCreated({
+        service: serviceSlugFromNeed(form.industry),
+        leadMethod: intent === 'schedule_call' ? 'schedule_call' : 'message',
+        budget: form.budget,
+      })
       setStatus('success')
       setForm(EMPTY_CONTACT_FORM)
-      track({
-        event: 'lead_created',
-        source: 'website',
-        service: 'consulting',
-        intent,
-        project: form.industry || form.message?.slice(0, 40) || '',
-        budget: form.budget || '',
-        industry: form.industry || '',
-      })
       logger.info('contact.ui_success', { intent })
     } catch (err) {
       if (err instanceof ContactSubmissionError && err.status === 400) {
@@ -83,6 +79,7 @@ export default function Contact() {
       return
     }
     logger.info('contact.calendly_open', { url: calendlyUrl })
+    trackStrategyCall({ scene: 'contact', location: 'form' })
     window.open(calendlyUrl, '_blank', 'noopener,noreferrer')
   }
 
@@ -108,8 +105,8 @@ export default function Contact() {
             lines={['Let’s talk', 'about the work.']}
           />
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">
-            Share what you’re building and what’s blocking you. I’ll respond personally — usually
-            within 24 hours.
+            Share the system that’s blocking you. Remote for US, UK, and EU operators — English, USD,
+            typically a reply within 24 hours.
           </p>
           <div className="space-y-6 lg:block">
             <div>
@@ -206,7 +203,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="form-label mb-4" id="industry-label">
-                    Industry domain
+                    What you need help with
                   </p>
                   <div
                     className="flex flex-wrap gap-2"

@@ -52,7 +52,7 @@ describe('validateContactForm', () => {
     const result = validateContactForm({
       message: '  We need a payments platform rebuild for peak TPS.  ',
       problems: ' Latency under load. ',
-      industry: 'Fintech',
+      industry: 'Custom software',
       timeline: 'q1',
       budget: '250k',
       company: '  Acme Corp ',
@@ -68,7 +68,7 @@ describe('validateContactForm', () => {
       expect(result.value.message).toMatch(/Roadblocks/)
       expect(result.value.company).toBe('Acme Corp')
       expect(result.value.email).toBe('ada@acme.test')
-      expect(result.value.industry).toBe('Fintech')
+      expect(result.value.industry).toBe('Custom software')
     }
   })
 })

@@ -12,6 +12,7 @@ export const SOLUTIONS = [
     id: 'software-dev',
     num: '01',
     title: 'Software Development',
+    href: '/solutions/custom-software-development',
     body: 'Custom software that becomes your advantage — not another vendor lock-in you’re stuck maintaining.',
     problems: [
       'Legacy systems that block every new initiative.',
@@ -26,6 +27,7 @@ export const SOLUTIONS = [
     id: 'ai-automation',
     num: '02',
     title: 'AI & Automation',
+    href: '/solutions/business-automation',
     body: 'Manual work is expensive. I engineer workflows that remove it — so your team focuses on growth.',
     problems: [
       'Repetitive tasks burning payroll every week.',
@@ -40,6 +42,7 @@ export const SOLUTIONS = [
     id: 'bpa',
     num: '03',
     title: 'Business Process',
+    href: '/solutions/business-automation',
     body: 'Replace email chaos with systems that move work forward — visibly, audibly, and on time.',
     problems: [
       'Approvals stuck in inboxes.',
@@ -54,6 +57,7 @@ export const SOLUTIONS = [
     id: 'erp',
     num: '04',
     title: 'ERP & CRM',
+    href: '/solutions/erp-odoo-integration',
     body: 'Make finance, ops, and go-to-market speak the same language — one coherent data contract.',
     problems: [
       'Duplicated master data across tools.',
@@ -68,6 +72,7 @@ export const SOLUTIONS = [
     id: 'ecommerce',
     num: '05',
     title: 'E-Commerce',
+    href: '/solutions/ecommerce-payments',
     body: 'Storefronts and order flows that survive peak traffic — and still convert when it matters.',
     problems: [
       'Checkout and inventory failures under load.',
@@ -82,6 +87,7 @@ export const SOLUTIONS = [
     id: 'cloud',
     num: '06',
     title: 'Cloud & DevOps',
+    href: '/solutions/software-architecture',
     body: 'Ship often, recover fast, and know what’s happening in production — without heroics.',
     problems: [
       'Manual deploys that scare the team.',

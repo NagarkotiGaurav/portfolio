@@ -2,10 +2,12 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE_RE = /^[+]?[\d\s().-]{7,20}$/
 
 const CONTACT_INDUSTRIES = [
-  'Software Engineering',
-  'Fintech',
-  'Industrial Automation',
-  'Aerospace',
+  'Custom software',
+  'Web applications',
+  'Business automation',
+  'ERP / Odoo',
+  'Ecommerce & payments',
+  'Architecture',
   'Other',
 ]
 

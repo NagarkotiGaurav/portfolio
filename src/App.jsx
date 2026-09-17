@@ -1,16 +1,18 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
-import { trackPageView } from './lib/analytics'
 import { logger } from './lib/logger'
 
 const Home = lazy(() => import('./pages/Home'))
 const Work = lazy(() => import('./pages/Work'))
+const WorkDetail = lazy(() => import('./pages/WorkDetail'))
 const Solutions = lazy(() => import('./pages/Solutions'))
+const SolutionDetail = lazy(() => import('./pages/SolutionDetail'))
 const Process = lazy(() => import('./pages/Process'))
 const Resources = lazy(() => import('./pages/Resources'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Insights = lazy(() => import('./pages/Insights'))
+const InsightDetail = lazy(() => import('./pages/InsightDetail'))
 const Industries = lazy(() => import('./pages/Industries'))
 const Privacy = lazy(() => import('./pages/Privacy'))
 const Terms = lazy(() => import('./pages/Terms'))
@@ -37,7 +39,6 @@ function RouteLogger() {
   const { pathname } = useLocation()
   useEffect(() => {
     logger.debug('route.view', { pathname })
-    trackPageView(pathname)
   }, [pathname])
   return null
 }
@@ -60,9 +61,12 @@ export default function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="solutions" element={<Solutions />} />
+            <Route path="solutions/:slug" element={<SolutionDetail />} />
             <Route path="work" element={<Work />} />
+            <Route path="work/:slug" element={<WorkDetail />} />
             <Route path="industries" element={<Industries />} />
             <Route path="insights" element={<Insights />} />
+            <Route path="insights/:slug" element={<InsightDetail />} />
             <Route path="process" element={<Process />} />
             <Route path="resources" element={<Resources />} />
             <Route path="why-work-with-me" element={<Navigate to="/resources" replace />} />

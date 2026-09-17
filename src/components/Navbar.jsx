@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { BRAND, NAV_LINKS } from '../data/site'
+import { trackStrategyCall } from '../lib/analytics'
 import { logger } from '../lib/logger'
 import Icon from './Icon'
 
@@ -89,6 +90,7 @@ export default function Navbar() {
             onMouseEnter={() =>
               prefetchRoute({ to: '/contact', prefetch: () => import('../pages/Contact') })
             }
+            onClick={() => trackStrategyCall({ scene: 'nav', location: 'nav' })}
           >
             Book a Strategy Call
           </Link>
@@ -134,7 +136,10 @@ export default function Navbar() {
           <Link
             to="/contact"
             className="mt-4 bg-primary text-on-primary px-6 py-4 font-label-caps text-label-caps uppercase tracking-widest rounded text-center hover:opacity-80 transition-opacity min-h-12 inline-flex items-center justify-center"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false)
+              trackStrategyCall({ scene: 'nav', location: 'nav' })
+            }}
           >
             Book a Strategy Call
           </Link>

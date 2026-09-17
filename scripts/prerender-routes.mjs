@@ -10,6 +10,8 @@ import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { PAGE_META, PRERENDER_PATHS, getBreadcrumbTrail } from '../src/data/pageMeta.js'
+import { OG_IMAGE_PATH } from '../src/data/site.js'
+import { buildOrganizationJsonLd } from '../src/data/seo.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
@@ -101,8 +103,17 @@ function buildNoscript(meta) {
     </noscript>`
 }
 
+function upsertJsonLd(html, data) {
+  const json = JSON.stringify(data).replace(/</g, '\\u003c')
+  const tag = `<script type="application/ld+json" id="org-jsonld">${json}</script>`
+  const re = /<script type="application\/ld\+json" id="org-jsonld">[\s\S]*?<\/script>/i
+  if (re.test(html)) return html.replace(re, tag)
+  return html.replace('</head>', `    ${tag}\n  </head>`)
+}
+
 function applyRoute(html, meta) {
   const canonical = meta.path === '/' ? `${siteUrl}/` : `${siteUrl}${meta.path}`
+  const image = `${siteUrl}${OG_IMAGE_PATH}`
   let out = html
   out = upsertTitle(out, meta.title)
   out = upsertMetaByName(out, 'description', meta.description)
@@ -111,8 +122,11 @@ function applyRoute(html, meta) {
   out = upsertMetaByProperty(out, 'og:title', meta.title)
   out = upsertMetaByProperty(out, 'og:description', meta.description)
   out = upsertMetaByProperty(out, 'og:url', canonical)
+  out = upsertMetaByProperty(out, 'og:image', image)
   out = upsertMetaByName(out, 'twitter:title', meta.title)
   out = upsertMetaByName(out, 'twitter:description', meta.description)
+  out = upsertMetaByName(out, 'twitter:image', image)
+  out = upsertJsonLd(out, buildOrganizationJsonLd(meta.path))
 
   const noscript = buildNoscript(meta)
   if (/<noscript id="seo-noscript">[\s\S]*?<\/noscript>/i.test(out)) {

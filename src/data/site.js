@@ -6,10 +6,10 @@ export const BRAND = {
   roles: ['Technology Consultant', 'Software Architect', 'Automation Engineer'],
   tagline: `© ${new Date().getFullYear()} Gaurav Nagarkoti. Software that businesses rely on.`,
   description:
-    'Gaurav Nagarkoti is a technology consultant and software architect who designs and builds custom software, web applications, business automation workflows, ERP integrations, and scalable digital systems.',
+    'Gaurav Nagarkoti is an independent software architect based in India. He designs and builds custom software, commerce platforms, internal HR/CRM systems, business automation, and AI learning products for operators who want to own the stack — including remote US, UK, and European teams.',
   valueProposition: 'I build software that helps businesses grow faster.',
   email: 'gauravnagarkoti08@gmail.com',
-  location: 'Remote · Worldwide',
+  location: 'India · Remote for US, UK & EU',
   /**
    * External profiles for Person `sameAs` + footer.
    * Fill real HTTPS profile URLs (leave blank until ready — empty values are omitted).
@@ -21,11 +21,11 @@ export const BRAND = {
   },
   /** Visual system (Stitch Alabaster tokens, personal brand). */
   designSystem: 'Gaurav Nagarkoti',
-  /** Site is publicly viewable but still under active development. */
-  isBeta: true,
+  /** Site is public and accepting inquiries. Written terms still govern engagements. */
+  isBeta: false,
   betaLabel: 'Beta',
   betaNotice:
-    'This site is in beta. Content, case studies, and metrics may change; nothing here is a guarantee, offer, or formal professional advice until confirmed in writing.',
+    'Website content is informational. Nothing here is a guarantee, offer, or formal professional advice until confirmed in writing.',
 }
 
 /** Absolute profile URLs for schema + footer (site origin always included). */
@@ -56,19 +56,27 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = [
   { label: 'Solutions', to: '/solutions' },
-  { label: 'Industries', to: '/industries' },
+  { label: 'Process', to: '/process' },
   { label: 'Work', to: '/work' },
   { label: 'Insights', to: '/insights' },
   { label: 'Why Me', to: '/resources' },
+  { label: 'Contact', to: '/contact' },
   { label: 'Privacy Policy', to: '/privacy' },
   { label: 'Terms of Service', to: '/terms' },
   { label: 'Sitemap', to: '/sitemap' },
 ]
 
+export const OG_IMAGE_PATH = '/images/og-share.svg'
+
+export function getOgImageUrl() {
+  return `${getSiteUrl()}${OG_IMAGE_PATH}`
+}
+
 /** Absolute site origin used for canonical URLs, sitemap, and Open Graph. */
 export function getSiteUrl() {
-  const fromEnv = import.meta.env.VITE_SITE_URL
-  if (typeof fromEnv === 'string' && fromEnv.trim()) {
+  const env = import.meta.env
+  const fromEnv = env && typeof env.VITE_SITE_URL === 'string' ? env.VITE_SITE_URL : ''
+  if (fromEnv.trim()) {
     return fromEnv.replace(/\/$/, '')
   }
   if (typeof window !== 'undefined' && window.location?.origin) {
@@ -78,7 +86,8 @@ export function getSiteUrl() {
 }
 
 export function getCalendlyUrl() {
-  const url = import.meta.env.VITE_CALENDLY_URL
+  const env = import.meta.env
+  const url = env && typeof env.VITE_CALENDLY_URL === 'string' ? env.VITE_CALENDLY_URL : ''
   if (typeof url === 'string' && url.trim()) {
     try {
       const parsed = new URL(url.trim())
@@ -93,7 +102,8 @@ export function getCalendlyUrl() {
 }
 
 export function getContactEndpoint() {
-  const explicit = import.meta.env.VITE_CONTACT_ENDPOINT
+  const env = import.meta.env
+  const explicit = env && typeof env.VITE_CONTACT_ENDPOINT === 'string' ? env.VITE_CONTACT_ENDPOINT : ''
   if (typeof explicit === 'string' && explicit.trim()) {
     return explicit.trim()
   }

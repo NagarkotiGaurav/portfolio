@@ -17,9 +17,9 @@ Do not invent traffic, rankings, or volumes. Keywords below are **intent groups*
 | --- | --- |
 | Hub pages only (`/solutions`, `/work`, `/insights`) | Hub **plus** durable child URLs |
 | Solutions as hash sections | `/solutions/[slug]` commercial pages |
-| One payment teaser on `/work` | `/work/[slug]` case-study documents |
+| `/work` empty state | `/work/[slug]` case studies shipped |
 | Insights categories with no articles | `/insights/[slug]` problem/architecture pages |
-| Empty `src/content/projects` | Real engagements only |
+| Empty `src/content/projects` | `src/data/projects.js` — named engagements |
 
 **URL rule:** Keep `/solutions` as the commercial hub (already in nav + sitemap). Do **not** split into a parallel `/services/` tree. If you later want `/services/*` aliases, 301 them into `/solutions/*`.
 
@@ -237,13 +237,13 @@ Industries stay **supporting** (healthcare, logistics, enterprise, manufacturing
 ## Implementation order (90 days)
 
 **Phase 1 — core authority (weeks 1–3)**  
-Routes + `PAGE_META` + sitemap + `llms.txt` for the 6 service URLs. Convert `/solutions` from hash-only to cards. Add connector sentence on home.
+**Shipped in code:** routes + `PAGE_META` + sitemap + `llms.txt` for the 6 service URLs and 7 case studies. Remaining ops: confirm crawl in GSC, fill `BRAND.profiles`.
 
 **Phase 2 — proof (weeks 3–6)**  
-2–3 real `/work/[slug]` documents. Kill empty Work tabs until they have content.
+Work hub lists seven `/work/[slug]` documents with **client names withheld under NDA** (commerce, internal HR/CRM, WhatsApp n8n, AI tutor). Positioning is remote US/UK/EU, English, USD — not local “near me” pages.
 
 **Phase 3 — acquisition (weeks 6–12)**  
-One cluster at a time: Payments **or** Odoo first (whichever you can prove). 4 insights per cluster, interlinked.
+**Shipped:** decision cluster — when to build, custom vs SaaS, agency vs independent. Next cluster (payments or Odoo) only with proof.
 
 Later corpus (do not promise a date): 6 services + 10–20 cases + 30–60 insights. Quality over 100 thin posts.
 
@@ -251,7 +251,7 @@ Later corpus (do not promise a date): 6 services + 10–20 cases + 30–60 insig
 
 ## Analytics to attach later
 
-Events already exist (`cta_strategy_call`, `lead_created`). After URLs ship, add `case_study_open` and `service_page_view`. In GSC, watch queries in the six intent groups—not vanity brand-only impressions.
+Events: `virtual_page_view`, `service_page_view`, `cta_strategy_call`, `lead_created`, `insight_open`, `case_study_open`. Conversions in GA4: only `cta_strategy_call` and `lead_created`. In GSC, watch queries in the six intent groups plus the three decision articles — not vanity brand-only impressions. See `docs/AnalyticsStrategy.md`.
 
 ---
 
@@ -259,8 +259,8 @@ Events already exist (`cta_strategy_call`, `lead_created`). After URLs ship, add
 
 | You (content / ops) | Code when you say go |
 | --- | --- |
-| Confirm which 6 services you can honestly sell | `/solutions/[slug]` routes, meta, sitemap, llms.txt |
-| Write 2–3 real case studies | `/work/[slug]` from `src/content/projects` |
-| Pick first insight cluster | `/insights/[slug]` from `src/content/articles` |
+| Confirm which 6 services you can honestly sell | `/solutions/[slug]` routes, meta, sitemap, llms.txt — **done**; tighten copy if a service is not yet deliverable |
+| Write case studies under NDA | Anonymized `/work/[slug]` documents in `src/data/projects.js` |
+| Pick first insight cluster | Decision cluster shipped in `src/data/articles.js` |
 | LinkedIn/GitHub `BRAND.profiles` | Footer + sameAs already wired |
 | Cloudflare AI robots + www→apex | Already documented in `deployment.md` |

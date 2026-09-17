@@ -21,7 +21,7 @@ export const Narrative = {
     { id: 'model', label: 'Engagement', value: 'Independent' },
     { id: 'focus', label: 'Focus', value: 'Architecture' },
     { id: 'ownership', label: 'Outcome', value: 'Systems you own' },
-    { id: 'reach', label: 'Reach', value: 'Remote worldwide' },
+    { id: 'reach', label: 'Reach', value: 'US / UK / EU remote' },
     { id: 'availability', label: 'Availability', value: 'Accepting new projects' },
   ],
   roles: BRAND.roles,

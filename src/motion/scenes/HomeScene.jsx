@@ -12,23 +12,24 @@ import {
   RevealMetrics,
   ScrollOnce,
 } from '../patterns'
-import { track } from '../../lib/analytics'
+import { track, trackStrategyCall } from '../../lib/analytics'
+import { getFeaturedProjects } from '../../data/projects'
 
 const friction = [
   {
     title: 'Manual work is expensive',
     body: 'Every repetitive task burns budget. Every delayed response costs customers.',
-    to: '/solutions#ai-automation',
+    to: '/solutions/business-automation',
   },
   {
     title: 'Legacy systems stall growth',
     body: 'When the stack can’t keep up, every new idea becomes a six-month project.',
-    to: '/solutions#software-dev',
+    to: '/solutions/custom-software-development',
   },
   {
     title: 'Disconnected tools create friction',
     body: 'Data silos slow decisions. I connect the systems your team already depends on.',
-    to: '/solutions#bpa',
+    to: '/solutions/erp-odoo-integration',
   },
 ]
 
@@ -126,8 +127,9 @@ export default function HomeScene() {
               data-hero-sub
               className="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-8 md:mb-12 opacity-0"
             >
-              Architecture, automation, and systems your team can actually run — without the agency
-              theater.
+              Independent architect for US, UK, and European operators. I design and build custom
+              software, commerce platforms, internal systems, automation, and AI products — in
+              English, billed in USD, owned by your team. Based in India. Not a staff-aug bench.
             </p>
 
             <div
@@ -138,9 +140,7 @@ export default function HomeScene() {
                 <Link
                   to="/contact"
                   className="btn-primary"
-                  onClick={() =>
-                    track({ intent: 'feedback', scene: 'home', action: 'cta_strategy_call' })
-                  }
+                  onClick={() => trackStrategyCall({ scene: 'home', location: 'hero' })}
                 >
                   {Narrative.ctaStyle.primary}
                 </Link>
@@ -212,12 +212,12 @@ export default function HomeScene() {
 
       <Marquee
         items={[
+          'Custom Software',
+          'Web Applications',
+          'Business Automation',
+          'ERP Integration',
+          'Ecommerce & Payments',
           'Software Architecture',
-          'AI & Automation',
-          'Cloud & DevOps',
-          'ERP & CRM',
-          'Process Systems',
-          'E-Commerce',
           ...Narrative.roles,
         ]}
       />
@@ -256,6 +256,35 @@ export default function HomeScene() {
         </div>
       </section>
 
+      <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap md:pb-section-gap-lg">
+        <ScrollOnce className="mb-10 max-w-2xl">
+          <p className="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest mb-4">
+            Selected work
+          </p>
+          <h2 className="font-headline-md text-headline-md text-primary">
+            Proof before the call.
+          </h2>
+        </ScrollOnce>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {getFeaturedProjects().map((project) => (
+            <ScrollOnce key={project.slug}>
+              <Link to={project.path} className="story-panel block h-full group">
+                <span className="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest">
+                  {project.eyebrow}
+                </span>
+                <h3 className="font-headline-sm text-headline-sm text-primary mt-6 mb-4 group-hover:opacity-80 transition-opacity">
+                  {project.crumb}
+                </h3>
+                <p className="font-body-md text-body-md text-on-surface-variant mb-8">{project.description}</p>
+                <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest inline-flex items-center gap-2">
+                  Case study <Icon name="arrow_forward" className="text-sm" />
+                </span>
+              </Link>
+            </ScrollOnce>
+          ))}
+        </div>
+      </section>
+
       {/* CTA beat */}
       <ScrollOnce intent="feedback" className="border-t border-outline-variant">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap md:py-section-gap-lg text-center">
@@ -266,7 +295,11 @@ export default function HomeScene() {
             Tell me what you’re building. I’ll tell you what’s possible — and what I’d ship first.
           </p>
           <PrimaryCTA>
-            <Link to="/contact" className="btn-primary">
+            <Link
+              to="/contact"
+              className="btn-primary"
+              onClick={() => trackStrategyCall({ scene: 'home', location: 'cta_band' })}
+            >
               {Narrative.ctaStyle.primary}
             </Link>
           </PrimaryCTA>

@@ -4,6 +4,8 @@ import { usePageMeta } from '../hooks/usePageMeta'
 import { assertSceneBudget } from '../motion/SceneRegistry'
 import { PageHero, PrimaryCTA, ScrollOnce } from '../motion/patterns'
 import { Narrative } from '../content/brandNarrative'
+import { getPageMeta } from '../data/seo'
+import { trackStrategyCall } from '../lib/analytics'
 
 const philosophy = [
   {
@@ -73,14 +75,15 @@ const steps = [
 
 export default function Resources() {
   usePageMeta('/resources')
+  const meta = getPageMeta('/resources')
   assertSceneBudget('resources', ['processGuide', 'cta'])
 
   return (
     <>
       <PageHero
         eyebrow="Why work with me"
-        lines={['You hire me —', 'not a 100-person firm.']}
-        body="I’m a technical partner focused on clarity, rigorous architecture, and shipping systems your team can own. No fluff. No layered account managers. Just results."
+        title={meta.h1}
+        body="I’m a technical partner for operators who need an architect, not a bench. Remote for US, UK, and EU teams. English. USD. Written decisions. Systems you own."
       />
 
       <section className="py-section-gap md:py-section-gap-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
@@ -185,7 +188,11 @@ export default function Resources() {
           Tell me the constraint. I’ll map a clear path to something your team can ship and own.
         </p>
         <PrimaryCTA>
-          <Link to="/contact" className="btn-primary">
+          <Link
+            to="/contact"
+            className="btn-primary"
+            onClick={() => trackStrategyCall({ scene: 'resources' })}
+          >
             {Narrative.ctaStyle.primary}
           </Link>
         </PrimaryCTA>

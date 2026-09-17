@@ -24,13 +24,12 @@ export default function Terms() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-headline-sm text-headline-sm text-primary">Beta status</h2>
+          <h2 className="font-headline-sm text-headline-sm text-primary">Website content</h2>
           <p>
-            This website is currently marked <strong className="text-primary font-medium">Beta</strong>.
-            Pages, copy, case studies, metrics, and features may be incomplete, change without notice,
-            or contain errors. Beta labeling means the site is shared for early access and feedback —
-            not as a finished product representation. Do not rely on beta site content alone for
-            compliance, contractual, or investment decisions.
+            Pages, copy, and examples on this site are informational and may be updated. They are not a
+            finished contractual representation of an engagement. Do not rely on website content alone
+            for compliance, contractual, or investment decisions. Paid work is governed by a written
+            agreement.
           </p>
         </section>
 

@@ -20,6 +20,13 @@ export const scenes = {
     primaries: ['domainStory', 'cta'],
     beats: ['problem', 'insight', 'proof', 'cta'],
   },
+  solutionDetail: {
+    id: 'solutionDetail',
+    emotion: 'confidence',
+    budget: 2,
+    primaries: ['hero', 'cta'],
+    beats: ['problem', 'insight', 'cta'],
+  },
   process: {
     id: 'process',
     emotion: 'clarity',
@@ -39,6 +46,13 @@ export const scenes = {
     emotion: 'credibility',
     budget: 2,
     primaries: ['proof', 'cta'],
+    beats: ['proof', 'cta'],
+  },
+  workDetail: {
+    id: 'workDetail',
+    emotion: 'credibility',
+    budget: 2,
+    primaries: ['hero', 'cta'],
     beats: ['proof', 'cta'],
   },
   contact: {

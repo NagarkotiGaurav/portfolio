@@ -2,9 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://gauravnagarkoti.tech/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://gauravnagarkoti.tech/solutions</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/solutions/custom-software-development</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/solutions/web-application-development</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/solutions/business-automation</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/solutions/erp-odoo-integration</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/solutions/ecommerce-payments</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/solutions/software-architecture</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://gauravnagarkoti.tech/work</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://gauravnagarkoti.tech/industries</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/corporate-gifting-marketplace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/licensed-brand-merchandise</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/internal-hrms-platform</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/internal-crm-platform</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/n8n-whatsapp-automation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/eyewear-ecommerce</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/work/ai-personal-tutor</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/industries</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://gauravnagarkoti.tech/insights</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/insights/when-to-build-custom-software</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/insights/custom-software-vs-saas-buy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gauravnagarkoti.tech/insights/agency-vs-independent-architect</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://gauravnagarkoti.tech/process</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://gauravnagarkoti.tech/resources</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://gauravnagarkoti.tech/contact</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
