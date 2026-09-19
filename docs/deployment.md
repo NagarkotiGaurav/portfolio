@@ -26,8 +26,11 @@ Do **not** put `/* /index.html 200` in `_redirects` with this setup — Cloudfla
 
 ```toml
 [assets]
+html_handling = "drop-trailing-slash"
 not_found_handling = "single-page-application"
 ```
+
+`drop-trailing-slash` makes `/solutions/foo` return **200** (the sitemap/canonical URL). The default `auto-trailing-slash` 307s to `/solutions/foo/`, which Search Console reports as **Page with redirect** plus **Alternate page with proper canonical tag**.
 
 ### Environment variables / secrets
 
