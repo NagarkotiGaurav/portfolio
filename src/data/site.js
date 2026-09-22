@@ -60,6 +60,7 @@ export const FOOTER_LINKS = [
   { label: 'Work', to: '/work' },
   { label: 'Insights', to: '/insights' },
   { label: 'Why Me', to: '/resources' },
+  { label: 'Hire', to: '/hire-software-architect' },
   { label: 'Contact', to: '/contact' },
   { label: 'Privacy Policy', to: '/privacy' },
   { label: 'Terms of Service', to: '/terms' },

@@ -15,6 +15,7 @@ const SECTIONS = [
       { to: '/insights', label: 'Insights', blurb: 'Architecture and strategy analysis' },
       { to: '/process', label: 'Process', blurb: 'How delivery works, step by step' },
       { to: '/resources', label: 'Why Me', blurb: 'Partnership model and philosophy' },
+      { to: '/hire-software-architect', label: 'Hire', blurb: 'Freelance software architect for US, UK, and EU operators' },
       { to: '/contact', label: 'Contact', blurb: 'Book a strategy call' },
     ],
   },

@@ -115,6 +115,7 @@ Google Tag Manager **GTM-T45H6MZF** is in `index.html` (every page after deploy)
 
 ```bash
 curl -s https://gauravnagarkoti.tech/solutions/custom-software-development | grep -o '<title>[^<]*</title>'
+curl -s https://gauravnagarkoti.tech/hire-software-architect | grep -o '<title>[^<]*</title>'
 curl -s https://gauravnagarkoti.tech/insights/when-to-build-custom-software | grep -o '<title>[^<]*</title>'
 curl -s https://gauravnagarkoti.tech/ | grep 'application/ld+json'
 ```

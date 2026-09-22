@@ -76,6 +76,13 @@ export const scenes = {
     primaries: ['reveal'],
     beats: ['insight'],
   },
+  hire: {
+    id: 'hire',
+    emotion: 'confidence',
+    budget: 2,
+    primaries: ['hero', 'cta'],
+    beats: ['hook', 'proof', 'cta'],
+  },
 }
 
 export function assertSceneBudget(sceneId, activePrimaries = []) {

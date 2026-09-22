@@ -110,6 +110,9 @@ export function contextFromPath(pathname = '/') {
   if (parts[0] === 'work' && parts[1]) {
     return { scene: 'work', service: '', content: parts[1] }
   }
+  if (parts[0] === 'hire-software-architect') {
+    return { scene: 'hire', service: 'software-architecture', content: '' }
+  }
   return { scene, service: '', content: '' }
 }
 

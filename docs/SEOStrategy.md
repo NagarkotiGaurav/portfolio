@@ -5,7 +5,7 @@
 - JSON-LD is injected at **prerender** (visible without JS) and updated client-side on navigation
 - Open Graph image: `/images/og-share.svg`
 - **Build-time prerender** (`scripts/prerender-routes.mjs`) writes unique `dist/<route>/index.html` shells so crawlers see distinct title, description, canonical, H1, and noscript body without JS
-- JSON-LD graph: Person + ProfessionalService + WebSite; BreadcrumbList matching visible crumbs; FAQPage on `/contact` and each service page; `Service` node on `/solutions/[slug]`
+- JSON-LD graph: Person + ProfessionalService + WebSite; BreadcrumbList matching visible crumbs; FAQPage on `/contact`, `/hire-software-architect`, and each service page; `Service` node on `/solutions/[slug]` and the hire landing
 - Visible breadcrumbs (`src/components/Breadcrumbs.jsx`) on every page except home and 404: Home / Section / Page. Nested URLs (future `/solutions/[slug]`, `/work/[slug]`) include the hub.
 - Person `sameAs` from `getSameAs()` — site URL plus optional LinkedIn / GitHub / X in `BRAND.profiles`
 - Canonical via `VITE_SITE_URL` (https://gauravnagarkoti.tech)
@@ -25,3 +25,4 @@ React sets meta client-side. Non-JS crawlers fetched the same `index.html` for e
 4. GSC/Bing: resubmit sitemap after deploy; request indexing on key URLs.
 5. Fill `BRAND.profiles`; set Calendly when ready. GA4 is loaded via GTM (`GTM-T45H6MZF`), not a separate gtag snippet. SPA hits use `virtual_page_view` — see `docs/AnalyticsStrategy.md`.
 6. Long-term: keep case-study and insight **body** content honest. `/work/[slug]` documents are anonymized under NDA (no client names or live domains).
+7. Daily search pulse (weekdays): `docs/SearchPulse.md`. Requires a GSC Queries + Pages export — do not invent metrics.

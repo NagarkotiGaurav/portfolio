@@ -12,6 +12,7 @@ Acquisition blueprint (clusters, keywords, phases): `docs/GrowthContentMap.md`.
 | `/work/[slug]` | Case-study documents | Credibility |
 | `/process` | How delivery works | Clarity |
 | `/resources` | Why partner with me | Trust |
+| `/hire-software-architect` | Hire-intent conversion landing | Confidence |
 | `/industries` | Domain fit (supporting) | Confidence |
 | `/insights` | Problem / architecture writing | Expertise |
 | `/insights/[slug]` | Search-acquisition pages | Expertise |

@@ -185,7 +185,12 @@ export default function Resources() {
           Ready to build?
         </h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
-          Tell me the constraint. I’ll map a clear path to something your team can ship and own.
+          Tell me the constraint. I’ll map a clear path to something your team can ship and own. Or
+          start from{' '}
+          <Link to="/hire-software-architect" className="text-primary hover:opacity-80">
+            how hiring me works
+          </Link>
+          .
         </p>
         <PrimaryCTA>
           <Link

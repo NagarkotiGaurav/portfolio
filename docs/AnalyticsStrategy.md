@@ -47,7 +47,7 @@ track({
 | Dimension | Role |
 | --- | --- |
 | `intent` | Why the person is here (`explore`, `hire`, `trust`) |
-| `scene` | Surface (`home`, `solutions`, `insights`, `contact`, `nav`, …) |
+| `scene` | Surface (`home`, `solutions`, `insights`, `hire`, `contact`, `nav`, …) |
 | `action` / `event` | What happened (same name for core events) |
 
 Helpers: `trackPageView`, `trackServicePageView`, `trackStrategyCall`, `trackLeadCreated`, `trackInsightOpen`, `trackCaseStudyOpen`.
@@ -147,13 +147,13 @@ That answers “which landing pages generate leads?” rather than only “which
 
 ## Search Console grouping
 
-Submit `https://gauravnagarkoti.tech/sitemap.xml`. Filter Performance by page (`/solutions/…`, `/insights/…`, `/work/…`), not sitewide impressions.
+Submit `https://gauravnagarkoti.tech/sitemap.xml`. Filter Performance by page (`/solutions/…`, `/insights/…`, `/work/…`, `/hire-software-architect`), not sitewide impressions.
 
 **Brand**  
 `Gaurav Nagarkoti` → `Gaurav Nagarkoti software`, `Gaurav Nagarkoti consultant`
 
 **Commercial**  
-`custom software development consultant`, `business automation consultant`, `Odoo integration consultant`, `software architect consultant`, `independent software developer`
+`custom software development consultant`, `business automation consultant`, `Odoo integration consultant`, `software architect consultant`, `independent software developer`, `hire freelance software architect`, `software architect for hire`
 
 **Decision content**  
 `when to build custom software`, `custom software vs SaaS`, `agency vs independent architect`

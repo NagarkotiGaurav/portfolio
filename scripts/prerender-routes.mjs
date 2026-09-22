@@ -26,6 +26,7 @@ const NAV = [
   ['Insights', '/insights'],
   ['Process', '/process'],
   ['Why Me', '/resources'],
+  ['Hire', '/hire-software-architect'],
   ['Contact', '/contact'],
   ['Sitemap', '/sitemap'],
   ['Privacy', '/privacy'],

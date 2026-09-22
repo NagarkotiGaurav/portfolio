@@ -4,6 +4,7 @@ import { BRAND, getSameAs, getSiteUrl } from './site.js'
 import { getServicePageByPath } from './solutionPages.js'
 import { getArticleByPath } from './articles.js'
 import { getProjectByPath } from './projects.js'
+import { getHirePageByPath } from './hirePage.js'
 
 export { PAGE_META, PRERENDER_PATHS, getBreadcrumbTrail } from './pageMeta.js'
 
@@ -184,6 +185,25 @@ export function buildOrganizationJsonLd(pathname = '/') {
     if (project.faqs?.length) {
       graph.push(buildFaqJsonLd(project.faqs, project.path))
     }
+  }
+
+  const hirePage = getHirePageByPath(meta.path)
+  if (hirePage) {
+    graph.push({
+      '@type': 'Service',
+      '@id': `${siteUrl}${hirePage.path}#offer`,
+      name: 'Freelance Software Architect',
+      serviceType: 'Software Architecture Consulting',
+      description: hirePage.description,
+      url: `${siteUrl}${hirePage.path}`,
+      provider: { '@id': `${siteUrl}/#person` },
+      areaServed: [
+        { '@type': 'Country', name: 'United States' },
+        { '@type': 'Country', name: 'United Kingdom' },
+        { '@type': 'AdministrativeArea', name: 'European Union' },
+      ],
+    })
+    graph.push(buildFaqJsonLd(hirePage.faqs, hirePage.path))
   }
 
   return {

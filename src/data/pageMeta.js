@@ -5,6 +5,7 @@
 import { SERVICE_PAGES, SERVICE_PATHS } from './solutionPages.js'
 import { ARTICLES, ARTICLE_PATHS } from './articles.js'
 import { PROJECTS, PROJECT_PATHS } from './projects.js'
+import { HIRE_PAGE, HIRE_PATH } from './hirePage.js'
 
 function servicePageMeta() {
   return Object.fromEntries(
@@ -125,6 +126,14 @@ export const PAGE_META = {
       'Why US, UK, and European operators hire Gaurav Nagarkoti: independent software architect based in India, remote English delivery, USD engagements, written decisions, and systems the client team owns. Not a layered agency and not staff augmentation.',
     crumb: 'Why Me',
   },
+  [HIRE_PATH]: {
+    title: HIRE_PAGE.title,
+    description: HIRE_PAGE.description,
+    path: HIRE_PAGE.path,
+    h1: HIRE_PAGE.h1,
+    crawlText: HIRE_PAGE.crawlText,
+    crumb: HIRE_PAGE.crumb,
+  },
   '/contact': {
     title: 'Contact | Book a Strategy Call — Gaurav Nagarkoti',
     description:
@@ -233,6 +242,7 @@ export const PRERENDER_PATHS = [
   ...ARTICLE_PATHS,
   '/process',
   '/resources',
+  HIRE_PATH,
   '/contact',
   '/privacy',
   '/terms',

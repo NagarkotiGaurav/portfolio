@@ -35,6 +35,7 @@ Not an agency. Not staff augmentation. Not managed IT. Primary contact: gauravna
 - [Agency vs independent architect](https://gauravnagarkoti.tech/insights/agency-vs-independent-architect): Person vs program
 - [Process](https://gauravnagarkoti.tech/process): Delivery lifecycle from discovery to support
 - [Why Me](https://gauravnagarkoti.tech/resources): Partnership model and how engagements work
+- [Hire a freelance software architect](https://gauravnagarkoti.tech/hire-software-architect): Independent architect for US, UK, and EU operators — review, blueprint and build, or ongoing guidance
 - [Contact](https://gauravnagarkoti.tech/contact): Book a strategy call
 
 ## Optional

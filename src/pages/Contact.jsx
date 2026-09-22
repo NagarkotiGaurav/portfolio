@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { BRAND, getCalendlyUrl } from '../data/site'
 import { CONTACT_FAQS } from '../data/faq'
@@ -106,7 +107,11 @@ export default function Contact() {
           />
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">
             Share the system that’s blocking you. Remote for US, UK, and EU operators — English, USD,
-            typically a reply within 24 hours.
+            typically a reply within 24 hours. How hiring works:{' '}
+            <Link to="/hire-software-architect" className="text-primary hover:opacity-80">
+              freelance software architect
+            </Link>
+            .
           </p>
           <div className="space-y-6 lg:block">
             <div>

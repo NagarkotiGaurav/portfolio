@@ -43,6 +43,7 @@ HOME  /
 ├── INDUSTRIES  /industries                        (fit, not primary SEO)
 ├── PROCESS  /process                              (sales enablement)
 ├── WHY ME  /resources                             (trust)
+├── HIRE    /hire-software-architect               (hire-intent conversion)
 └── CONTACT  /contact                              (conversion)
 ```
 
@@ -129,6 +130,16 @@ Each page: unique title/H1, 800–1,500 words, What/Who/How/When/FAQ, CTA “Boo
 | **Supporting** | `/insights/mongodb-system-design`, `/insights/api-integration-services`, `/insights/build-scalable-saas` |
 
 Hub `/solutions` stays the index: six cards linking to the URLs above (replace hash-only sections).
+
+### Hire landing (conversion, not a 7th service essay)
+
+| | |
+| --- | --- |
+| **URL** | `/hire-software-architect` |
+| **Primary intent** | Can I hire this person as my software architect? |
+| **Keyword group** | hire software architect, freelance software architect, software architect for hire, remote software architect |
+| **Job** | Convert hire-intent visitors to a strategy call — fit, three engagement shapes, NDA-safe proof, US/UK/EU trust |
+| **Do not invent** | Volumes, rankings, logos, case metrics, or new prices |
 
 ---
 
@@ -237,7 +248,7 @@ Industries stay **supporting** (healthcare, logistics, enterprise, manufacturing
 ## Implementation order (90 days)
 
 **Phase 1 — core authority (weeks 1–3)**  
-**Shipped in code:** routes + `PAGE_META` + sitemap + `llms.txt` for the 6 service URLs and 7 case studies. Remaining ops: confirm crawl in GSC, fill `BRAND.profiles`.
+**Shipped in code:** routes + `PAGE_META` + sitemap + `llms.txt` for the 6 service URLs, 7 case studies, and `/hire-software-architect`. Remaining ops: confirm crawl in GSC, fill `BRAND.profiles`.
 
 **Phase 2 — proof (weeks 3–6)**  
 Work hub lists seven `/work/[slug]` documents with **client names withheld under NDA** (commerce, internal HR/CRM, WhatsApp n8n, AI tutor). Positioning is remote US/UK/EU, English, USD — not local “near me” pages.

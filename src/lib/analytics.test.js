@@ -65,6 +65,11 @@ describe('analytics payload', () => {
       service: '',
       content: 'when-to-build-custom-software',
     })
+    expect(contextFromPath('/hire-software-architect')).toEqual({
+      scene: 'hire',
+      service: 'software-architecture',
+      content: '',
+    })
   })
 
   it('treats only lead and CTA as conversions', () => {

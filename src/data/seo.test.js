@@ -13,6 +13,7 @@ import { getSameAs } from './site'
 import { SERVICE_PAGES, SERVICE_PATHS, getServicePage } from './solutionPages'
 import { ARTICLES, ARTICLE_PATHS, getArticle } from './articles'
 import { PROJECTS, PROJECT_PATHS, getProject } from './projects'
+import { HIRE_PAGE, HIRE_PATH, getHirePageByPath } from './hirePage'
 import { PRERENDER_PATHS } from './pageMeta'
 
 describe('seo metadata', () => {
@@ -28,6 +29,7 @@ describe('seo metadata', () => {
       '/insights',
       '/process',
       '/resources',
+      '/hire-software-architect',
       '/contact',
       '/privacy',
       '/terms',
@@ -79,6 +81,10 @@ describe('seo metadata', () => {
     expect(buildBreadcrumbJsonLd('/work/corporate-gifting-marketplace').itemListElement).toHaveLength(
       3,
     )
+    expect(getBreadcrumbTrail(HIRE_PATH)).toEqual([
+      { name: 'Home', path: '/' },
+      { name: 'Hire', path: HIRE_PATH },
+    ])
   })
 
   it('adds FAQPage schema on contact', () => {
@@ -198,5 +204,33 @@ describe('service pages', () => {
       expect(page.answerBlock.length).toBeGreaterThan(80)
       expect(page.faqs.length).toBeGreaterThan(1)
     }
+  })
+})
+
+describe('hire landing', () => {
+  it('defines a commercial hire page that is prerendered', () => {
+    expect(getHirePageByPath(HIRE_PATH)).toBe(HIRE_PAGE)
+    expect(getHirePageByPath(`${HIRE_PATH}/`)).toBe(HIRE_PAGE)
+    expect(getHirePageByPath('/contact')).toBeNull()
+    expect(PAGE_META[HIRE_PATH].h1).toBe(HIRE_PAGE.h1)
+    expect(PRERENDER_PATHS).toContain(HIRE_PATH)
+    expect(HIRE_PAGE.shapes).toHaveLength(3)
+    expect(HIRE_PAGE.faqs.length).toBeGreaterThanOrEqual(8)
+    expect(HIRE_PAGE.definition.length).toBeGreaterThan(80)
+  })
+
+  it('adds Service and FAQ schema on the hire landing', () => {
+    const ld = buildOrganizationJsonLd(HIRE_PATH)
+    expect(ld['@graph']).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          '@type': 'Service',
+          name: 'Freelance Software Architect',
+        }),
+        expect.objectContaining({ '@type': 'FAQPage' }),
+      ]),
+    )
+    const faq = ld['@graph'].find((node) => node['@type'] === 'FAQPage')
+    expect(faq.mainEntity).toHaveLength(HIRE_PAGE.faqs.length)
   })
 })

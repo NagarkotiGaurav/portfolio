@@ -35,6 +35,7 @@ const friction = [
 
 const path = [
   { label: 'Solutions', to: '/solutions' },
+  { label: 'Hire me', to: '/hire-software-architect' },
   { label: 'Case Studies', to: '/work' },
   { label: 'How I Work', to: '/process' },
   { label: 'Book a Call', to: '/contact' },

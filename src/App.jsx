@@ -10,6 +10,7 @@ const Solutions = lazy(() => import('./pages/Solutions'))
 const SolutionDetail = lazy(() => import('./pages/SolutionDetail'))
 const Process = lazy(() => import('./pages/Process'))
 const Resources = lazy(() => import('./pages/Resources'))
+const HireSoftwareArchitect = lazy(() => import('./pages/HireSoftwareArchitect'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Insights = lazy(() => import('./pages/Insights'))
 const InsightDetail = lazy(() => import('./pages/InsightDetail'))
@@ -69,6 +70,7 @@ export default function App() {
             <Route path="insights/:slug" element={<InsightDetail />} />
             <Route path="process" element={<Process />} />
             <Route path="resources" element={<Resources />} />
+            <Route path="hire-software-architect" element={<HireSoftwareArchitect />} />
             <Route path="why-work-with-me" element={<Navigate to="/resources" replace />} />
             <Route path="contact" element={<Contact />} />
             <Route path="privacy" element={<Privacy />} />

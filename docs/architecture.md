@@ -22,7 +22,7 @@ src/
 
 Static site content → `src/data` → pages/components → browser
 
-Hire-intent service copy lives in `src/data/solutionPages.js`. Decision articles live in `src/data/articles.js`. Case studies live in `src/data/projects.js`. Hub cards in `src/data/solutions.js` link to `/solutions/[slug]`. Route screens: `SolutionDetail.jsx`, `InsightDetail.jsx`, `WorkDetail.jsx`.
+Hire-intent service copy lives in `src/data/solutionPages.js`. Decision articles live in `src/data/articles.js`. Case studies live in `src/data/projects.js`. The commercial hire landing lives in `src/data/hirePage.js` (`/hire-software-architect`). Hub cards in `src/data/solutions.js` link to `/solutions/[slug]`. Route screens: `SolutionDetail.jsx`, `InsightDetail.jsx`, `WorkDetail.jsx`, `HireSoftwareArchitect.jsx`.
 
 ## Performance notes
 
